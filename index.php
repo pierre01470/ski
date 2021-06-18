@@ -3,7 +3,7 @@ require_once __DIR__ . '/vendor/altorouter/altorouter/AltoRouter.php';
 require_once __DIR__ . '/vendor/autoload.php';
 
 $router = new AltoRouter();
-$router->setBasePath('/ski_api');
+$router->setBasePath('/ski');
 
 $router->map('GET', '/', 'ControllerCategory#allCategories');
 

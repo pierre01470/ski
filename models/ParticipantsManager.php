@@ -60,8 +60,8 @@ class ParticipantsManager extends Model
     public function deleteParticipant($id)
     {
         $db = $this->getDb();
-        $req = $db->prepare('DELETE `participant` FROM `participant` INNER JOIN `users` ON ads.idUsers = users.idUsers WHERE `idUnique` = :idUnique');
-        $req->bindValue(':idUnique', $id);
+        $req = $db->prepare('DELETE `participant` FROM `participant`  WHERE `id_Partcipant` = :id_Participant');
+        $req->bindValue(':id_participant', $id);
         $req->execute();
     }
 }

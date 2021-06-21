@@ -11,6 +11,7 @@
 
 <body>
     <main class="container">
+    <form action="./insert" method="POST"
         <div class="formRun">
         <h3>Formulaire de course</h3>
             <div class="station">
@@ -23,7 +24,11 @@
                     <br>
                     <input type="date" name="dateTrial" id="dateTrial" required>
             </div>
+            <div class="submit">
+                    <input type="submit" value="SUBMIT">
+                </div>
         </div>
+</form>
         
         <!-- Box -->
         <div class="box">
@@ -59,15 +64,12 @@
                     <input type="date" name="date_birth" id="date_birth" required>
                 </div>
                 <!-- Message -->
-                <div id="photo">
-                <label for="imgInp" class="labelimage">Choisir une image</label>
-                    <input type="file" name="photo" accept="image/*" id="imgInp" value="./ressources/camera.png">
-                    <img id="preview" src=""  />
-                    <br>
-                    <br>
-                    <em>Formats acceptés : 'JPG', 'JPEG', 'PNG', 'GIF', 'JFIF' - Max 2Mo.</em>
-                    <br>
-                    
+                <div class="wrapper">
+                    <div class="file-upload">
+                        
+                            <input type="file" name="photo" accept="image/*" id="imgInp" value="./ressources/camera.png" placeholder="photo">
+                            <em class="fa fa-arrow-up">photo</em>
+                    </div>       
                 </div>
                 <div class="category">
                     <select name="category">

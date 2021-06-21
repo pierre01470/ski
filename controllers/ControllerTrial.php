@@ -2,7 +2,7 @@
 
 class ControllerTrial
 {
-    public  function allTrial()
+    public  function insertTrial()
     {
         $manager = new TrialsManager();
     }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Accueil</title>
 </head>
 
@@ -75,7 +75,7 @@
                             <label for="#">
                                 Date de naissance
                             </label>
-                            <input type="date" name="registration_date" placeholder="taper votre Date de naissance...">
+                            <input type="date" name="date_birth" placeholder="taper votre Date de naissance...">
                         </div>
 
                         <div class="form5">
@@ -93,11 +93,12 @@
                                 <?php
                                 }
                                 ?>
+                                <option value="1">M1</option>
                             </select>
                         </div>
                         <div class="form6">
                             <div class="file-upload">
-                                <input class="inPhoto" type="file" name="picture" value="Photo" placeholder="Photo" size="80px">
+                                <input class="inPhoto" type="file" name="photo" value="Photo" placeholder="Photo" size="80px">
                                 <label for="file" id="picture">Photo</label>
                             </div>
                         </div>

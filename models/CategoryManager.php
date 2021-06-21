@@ -6,13 +6,7 @@ class CategoryManager extends Model
    {
       $db = $this->getDb();
       $categories = [];
-      $req = $db->query('SELECT * FROM `category`');
-
-      while ($category = $req->fetch(PDO::FETCH_ASSOC)) {
-         $categories[] = new Category($category);
-      }
-
-      $req->closeCursor();
-      return $categories;
+      $req = json_encode($db->query('SELECT * FROM `category`')->fetchAll(PDO::FETCH_KEY_PAIR));
+      return $req;
    }
 }

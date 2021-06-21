@@ -41,7 +41,7 @@ class ParticipantsManager extends Model
 
         if (isset($_POST)) {
             if (
-                isset($_POST['lastname']) && !empty($_POST['lastname']) && isset($_POST['firstname']) && !empty($_POST['firstname']) && isset($_POST['date_birth']) && !empty($_POST['date_birth']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['photo']) && !empty($_POST['photo']) && isset($_POST['number']) && !empty($_POST['number'])
+                isset($_POST['lastname']) && !empty($_POST['lastname']) && isset($_POST['firstname']) && !empty($_POST['firstname']) && isset($_POST['date_birth']) && !empty($_POST['date_birth']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_FILES['photo']) && !empty($_FILES['photo']) && isset($_POST['number']) && !empty($_POST['number'])
             ) {
                 $db = $this->getDb();
                 $req = $db->prepare('INSERT INTO `participant`(`lastname`, `firstname`, `date_birth`, `email`, `photo`, `number`, `id_trial`, `id_category`) VALUES (:lastname, :firstname, :date_birth, :email, :photo, :number, :id_trial, :id_category)');

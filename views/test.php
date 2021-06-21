@@ -96,7 +96,9 @@
             </form>
         </div>
     </main>
-<script src="./src/index.js">idGenerator()</script>
+    <script src="./src/index.js">
+        idGenerator()
+    </script>
 </body>
 
 </html>

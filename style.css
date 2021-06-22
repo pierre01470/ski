@@ -5,12 +5,26 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Marcellus SC', serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.epreuves h2 {
+  font-family: 'Marcellus SC', serif;
+}
+
+.titre-form h2 {
+  font-family: 'Marcellus SC', serif;
+}
+
 * {
   padding: 0;
   margin: 0;
 }
 
-body {
+.template {
   background-image: url(ressources/skieur.jpg);
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -123,9 +137,14 @@ body {
   margin: 0 auto;
 }
 
-.container-header .main .name_date .inputtwo input {
-  height: 20px;
-  width: 210px;
+.container-header .main .name_date .test-sub input {
+  margin-top: 30px;
+  width: 60px;
+}
+
+.container-header .main .name_date .test-sub .nabil:hover {
+  background-color: #0329fd;
+  cursor: pointer;
 }
 
 .container-header .form {
@@ -143,6 +162,7 @@ body {
   height: 600px;
   width: 700px;
   margin: 150px auto;
+  margin-bottom: 50px;
 }
 
 .container-header .form .titre-form h2 {
@@ -305,8 +325,12 @@ input[type="submit"] {
   width: 220px;
 }
 
-#marjorie:hover {
-  background-color: #fd0303;
+.form7 input {
+  width: 60px;
+}
+
+.form7 #marjorie:hover {
+  background-color: #0329fd;
   cursor: pointer;
 }
 
@@ -373,5 +397,74 @@ input[type="file"] #picture {
 .form6 .file-upload:hover {
   background-position: 0 -100%;
   color: #2590eb;
+}
+
+.pied-page {
+  height: 60px;
+  width: 100%;
+}
+
+/* deuxieme page*/
+@font-face {
+  font-family: "sporten_personal_useregular";
+  src: url("ressources/sportenpersonaluse-nrydv-webfont.woff2") format("woff2"), url("ressources/sportenpersonaluse-nrydv-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sporten_personal_useregular";
+  src: url("ressources/sportenpersonaluse-nrydv-webfont.woff2") format("woff2"), url("ressources/sportenpersonaluse-nrydv-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Marcellus SC', serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-image: url(ressources/skieuse.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container-start {
+  height: 100vh;
+  width: 100%;
+  color: #000;
+}
+
+.container-start .titre-header h1 {
+  color: #13aae6;
+  font-family: "sporten_personal_useregular";
+  font-size: 70px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.menu-start {
+  width: 100%;
+  height: 60px;
+  background-color: #00b7c485;
+  margin-top: 40px;
+}
+
+.menu-start nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.menu-start nav ul li {
+  font-size: 30px;
+  list-style-type: none;
+  color: white;
+  line-height: 60px;
 }
 /*# sourceMappingURL=style.css.map */

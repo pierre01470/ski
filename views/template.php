@@ -5,16 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <title>Accueil</title>
 </head>
 
-<body>
+<body class="template">
     <div class="container-header">
         <header>
             <div class="titre">
                 <h1>SkiPro</h1>
-            </div>
+    </div>
             <div class="menu">
                 <nav>
                     <ul>
@@ -28,7 +31,7 @@
 
             <div class="name_date">
                 <div class="epreuves">
-                    <h2>épreuves</h2>
+                    <h2>Épreuves</h2>
                 </div>
                 <div class="inputone">
                     <label for="#">
@@ -41,6 +44,9 @@
                         Date d'inscription
                     </label>
                     <input type="text" name="registration_date" placeholder="taper votre Date d'inscription...">
+                </div>
+                <div class="test-sub">
+                    <input class="nabil" type="submit">
                 </div>
             </div>
             <div class="form">
@@ -93,8 +99,10 @@
                                 <?php
                                 }
                                 ?>
-                                <option value="1">M1</option>
+                                <option value="1">Nº</option>
                             </select>
+                            <label for="#" id=""></label>
+                            <input type="text" name="number">
                         </div>
                         <div class="form6">
                             <div class="file-upload">
@@ -103,17 +111,20 @@
                             </div>
                         </div>
                         <div class="form7">
-                            <input id="marjorie" type="submit">
+                            <input id="marjorie" type="submit" value="Ajouter">
                         </div>
-
                     </div>
                 </form>
             </div>
-    </div>
+        </section>
+    
 
-    </section>
-    </div>
+    <footer>
+        <div class="pied-page">
 
+        </div>
+    </footer>
+</div>
     <script src=""></script>
 </body>
 

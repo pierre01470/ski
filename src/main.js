@@ -11,3 +11,9 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+new Vue({
+  el: '#app',
+  components: { App },
+  template: '<App/>'
+})

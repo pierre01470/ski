@@ -10,6 +10,5 @@ class TrialsManager extends Model
     $req->bindValue(':time_realized_two', $insert->getTime_realized_two());
     $req->bindValue(':number', $insert->getNumber());
     $req->execute();
-
     }
 }

@@ -6,6 +6,26 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Marcellus SC', serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.epreuves {
+  h2 {
+    font-family: 'Marcellus SC', serif;
+  }
+}
+
+.titre-form {
+  h2 {
+    font-family: 'Marcellus SC', serif;
+  }
+}
+ 
+
+
 $ice: #00b7c47e;
 $fontone: "sporten_personal_useregular";
 
@@ -14,9 +34,8 @@ $fontone: "sporten_personal_useregular";
   margin: 0;
 }
 
-body {
-  background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0.836), rgba(250, 250, 250, 0.849)),url(ressources/46556_default_landscape.jpg);
-  
+.template{
+  background-image: url(ressources/skieur.jpg);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -61,14 +80,13 @@ body {
       margin: 0 auto;
       overflow: hidden;
       display: flex;
-
       align-items: center;
       flex-direction: column;
       margin-top: 150px;
 
       .epreuves {
         h2 {
-          color: $ice;
+          color: rgb(13, 178, 228);
           font-size: 60px;
           text-align: center;
           margin-top: 10px;
@@ -105,9 +123,16 @@ body {
           margin: 0 auto;
         }
 
+        
+      }
+      .test-sub {
         input {
-          height: 20px;
-          width: 210px;
+        margin-top: 30px;
+        width: 60px;
+      }
+      .nabil:hover {
+          background-color: rgb(3, 41, 253);
+          cursor: pointer;
         }
       }
     }
@@ -121,11 +146,12 @@ body {
     height: 600px;
     width: 700px;
     margin: 150px auto;
+    margin-bottom: 50px;
 
     .titre-form {
       h2 {
         font-size: 60px;
-        color: $ice;
+        color: rgb(13, 178, 228);
         text-align: center;
         height: 50px;
         margin-bottom: 10px;
@@ -214,9 +240,14 @@ input[type="submit"] {
   width: 220px;
 }
 
-#marjorie:hover {
-  background-color: rgb(253, 3, 3);
-  cursor: pointer;
+.form7{
+    input{
+      width: 60px;
+    }
+    #marjorie:hover {
+    background-color: rgb(3, 41, 253);
+    cursor: pointer;
+  }
 }
 
 input[type="file"] {
@@ -241,13 +272,10 @@ input[type="file"] {
   .file-upload {
     height: 150px;
     width: 150px;
-
     position: relative;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     border: 2px solid #ffffff;
     overflow: hidden;
     background-image: linear-gradient(to bottom, #2590eb 50%, #ffffff 50%);
@@ -268,8 +296,81 @@ input[type="file"] {
 
     &:hover {
       background-position: 0 -100%;
-
-      color: $ice;
+      color: #2590eb;
     }
   }
 }
+
+.pied-page{
+  height: 60px;
+  width: 100%;
+}
+
+
+/* deuxieme page*/
+
+@font-face {
+  font-family: "sporten_personal_useregular";
+  src: url("ressources/sportenpersonaluse-nrydv-webfont.woff2") format("woff2"), url("ressources/sportenpersonaluse-nrydv-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sporten_personal_useregular";
+  src: url("ressources/sportenpersonaluse-nrydv-webfont.woff2") format("woff2"),
+    url("ressources/sportenpersonaluse-nrydv-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Marcellus SC', serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-image: url(ressources/skieuse.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container-start {
+  height: 100vh;
+  width: 100%;
+  color: #000;
+
+  .titre-header {
+    h1 {
+      color: rgb(19, 170, 230);
+      font-family: $fontone;
+      font-size: 70px;
+      text-align: center;
+      padding-top: 20px;
+    }
+  }
+}
+
+.menu-start {
+  width: 100%;
+  height: 60px;
+  background-color: #00b7c485;
+  margin-top: 40px;
+
+  nav ul {
+    display: flex;
+    justify-content: space-around;
+
+    li {
+      font-size: 30px;
+      list-style-type: none;
+      color: white;
+      line-height: 60px;
+    }
+  }
+}
+
+
+

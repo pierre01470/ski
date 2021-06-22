@@ -12,4 +12,19 @@ class ControllerParticipants
 
         header('Location: ./');
     }
+
+    public function allParticipant()
+    {
+        global $router;
+        $manager = new ParticipantsManager();
+        $participant = $manager->getAllParticipant();
+
+        require('./views/test2.php');
+    }
+
+    public function deleteOneParticipant($id)
+    {
+        $manager = new ParticipantsManager();
+        $manager->deleteParticipant($id);
+    }
 }

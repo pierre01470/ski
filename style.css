@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-body {
-  padding: 0;
-  margin: 0;
-  background: #363636;
-}
-
-.container {
-  margin: 80px auto;
-  width: 50%;
-  background-color: rgba(102, 255, 255, 0.671);
-=======
 @font-face {
   font-family: "sporten_personal_useregular";
   src: url("ressources/sportenpersonaluse-nrydv-webfont.woff2") format("woff2"), url("ressources/sportenpersonaluse-nrydv-webfont.woff") format("woff");
@@ -84,14 +72,13 @@ body {
 }
 
 .container-header .main .name_date .epreuves h2 {
-  color: #0db2e4;
+  color: #00b7c47e;
   font-size: 60px;
   text-align: center;
   margin-top: 10px;
 }
 
 .container-header .main .name_date .inputone {
->>>>>>> ac075485515f6a23438225f66879a5135fedfaff
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -99,42 +86,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-<<<<<<< HEAD
-  border-radius: 5px;
-}
-
-.container input {
-  width: 150%;
-  height: 40px;
-  background: #023d47;
-  border-radius: 5px;
-  border: 2px solid white;
-  -webkit-box-shadow: 2px 2px 2px #1c0235;
-          box-shadow: 2px 2px 2px #1c0235;
-  color: white;
-}
-
-.container label {
-  color: #7708b8;
-}
-
-.container select {
-  width: 100%;
-  height: 40px;
-  background: #023d47;
-  border-radius: 5px;
-  border: 2px solid white;
-  -webkit-box-shadow: 2px 2px 2px #1c0235;
-          box-shadow: 2px 2px 2px #1c0235;
-  color: white;
-}
-
-div {
-  margin: 10px 150px;
-}
-
-.wrapper {
-=======
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -196,7 +147,7 @@ div {
 
 .container-header .form .titre-form h2 {
   font-size: 60px;
-  color: #0db2e4;
+  color: #00b7c47e;
   text-align: center;
   height: 50px;
   margin-bottom: 10px;
@@ -372,7 +323,6 @@ input[type="file"] #picture {
 }
 
 .form6 {
->>>>>>> ac075485515f6a23438225f66879a5135fedfaff
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -386,11 +336,7 @@ input[type="file"] #picture {
           justify-content: center;
 }
 
-<<<<<<< HEAD
-.wrapper .file-upload {
-=======
 .form6 .file-upload {
->>>>>>> ac075485515f6a23438225f66879a5135fedfaff
   height: 150px;
   width: 150px;
   position: relative;
@@ -403,20 +349,6 @@ input[type="file"] #picture {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-<<<<<<< HEAD
-  border: 2px solid #FFFFFF;
-  overflow: hidden;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #2590EB), color-stop(50%, #FFFFFF));
-  background-image: linear-gradient(to bottom, #2590EB 50%, #FFFFFF 50%);
-  background-size: 100% 200%;
-  -webkit-transition: all 1s;
-  transition: all 1s;
-  color: #FFFFFF;
-  font-size: 60px;
-}
-
-.wrapper .file-upload input[type='file'] {
-=======
   border: 2px solid #ffffff;
   overflow: hidden;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #2590eb), color-stop(50%, #ffffff));
@@ -429,7 +361,6 @@ input[type="file"] #picture {
 }
 
 .form6 .file-upload input[type="file"] {
->>>>>>> ac075485515f6a23438225f66879a5135fedfaff
   height: 200px;
   width: 200px;
   position: absolute;
@@ -439,14 +370,8 @@ input[type="file"] #picture {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
-.wrapper .file-upload:hover {
-  background-position: 0 -100%;
-  color: #2590EB;
-=======
 .form6 .file-upload:hover {
   background-position: 0 -100%;
-  color: #2590eb;
->>>>>>> ac075485515f6a23438225f66879a5135fedfaff
+  color: #00b7c47e;
 }
 /*# sourceMappingURL=style.css.map */

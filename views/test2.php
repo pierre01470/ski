@@ -7,23 +7,48 @@
     <title>Document</title>
 </head>
 <body>
-<form action="./insertParticipants" method="POST"
-        <div class="formRun">
-        <h3>Formulaire de course</h3>
-            <div class="station">
-                    <label for="station">Station : </label>
-                    <br>
-                    <input type="text" name="station" id="station" required>
+<main>
+<?php
+
+
+
+?>
+    <section>
+    <table>
+    <thead>
+        
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Date de naissance</th>
+        <th>Email</th>
+        <th>Photo</th>
+        <th>Numéro de dossard</th>
+    
+    </thead>
+    <tbody>
+       <td> <?php
+        foreach((array)$participant as $affichage){
+           
+            ?>
+            <div class="participants">
+            <img  src="<?= $affichage->getPhoto()?>" alt=""> 
+                <div class="participant">
+                <?=  $affichage->getFirstname()?>
+                <?= $affichage->getLastname() ?> 
+                <?= $affichage->getDate_birth() ?>
+                <?= $affichage->getEmail() ?>
+                
+                <?= $affichage->getNumber() ?>
             </div>
-            <div class="dateTrial">
-                    <label for="dateTrial">Date de l'épreuve : </label>
-                    <br>
-                    <input type="date" name="dateTrial" id="dateTrial" required>
-            </div>
-            <div class="submit">
-                    <input type="submit" value="SUBMIT">
+            <a href="<?= $router->generate('delete', array('id' => $affichage->getIdParticipants())); ?>">Supprimer</a>
                 </div>
-        </div>
-</form>
+            <?php
+        }
+        ?></td>
+    </tbody>
+</table>
+       
+    </section>
+</main>
 </body>
 </html>

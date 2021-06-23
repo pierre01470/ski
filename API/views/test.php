@@ -11,15 +11,30 @@
 
 <body>
     <main class="container">
-        <h2><span> course de ski</span> </h2>
+    <form action="./insert" method="POST"
+        <div class="formRun">
+        <h3>Formulaire de course</h3>
+            <div class="station">
+                    <label for="station">Station : </label>
+                    <br>
+                    <input type="text" name="station" id="station" required>
+            </div>
+            <div class="dateTrial">
+                    <label for="dateTrial">Date de l'épreuve : </label>
+                    <br>
+                    <input type="date" name="dateTrial" id="dateTrial" required>
+            </div>
+            <div class="submit">
+                    <input type="submit" value="SUBMIT">
+                </div>
+        </div>
+</form>
+        
         <!-- Box -->
         <div class="box">
             <!-- info container -->
             <section class="info">
-                <h4>Course de courchevel</h4>
-                <p>
-                    <img src="https://phototheque.mon-sejour-en-montagne.com/images/msem/1400_700/courchevel-photo1.jpg" alt="" width="400px" height="300px">
-                </p>
+                               
             </section>
             <!-- form container -->
             <h3>Formulaire de participation</h3>
@@ -49,11 +64,12 @@
                     <input type="date" name="date_birth" id="date_birth" required>
                 </div>
                 <!-- Message -->
-                <div id="photo">
-                    <input type="file" name="photo" accept="image/*" id="imgInp" value="./ressources/camera.png">
-                    <img id="preview" src="" alt="your image" />
-                    <em>Formats acceptés : 'JPG', 'JPEG', 'PNG', 'GIF', 'JFIF' - Max 2Mo.</em>
-                    <label for="imgInp" class="labelimage">Choisir une image</label>
+                <div class="wrapper">
+                    <div class="file-upload">
+                        
+                            <input type="file" name="photo" accept="image/*" id="imgInp" value="./ressources/camera.png" placeholder="photo">
+                            <em class="fa fa-arrow-up">photo</em>
+                    </div>       
                 </div>
                 <div class="category">
                     <select name="category">
@@ -69,7 +85,6 @@
                     <div class="number">
                         <label for="number">n° Dossard</label>
                         <input type="text" name="number" id="number">
-                        <input type="button" id="idButton">
                     </div>
 
 

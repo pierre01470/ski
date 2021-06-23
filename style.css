@@ -11,7 +11,8 @@
 }
 
 body {
-  background-image: url(ressources/skieur.jpg);
+  background-image: -webkit-gradient(linear, right top, left bottom, from(rgba(0, 0, 0, 0.836)), to(rgba(250, 250, 250, 0.849))), url(ressources/46556_default_landscape.jpg);
+  background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0.836), rgba(250, 250, 250, 0.849)), url(ressources/46556_default_landscape.jpg);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -72,7 +73,7 @@ body {
 }
 
 .container-header .main .name_date .epreuves h2 {
-  color: #0db2e4;
+  color: #00b7c47e;
   font-size: 60px;
   text-align: center;
   margin-top: 10px;
@@ -147,7 +148,7 @@ body {
 
 .container-header .form .titre-form h2 {
   font-size: 60px;
-  color: #0db2e4;
+  color: #00b7c47e;
   text-align: center;
   height: 50px;
   margin-bottom: 10px;
@@ -372,7 +373,7 @@ input[type="file"] #picture {
 
 .form6 .file-upload:hover {
   background-position: 0 -100%;
-  color: #2590eb;
+  color: #00b7c47e;
 }
 
 /*# sourceMappingURL=style.css.map */

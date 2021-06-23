@@ -9,7 +9,9 @@ $router->map('GET', '/', 'ControllerCategory#allCategories');
 
 $router->map('POST', '/insertParticipants', 'ControllerParticipants#insertParticipants');
 
-$router->map('POST', '/inscription', 'ControllerParticipants#allParticipant');
+$router->map('GET','/viewsAllParticipant','ControllerParticipants#AllParticipant');
+
+$router->map('GET','/delete[i:id]','ControllerParticipants#deleteOneParticipant','delete');
 
 $match = $router->match();
 if ($match) {

@@ -2,7 +2,7 @@
 
 class Participants
 {
-    private $_idParticipants;
+    private $_id_participant;
     private $_lastName;
     private $_firstName;
     private $_date_birth;
@@ -32,7 +32,7 @@ class Participants
     /* --------------------------------- GETTER --------------------------------- */
     public function getIdParticipants()
     {
-        return $this->_idParticipants;
+        return $this->_id_participant;
     }
 
     public function getLastName()
@@ -76,11 +76,11 @@ class Participants
     }
     
     /* --------------------------------- SETTER --------------------------------- */
-    public function setId_Participant($idParticipants)
+    public function setId_Participant($id_participant)
     {
-        $idParticipants = (int) $idParticipants;
-        if ($idParticipants > 0) {
-            $this->_idParticipant = $idParticipants;
+        $id_participant = (int) $id_participant;
+        if ($id_participant > 0) {
+            $this->_id_participant = $id_participant;
         }
     }
 

@@ -57,4 +57,26 @@ class ParticipantsManager extends Model
             }
         }
     }
+
+    public function getAllParticipant()
+    {
+
+        $db = $this->getDb();
+        $participant = [];
+        $req = $db->query('SELECT * FROM `participant`');
+        while ($participant = $req->fetch(PDO::FETCH_ASSOC)) {
+            $participants[] = new Participants($participant);
+        }
+        
+        return $participants;
+    }
+
+    public function deleteParticipant($id)
+    {
+        var_dump($id['id']);
+        $db = $this->getDb();
+        $req = $db->prepare('DELETE FROM `participant`  WHERE `id_participant` = :id_participant');
+        $req->bindValue(':id_participant', $id['id']);
+        $req->execute();
+    }
 }

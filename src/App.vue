@@ -1,16 +1,19 @@
 <template>
-  <div id="app">
-    <Template/>
+  <div id="app" class="container-header">
+    <Header/>
   </div>
 </template>
 
 <script>
-import Template from './components/Template.vue';
+import Header from "./components/Header.vue";
 
 export default {
-  name: "app",
+  name: "App",
   components: {
-    Template
+    Header
   }
-};
+}
 </script>
+<style>
+
+</style>

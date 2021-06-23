@@ -9,6 +9,8 @@ $router->map('GET', '/', 'ControllerCategory#allCategories');
 
 $router->map('POST', '/insertParticipants', 'ControllerParticipants#insertParticipants');
 
+$router->map('POST', '/inscription', 'ControllerParticipants#allParticipant');
+
 $match = $router->match();
 if ($match) {
     list($controller, $action) = explode('#', $match['target']);

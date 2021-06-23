@@ -467,4 +467,46 @@ body {
   color: white;
   line-height: 60px;
 }
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 90px;
+}
+
+.main .category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: white;
+  height: 500px;
+  width: 100%;
+}
+
+.back-date {
+  background-color: #00b7c485;
+  height: 500px;
+  width: 220px;
+  margin: 0 0 0 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border: #a8cdcf85 solid;
+  border-radius: 2%;
+}
+
+.back-date h2 {
+  color: white;
+  padding-left: 18px;
+}
+
+.end-page {
+  height: 60px;
+  width: 100%;
+}
 /*# sourceMappingURL=style.css.map */

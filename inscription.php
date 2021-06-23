@@ -15,7 +15,7 @@
         <header>
             <div class="titre-header">
                 <h1>SkiPro</h1>
-            </div> 
+            </div>
             <div class="menu-start">
                 <nav>
                     <ul>
@@ -23,8 +23,66 @@
                         <li><a href="#"></a>Résultats</li>
                     </ul>
                 </nav>
-            </div>  
+            </div>
 </header>
+
+<section class="main">
+
+    <div class="back-date">
+            <div class="station">
+                <h2>Nom de la station</h2>
+            </div>
+            <div class="test">
+                <h2>Date de l'épreuve</h2>
+            </div>
+    </div>
+    <?php
+foreach ((array) $participant as $affichage) {
+
+    ?>
+    <div class="category">
+    <div>
+        <h3>Photo</h3>
+    <img src="<?=$affichage->getPhoto()?>" alt="">
+    </div>   
+        <span>|</span>
+        <h3>Nom</h3>
+        <span>|</span>
+        <h3>Prénom</h3>
+        <span>|</span>
+        <h3>Catégorie</h3>
+        <span>|</span>
+        <h3>Dossard</h3>
+        <span>|</span>
+        <h3>Temps</h3>
+        <span>|</span>
+        <h3>Classement</h3>
+
+        
+<div class="participants">
+    <img src="<?=$affichage->getPhoto()?>" alt="">
+<div class="participant">
+    <?=$affichage->getFirstname()?>
+    <?=$affichage->getLastname()?>
+    <?=$affichage->getDate_birth()?>
+    <?=$affichage->getEmail()?>
+
+    <?=$affichage->getNumber()?>
+</div>
+    <a href="<?=$router->generate('delete', array('id' => $affichage->getIdParticipants()));?>">Supprimer</a>
+</div>
+<?php
+}
+?>
+    </div>
+
+</section>
+
+<footer>
+        <div class="end-page">
+
+        </div>
+    </footer>
 
 </div>
 </body>

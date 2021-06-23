@@ -10,6 +10,12 @@ const chalk = require('chalk')
 const webpack = require('webpack')
 const config = require('../config')
 const webpackConfig = require('./webpack.prod.conf')
+const express = require ('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req,res) => res.send('test'))
+app.listen(port, () => console.log('app running'))
 
 const spinner = ora('building for production...')
 spinner.start()

@@ -426,14 +426,14 @@ input[type="file"] #picture {
   line-height: 60px;
 }
 
-.main {
+.main-resultat {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: 90px;
 }
 
-.main .category {
+.main-resultat .category {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

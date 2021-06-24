@@ -2,6 +2,6 @@ export default class ApiService {
     constructor() { }
 
     getParticipant() {
-        return fetch(`http://localhost/ski/API`)
+        return fetch(`http://localhost/ski/API/ControllerParticipants.php`)
     }
 }

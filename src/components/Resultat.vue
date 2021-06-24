@@ -1,5 +1,5 @@
 <template>
-  <section class="main">
+  <section class="main-resultat">
     <div class="back-date">
       <div class="station">
         <h2>Nom de la station</h2>
@@ -12,7 +12,7 @@
     <div class="category">
       <div>
         <h3>Photo</h3>
-        <img src="<?= $affichage->getPhoto() ?>" alt="" />
+        <img src="" alt="" />
       </div>
       <span>|</span>
       <h3>Nom</h3>
@@ -28,10 +28,10 @@
       <h3>Classement</h3>
 
       <div class="participants">
-        <img src="<?= $affichage->getPhoto() ?>" alt="" />
+        <img src="" alt="" />
         <div class="participant"></div>
         <a
-          href="<?= $router->generate('delete', array('id' => $affichage->getIdParticipants())); ?>"
+          href=""
           >Supprimer</a
         >
       </div>

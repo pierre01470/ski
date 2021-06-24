@@ -19,7 +19,7 @@ class ControllerParticipants
         $manager = new ParticipantsManager();
         $participant = $manager->getAllParticipant();
 
-        require('./views/test2.php');
+        require('./views/inscription.php');
     }
 
     public function deleteOneParticipant($id)

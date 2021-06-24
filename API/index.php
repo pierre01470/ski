@@ -5,7 +5,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 $router = new AltoRouter();
 $router->setBasePath('/ski');
 
-$router->map('GET', '/', 'ControllerCategory#allCategories');
+$router->map('GET', '/', 'ControllerParticipants#allParticipant');
 
 $router->map('POST', '/insertParticipants', 'ControllerParticipants#insertParticipants');
 

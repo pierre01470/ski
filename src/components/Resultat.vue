@@ -33,7 +33,7 @@
         <li>{{ value.date_birth }}</li>
         <li>{{ value.email }}</li>
         <li>{{ value.number }}</li>
-        <img src="{{ value.photo }}" alt="">
+        <img src="" alt="">
       </ul>
     </div>
   </section>

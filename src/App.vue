@@ -22,21 +22,6 @@ export default {
     Inscription,
     Resultat,
     Footer
-  },
-  data() {
-    return {
-      data: null
-    };
-  },
-  mounted() {
-    this.listParticipant();
-  },
-  methods: {
-    async listParticipant() {
-      const res = await apiservice.getParticipant();
-      const data = await res.json();
-      this.data = data.results;
-    }
   }
 };
 </script>

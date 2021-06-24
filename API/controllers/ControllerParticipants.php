@@ -18,7 +18,7 @@ class ControllerParticipants
         global $router;
         $manager = new ParticipantsManager();
         $participant = $manager->getAllParticipant();
-        return $participant;
+        echo $participant;
     }
 
     public function deleteOneParticipant($id)

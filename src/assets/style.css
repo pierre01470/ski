@@ -1,8 +1,9 @@
-@font-face {
-  font-family: "sporten_personal_useregular";
-  src: url("ressources/sportenpersonaluse-nrydv-webfont.woff2") format("woff2"), url("ressources/sportenpersonaluse-nrydv-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
+.epreuves h2 {
+  font-family: "Marcellus SC", serif;
+}
+
+.titre-form h2 {
+  font-family: "Marcellus SC", serif;
 }
 
 * {
@@ -10,9 +11,7 @@
   margin: 0;
 }
 
-body {
-  background-image: -webkit-gradient(linear, right top, left bottom, from(rgba(0, 0, 0, 0.836)), to(rgba(250, 250, 250, 0.849))), url(ressources/46556_default_landscape.jpg);
-  background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0.836), rgba(250, 250, 250, 0.849)), url(ressources/46556_default_landscape.jpg);
+.template {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -73,7 +72,7 @@ body {
 }
 
 .container-header .main .name_date .epreuves h2 {
-  color: #00b7c47e;
+  color: #0db2e4;
   font-size: 60px;
   text-align: center;
   margin-top: 10px;
@@ -124,9 +123,14 @@ body {
   margin: 0 auto;
 }
 
-.container-header .main .name_date .inputtwo input {
-  height: 20px;
-  width: 210px;
+.container-header .main .name_date .test-sub input {
+  margin-top: 30px;
+  width: 60px;
+}
+
+.container-header .main .name_date .test-sub .nabil:hover {
+  background-color: #0329fd;
+  cursor: pointer;
 }
 
 .container-header .form {
@@ -144,11 +148,12 @@ body {
   height: 600px;
   width: 700px;
   margin: 150px auto;
+  margin-bottom: 50px;
 }
 
 .container-header .form .titre-form h2 {
   font-size: 60px;
-  color: #00b7c47e;
+  color: #0db2e4;
   text-align: center;
   height: 50px;
   margin-bottom: 10px;
@@ -306,8 +311,12 @@ input[type="submit"] {
   width: 220px;
 }
 
-#marjorie:hover {
-  background-color: #fd0303;
+.form7 input {
+  width: 60px;
+}
+
+.form7 #marjorie:hover {
+  background-color: #0329fd;
   cursor: pointer;
 }
 
@@ -373,6 +382,84 @@ input[type="file"] #picture {
 
 .form6 .file-upload:hover {
   background-position: 0 -100%;
-  color: #00b7c47e;
+  color: #2590eb;
+}
+
+.pied-page {
+  height: 60px;
+  width: 100%;
+}
+
+.container-start {
+  height: 100vh;
+  width: 100%;
+  color: #000;
+}
+
+.container-start .titre-header h1 {
+  color: #13aae6;
+  font-family: "sporten_personal_useregular";
+  font-size: 70px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.menu-start {
+  width: 100%;
+  height: 60px;
+  background-color: #00b7c485;
+  margin-top: 40px;
+}
+
+.menu-start nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.menu-start nav ul li {
+  font-size: 30px;
+  list-style-type: none;
+  color: white;
+  line-height: 60px;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 90px;
+}
+
+.main .category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: white;
+  height: 500px;
+  width: 100%;
+}
+
+.back-date {
+  background-color: #00b7c485;
+  height: 500px;
+  width: 220px;
+  margin: 0 0 0 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border: #a8cdcf85 solid;
+  border-radius: 2%;
+}
+
+.back-date h2 {
+  color: white;
+  padding-left: 18px;
 }
 /*# sourceMappingURL=style.css.map */

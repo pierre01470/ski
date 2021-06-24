@@ -405,40 +405,11 @@ input[type="file"] #picture {
 }
 
 /* deuxieme page*/
-@font-face {
-  font-family: "sporten_personal_useregular";
-  src: url("ressources/sportenpersonaluse-nrydv-webfont.woff2") format("woff2"), url("ressources/sportenpersonaluse-nrydv-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "sporten_personal_useregular";
-  src: url("ressources/sportenpersonaluse-nrydv-webfont.woff2") format("woff2"), url("ressources/sportenpersonaluse-nrydv-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Marcellus SC', serif;
-  font-weight: normal;
-  font-style: normal;
-}
-
-body {
-  background-image: url(ressources/skieuse.jpg);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .container-start {
   height: 100vh;
   width: 100%;
   color: #000;
 }
-<<<<<<< HEAD:API/style.css
-=======
 
 .container-start .titre-header h1 {
   color: #13aae6;
@@ -511,5 +482,4 @@ body {
   height: 60px;
   width: 100%;
 }
->>>>>>> 4679c2415a9debed806afc694d3a8494d688c23c:style.css
 /*# sourceMappingURL=style.css.map */

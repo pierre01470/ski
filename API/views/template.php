@@ -109,9 +109,7 @@
                     </div>
                 </form>
             </div>
-    </div>
-
-    </section>
+        </section>
     </div>
 </body>
 

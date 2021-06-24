@@ -37,7 +37,7 @@
         <li>{{ value.date_birth }}</li>
         <li>{{ value.email }}</li>
         <li>{{ value.number }}</li>
-        <img src="{{ value.photo }}" alt="">
+        <img src="" alt="">
       </ul>
 >>>>>>> 30537d64b9a6495141de620d5b9215bbc81de902
     </div>

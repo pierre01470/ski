@@ -5,7 +5,5 @@ class ControllerCategory
     {
         $manager = new CategoryManager();
         $categories = $manager->getAllCategories();
-
-        require('./views/template.php');
     }
 }

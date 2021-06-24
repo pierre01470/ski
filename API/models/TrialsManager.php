@@ -5,7 +5,6 @@ class TrialsManager extends Model
     public function getAllTrial()
    {
       $db = $this->getDb();
-      $trials = [];
       $req = json_encode($db->query('SELECT * FROM `trial`')->fetchAll(PDO::FETCH_KEY_PAIR));
       return $req;
    }

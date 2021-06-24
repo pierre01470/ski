@@ -5,7 +5,6 @@ class RunsManager extends Model
     public function getAllRuns()
    {
       $db = $this->getDb();
-      $runs = [];
       $req = json_encode($db->query('SELECT * FROM `run`')->fetchAll(PDO::FETCH_KEY_PAIR));
       return $req;
    }

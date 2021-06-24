@@ -28,6 +28,8 @@ $fontone: "sporten_personal_useregular";
 .container-header {
   height: 100vh;
   width: 100%;
+
+  // HEADER
   .titre {
     h1 {
       color: white;
@@ -54,8 +56,10 @@ $fontone: "sporten_personal_useregular";
         color: white;
         line-height: 60px;
       }
+      //Fin HEADER
     }
   }
+      //MIDDLE
   .main {
     .name_date {
       background: rgba(3, 3, 3, 0.692);
@@ -281,10 +285,13 @@ input[type="file"] {
   }
 }
 
+    // Fin MIDDLE
+    //FOOTER
 .pied-page {
   height: 60px;
   width: 100%;
 }
+  // Fin FOOTER
 
 // PAGE RESULTAT
 .container-start {
@@ -324,28 +331,65 @@ input[type="file"] {
 
 .main-resultat {
   display: flex;
-  margin: 90px;
+  justify-content: center;
+  margin: 90px auto;
+  
   .category {
     display: flex;
-    justify-content: space-around;
-    background-color: white;
+    background-color: #08080885;
     height: 500px;
-    width: 100%;
+    width: 78%;
+    
+    
+    .header-back {
+      background-color: #00b7c485;
+      align-items: center;
+      height: 50px;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      box-sizing: border-box;
+      padding: 0 10px;
+      border: #a8cdcf85 solid;
+      border-left: none;
+      border-bottom: none;
+      border-right: none;
+
+      
+      h3 {
+        color: white;
+        
+      }
+      a {
+        color: white;
+      }
+    }
   }
 }
+
+
+
+
 
 .back-date {
   background-color: #00b7c485;
-  height: 500px;
-  width: 220px;
-  margin: 0 0 0 50px;
+  height: 498px;
+  width: 190px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   border: #a8cdcf85 solid;
-  border-radius: 2%;
+  border-bottom: none;
+  border-radius: 1%;
+
+   
 
   h2 {
     color: white;
+    width: 80%;
     padding-left: 18px;
+    text-align: center;
   }
 }
+

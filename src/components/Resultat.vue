@@ -10,30 +10,24 @@
     </div>
 
     <div class="category">
-      <div>
+      <div class="header-back">
         <h3>Photo</h3>
-        <img src="" alt="" />
-      </div>
-      <span>|</span>
-      <h3>Nom</h3>
-      <span>|</span>
-      <h3>Prénom</h3>
-      <span>|</span>
-      <h3>Catégorie</h3>
-      <span>|</span>
-      <h3>Dossard</h3>
-      <span>|</span>
-      <h3>Temps</h3>
-      <span>|</span>
-      <h3>Classement</h3>
+        
 
-      <div class="participants">
-        <img src="" alt="" />
-        <div class="participant"></div>
-        <a
-          href=""
-          >Supprimer</a
-        >
+        <span>|</span>
+        <h3>Nom</h3>
+        <span>|</span>
+        <h3>Prénom</h3>
+        <span>|</span>
+        <h3>Catégorie</h3>
+        <span>|</span>
+        <h3>Dossard</h3>
+        <span>|</span>
+        <h3>Temps</h3>
+        <span>|</span>
+        <h3>Classement</h3>
+        <span>|</span>
+        <h3>Poubelle</h3>
       </div>
     </div>
   </section>

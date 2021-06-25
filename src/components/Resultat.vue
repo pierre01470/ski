@@ -14,7 +14,6 @@
         <h3>Photo</h3>
         
 
-<<<<<<< HEAD
         <span>|</span>
         <h3>Nom</h3>
         <span>|</span>
@@ -30,7 +29,6 @@
         <span>|</span>
         <h3>Poubelle</h3>
       </div>
-=======
       <ul v-for="value in data" :key="value.id_participant">
         <li>{{ value.firstname }}</li>
         <li>{{ value.lastname }}</li>
@@ -39,7 +37,6 @@
         <li>{{ value.number }}</li>
         <img src="" alt="">
       </ul>
->>>>>>> 30537d64b9a6495141de620d5b9215bbc81de902
     </div>
   </section>
 </template>

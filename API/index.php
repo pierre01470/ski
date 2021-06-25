@@ -3,15 +3,9 @@ require_once __DIR__ . '/vendor/altorouter/altorouter/AltoRouter.php';
 require_once __DIR__ . '/vendor/autoload.php';
 
 $router = new AltoRouter();
-$router->setBasePath('/ski');
+$router->setBasePath('/ski/API');
 
-$router->map('GET', '/', 'ControllerCategory#allCategories');
-
-$router->map('POST', '/insertParticipants', 'ControllerParticipants#insertParticipants');
-
-$router->map('GET','/viewsAllParticipant','ControllerParticipants#AllParticipant');
-
-$router->map('GET','/delete[i:id]','ControllerParticipants#deleteOneParticipant','delete');
+$router->map('GET', '/', 'ControllerParticipants#allParticipant');
 
 $match = $router->match();
 if ($match) {

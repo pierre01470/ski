@@ -62,13 +62,8 @@ class ParticipantsManager extends Model
     {
 
         $db = $this->getDb();
-        $participant = [];
-        $req = $db->query('SELECT * FROM `participant`');
-        while ($participant = $req->fetch(PDO::FETCH_ASSOC)) {
-            $participants[] = new Participants($participant);
-        }
-        
-        return $participants;
+        $req = $db->query('SELECT * FROM `participant`')->fetchAll(PDO::FETCH_ASSOC);
+        return json_encode($req);
     }
 
     public function deleteParticipant($id)

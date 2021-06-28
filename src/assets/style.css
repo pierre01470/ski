@@ -438,6 +438,7 @@ input[type="file"] #picture {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 90px auto;
+  width: 100%;
 }
 
 .main-resultat .category {
@@ -464,7 +465,6 @@ input[type="file"] #picture {
       justify-content: space-around;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border: 2px solid #a8cdcf85;
 }
 
 .main-resultat .category tr {
@@ -494,7 +494,6 @@ input[type="file"] #picture {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: rgba(42, 166, 248, 0.7);
-  border-spacing: 5px 1rem;
 }
 
 .main-resultat .category .body-table tr {

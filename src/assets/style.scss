@@ -337,6 +337,7 @@ input[type="file"] {
   display: flex;
   justify-content: center;
   margin: 90px auto;
+  width: 100%;
   
   .category {
     
@@ -355,7 +356,8 @@ input[type="file"] {
       display: flex;
       justify-content: space-around;
       box-sizing: border-box;
-      border: 2px solid #a8cdcf85 ;
+     
+      
       
     }
       tr {
@@ -375,7 +377,7 @@ input[type="file"] {
         display: flex;
         flex-direction: column;
         background-color: rgba(42, 166, 248, 0.7);
-        border-spacing: 5px 1rem;
+        
 
       tr {
         color: white;
@@ -429,3 +431,5 @@ input[type="file"] {
     text-align: center;
   }
 }
+
+ 

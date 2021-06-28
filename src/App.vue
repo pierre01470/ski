@@ -1,32 +1,38 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id="" class="container-header">
+    <Header />
+    <router-view />
+    <Footer />
   </div>
 </template>
 
+<script>
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
+import ApiService from "./services/api.services.js";
+
+const apiservice = new ApiService();
+
+export default {
+  name: "App",
+  components: {
+    Header,
+    Footer,
+  },
+};
+</script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import "./assets/style.css";
+@import url("https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap");
+@font-face {
+  font-family: "sporten_personal_useregular";
+  src: url("assets/ressources/Sporten.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+body {
+  background-image: url(assets/ressources/skieur.jpg);
+  background-attachment: fixed;
+  background-size: cover;
 }
 </style>

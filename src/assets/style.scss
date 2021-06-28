@@ -56,6 +56,10 @@ $fontone: "sporten_personal_useregular";
         color: white;
         line-height: 60px;
       }
+
+      #link:hover {
+        color: rgb(1, 1, 19);
+      }
       //Fin HEADER
     }
   }
@@ -351,7 +355,7 @@ input[type="file"] {
       display: flex;
       justify-content: space-around;
       box-sizing: border-box;
-      border: #a8cdcf85 solid;
+      border: 2px solid #a8cdcf85 ;
       
     }
       tr {

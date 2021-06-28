@@ -441,7 +441,6 @@ input[type="file"] #picture {
   display: -ms-flexbox;
   display: flex;
   background-color: #08080885;
-  height: 500px;
   width: 78%;
 }
 

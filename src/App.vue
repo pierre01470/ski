@@ -1,15 +1,13 @@
 <template>
-  <div id="app" class="container-header">
+  <div id="" class="container-header">
     <Header />
-    <Resultat />
+    <router-view />
     <Footer />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
-import Inscription from "./components/Inscription.vue";
-import Resultat from "./components/Resultat.vue";
 import Footer from "./components/Footer.vue";
 import ApiService from "./services/api.services.js";
 
@@ -19,10 +17,8 @@ export default {
   name: "App",
   components: {
     Header,
-    Inscription,
-    Resultat,
-    Footer
-  }
+    Footer,
+  },
 };
 </script>
 <style>

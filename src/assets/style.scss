@@ -50,9 +50,9 @@ $fontone: "sporten_personal_useregular";
       display: flex;
       justify-content: space-around;
 
-      li {
+      #link {
         font-size: 30px;
-        list-style-type: none;
+        text-decoration: none;
         color: white;
         line-height: 60px;
       }

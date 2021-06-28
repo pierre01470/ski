@@ -45,9 +45,9 @@
       justify-content: space-around;
 }
 
-.container-header .menu nav ul li {
+.container-header .menu nav ul #link {
   font-size: 30px;
-  list-style-type: none;
+  text-decoration: none;
   color: white;
   line-height: 60px;
 }

@@ -43,7 +43,6 @@
 
 <script>
 import ApiService from "../services/api.services.js";
-
 const apiservice = new ApiService();
 
 export default {

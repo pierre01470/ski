@@ -5,8 +5,8 @@ class CategoryManager extends Model
    public function getAllCategories()
    {
       $db = $this->getDb();
-      $req = json_encode($db->query('SELECT * FROM `category`')->fetchAll(PDO::FETCH_KEY_PAIR));
-      return $req;
+      $req = $db->query('SELECT * FROM `category`')->fetchAll(PDO::FETCH_ASSOC);
+      return json_encode($req);
    }
 
    public function getInsertCatagories($insert)

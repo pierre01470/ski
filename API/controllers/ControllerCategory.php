@@ -5,5 +5,6 @@ class ControllerCategory
     {
         $manager = new CategoryManager();
         $categories = $manager->getAllCategories();
+        echo $categories;
     }
 }

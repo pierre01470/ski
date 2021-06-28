@@ -69,8 +69,8 @@
 
           <div class="form5">
             <label for="#"> Catégorie </label>
-            <select type="text" name="category">
-              <option value="1">M1</option>
+            <select type="text" name="category" v-for="categories in category" :key="categories.id_category">
+              <option value="1">{{ categories.name_category }}</option>
             </select>
           </div>
           <div class="form6">
@@ -94,3 +94,31 @@
     </div>
   </section>
 </template>
+
+<script>
+import ApiService from "../services/api.services.js";
+const apiservice = new ApiService();
+
+export default {
+  name: "Inscription",
+  props: {
+    id_category: Number,
+    name_category: String
+  },
+  data() {
+    return {
+      category: null
+    };
+  },
+  mounted() {
+    this.listCategory();
+  },
+  methods: {
+    async listCategory() {
+      const res = await apiservice.getCategory();
+      const data = await res.json();
+      this.category = data;
+    }
+  }
+};
+</script>

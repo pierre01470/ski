@@ -437,19 +437,20 @@ input[type="file"] #picture {
 }
 
 .main-resultat .category {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   background-color: #08080885;
   height: 500px;
   width: 78%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.main-resultat .category .header-back {
+.main-resultat .category .header-table {
   background-color: #00b7c485;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   height: 50px;
   width: 100%;
   display: -webkit-box;
@@ -459,19 +460,69 @@ input[type="file"] #picture {
       justify-content: space-around;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 0 10px;
   border: #a8cdcf85 solid;
-  border-left: none;
-  border-bottom: none;
-  border-right: none;
 }
 
-.main-resultat .category .header-back h3 {
-  color: white;
+.main-resultat .category tr {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.main-resultat .category .header-back a {
+.main-resultat .category tr th {
   color: white;
+  font-size: 20px;
+  width: 120px;
+}
+
+.main-resultat .category .body-table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: rgba(42, 166, 248, 0.7);
+  border-spacing: 5px 1rem;
+}
+
+.main-resultat .category .body-table tr {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-sizing: 0;
+          box-sizing: 0;
+}
+
+.main-resultat .category .body-table td {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 30px;
+  border-collapse: collapse;
+  width: 50px;
+}
+
+.main-resultat .category .body-table tr:hover {
+  background-color: rgba(6, 42, 160, 0.548);
+}
+
+.main-resultat .category .body-table > tr:nth-child(even) {
+  background-color: rgba(121, 194, 231, 0.897);
+}
+
+.main-resultat .category .body-table > tr:nth-child(even):hover {
+  background-color: rgba(6, 42, 160, 0.548);
 }
 
 .back-date {

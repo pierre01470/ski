@@ -5,12 +5,12 @@ export default class ApiService {
         return fetch(`http://localhost/ski/API/category`)
     }
     getParticipant() {
-        return fetch(`http://localhost/ski/API/`)
+        return fetch(`http://localhost/ski/API/participant`)
     }
     getRun() {
-        return fetch(`http://localhost/ski/API/`)
+        return fetch(`http://localhost/ski/API/run`)
     }
     getTrial() {
-        return fetch(`http://localhost/ski/API/`)
+        return fetch(`http://localhost/ski/API/trial`)
     }
 }

@@ -68,10 +68,11 @@ class ParticipantsManager extends Model
 
     public function deleteParticipant($id)
     {
-        var_dump($id['id']);
         $db = $this->getDb();
         $req = $db->prepare('DELETE FROM `participant`  WHERE `id_participant` = :id_participant');
         $req->bindValue(':id_participant', $id['id']);
         $req->execute();
     }
+
+
 }

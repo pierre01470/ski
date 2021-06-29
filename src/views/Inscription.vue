@@ -69,8 +69,8 @@
 
           <div class="form5">
             <label for="#"> Catégorie </label>
-            <select type="text" name="category" v-for="categories in category" :key="categories.id_category">
-              <option value="1">{{ categories.name_category }}</option>
+            <select type="text" name="category">
+              <option value="1" v-for="categories in category" :key="categories.id_category">{{ categories.name_category }}</option>
             </select>
           </div>
           <div class="form6">

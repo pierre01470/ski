@@ -32,7 +32,7 @@
                             <td>{{value.number}}</td>
                             <td>temps</td>
                             <td>{{value.id_trial}}</td>
-                            <td><button><img :src="''" width="40px" height="40px" alt="logo_supprimer"></button></td>
+                            <td><button><img :src="'ressources/trash.svg'" width="40px" height="40px" alt="logo_supprimer"></button></td>
                         </tr>
                 </tbody>
             </table>

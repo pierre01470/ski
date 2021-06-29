@@ -20,6 +20,9 @@
           placeholder="taper votre Date d'inscription..."
         />
       </div>
+      <div class="inputthree">
+        <input type="text" value="Valider" />
+      </div>
     </div>
     <div class="form">
       <form
@@ -68,11 +71,20 @@
           </div>
 
           <div class="form5">
+            
+<label for="#"> news </label>
+            <input type="text" />
             <label for="#"> Catégorie </label>
-            <select type="text" name="category" v-for="categories in category" :key="categories.id_category">
+            <select
+              type="text"
+              name="category"
+              v-for="categories in category"
+              :key="categories.id_category"
+            >
               <option value="1">{{ categories.name_category }}</option>
             </select>
           </div>
+
           <div class="form6">
             <div class="file-upload">
               <input
@@ -86,8 +98,15 @@
               <label for="file" id="picture">Photo</label>
             </div>
           </div>
+
           <div class="form7">
+            <button>salut</button>
+          </div>
+          <div class="form8">
             <input id="marjorie" type="submit" />
+          </div>
+          <div class="form9">
+            
           </div>
         </div>
       </form>
@@ -103,11 +122,11 @@ export default {
   name: "Inscription",
   props: {
     id_category: Number,
-    name_category: String
+    name_category: String,
   },
   data() {
     return {
-      category: null
+      category: null,
     };
   },
   mounted() {
@@ -118,7 +137,7 @@ export default {
       const res = await apiservice.getCategory();
       const data = await res.json();
       this.category = data;
-    }
-  }
+    },
+  },
 };
 </script>

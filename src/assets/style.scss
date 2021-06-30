@@ -214,8 +214,11 @@ $fontone: "sporten_personal_useregular";
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        
+        margin-bottom: 100px;
 
+        label {
+          margin-top: 50px;
+        }
       }
 
       .form6 {
@@ -495,5 +498,7 @@ input[type="file"] {
     text-align: center;
   }
 }
+
+
 
  

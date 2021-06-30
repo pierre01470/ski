@@ -286,6 +286,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 100px;
+}
+
+.container-header .form .la-in .form5 label {
+  margin-top: 50px;
 }
 
 .container-header .form .la-in .form6 {

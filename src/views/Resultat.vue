@@ -32,19 +32,23 @@
                             <td>{{value.number}}</td>
                             <td>temps</td>
                             <td>{{value.id_trial}}</td>
-                            <td><button><img :src="'ressources/trash.svg'" width="40px" height="40px" alt="logo_supprimer"></button></td>
+                            <td><button><img src="@/assets/ressources/poubelles.jpg" height="45px" width="45px" id="test" alt=""></button></td> 
+                            
                         </tr>
                 </tbody>
             </table>
+
       
     </div>
   </section>
+  
 </template>
 
 <script>
 
 
 import ApiService from "../services/api.services.js";
+
 
 
 const apiservice = new ApiService();
@@ -78,4 +82,8 @@ export default {
     },
   },
 };
+
+
+    
+
 </script>

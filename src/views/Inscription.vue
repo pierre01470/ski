@@ -24,6 +24,10 @@
         <input type="text" value="Valider" />
       </div>
     </div>
+
+    
+      <button class="valide" value="Valider">Valider</button>
+    
     <div class="form">
       <form
         action="./insertParticipants"

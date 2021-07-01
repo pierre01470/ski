@@ -23,7 +23,7 @@
                         <th scope="col">SUPPRIMER</th>
                     </tr>
                 </thead>
-                <tbody class="body-table">
+                <tbody class="body-table" id = "infinite-list">
                         <tr v-for="value in data" :key="value.id_participant">
                             <td>Photo</td>
                             <td>{{value.lastname}}</td>

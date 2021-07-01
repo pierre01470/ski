@@ -9,4 +9,23 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 
-var names = ['']
+var listElm = document.querySelector('#infinite-list');
+
+var nextItem = 1;
+var loadMore = function() {
+  for (var i = 0; i < 20; i++) {
+    var item = document.createElement('tr');
+    item.innerText = 'Item ' + nextItem++;
+    listElm.appendChild(item);
+  }
+}
+
+// Detect when scrolled to bottom.
+listElm.addEventListener('scroll', function() {
+  if (listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
+    loadMore();
+  }
+});
+
+// Initially load some items.
+loadMore();

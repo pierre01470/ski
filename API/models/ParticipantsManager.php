@@ -66,9 +66,17 @@ class ParticipantsManager extends Model
         return json_encode($req);
     }
 
+    public function getOneParticipant($id)
+    {
+        $db = $this->getDb();
+        $req = $db->prepare('SELECT * FROM `participant` WHERE `id_participant` = :id_participant');
+        $req->bindValue(':id_participant', $id['id']);
+        $req->execute();
+        return json_encode($req->fetchAll(PDO::FETCH_ASSOC));
+    }
+
     public function deleteParticipant($id)
     {
-        var_dump($id['id']);
         $db = $this->getDb();
         $req = $db->prepare('DELETE FROM `participant`  WHERE `id_participant` = :id_participant');
         $req->bindValue(':id_participant', $id['id']);

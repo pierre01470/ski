@@ -53,7 +53,7 @@
 }
 
 .container-header .menu nav ul #link:hover {
-  color: #010113;
+  color: black;
 }
 
 .container-header .main .name_date {
@@ -127,6 +127,24 @@
   margin: 0 auto;
 }
 
+.container-header .main .name_date .inputthree {
+  margin-top: 40px;
+}
+
+.container-header .main .name_date .inputthree input {
+  width: 60px;
+  height: 25px;
+}
+
+.container-header .main .name_date .inputthree input[type=text] {
+  text-align: center;
+}
+
+.container-header .main .name_date .inputthree input:hover {
+  background-color: #0329fd;
+  cursor: pointer;
+}
+
 .container-header .main .name_date .test-sub input {
   margin-top: 30px;
   width: 60px;
@@ -149,18 +167,29 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 600px;
+  height: 700px;
   width: 700px;
   margin: 150px auto;
   margin-bottom: 50px;
+}
+
+.container-header .form .titre-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100px;
 }
 
 .container-header .form .titre-form h2 {
   font-size: 60px;
   color: #0db2e4;
   text-align: center;
-  height: 50px;
-  margin-bottom: 10px;
 }
 
 .container-header .form label {
@@ -252,15 +281,26 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 100px;
+}
+
+.container-header .form .la-in .form5 label {
+  margin-top: 50px;
 }
 
 .container-header .form .la-in .form6 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 300px;
+}
+
+.container-header .form .la-in .form7 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -276,7 +316,39 @@
           align-items: center;
 }
 
-.container-header .form .la-in .form7 {
+.container-header .form .la-in .form7 button {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.container-header .form .la-in .form7 button:hover {
+  background-color: #00b7c47e;
+  cursor: pointer;
+}
+
+.container-header .form .la-in .form8 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container-header .form .la-in button {
+  width: 70px;
+  height: 30px;
+}
+
+.container-header .form .la-in .form9 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -315,12 +387,18 @@ input[type="submit"] {
   width: 220px;
 }
 
-.form7 input {
+.form7 button {
+  width: 45px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.form9 input {
   width: 60px;
 }
 
-.form7 #marjorie:hover {
-  background-color: #0329fd;
+#marjorie:hover {
+  background-color: #00b7c47e;
   cursor: pointer;
 }
 

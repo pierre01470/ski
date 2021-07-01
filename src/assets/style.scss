@@ -58,7 +58,7 @@ $fontone: "sporten_personal_useregular";
       }
 
       #link:hover {
-        color: rgb(1, 1, 19);
+        color: black;
       }
       //Fin HEADER
     }
@@ -115,6 +115,27 @@ $fontone: "sporten_personal_useregular";
           margin: 0 auto;
         }
       }
+
+      
+
+      .inputthree {
+        margin-top: 40px;
+        
+        input {
+          width: 60px;
+          height: 25px;
+        }
+        input[type=text] {
+          text-align: center;
+        }
+
+        input:hover {
+          background-color: rgb(3, 41, 253);
+          cursor: pointer;
+        }
+
+      }
+
       .test-sub {
         input {
           margin-top: 30px;
@@ -132,18 +153,21 @@ $fontone: "sporten_personal_useregular";
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 600px;
+    height: 700px;
     width: 700px;
     margin: 150px auto;
     margin-bottom: 50px;
 
     .titre-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;height: 100px;
+
       h2 {
         font-size: 60px;
         color: rgb(13, 178, 228);
         text-align: center;
-        height: 50px;
-        margin-bottom: 10px;
+        
       }
     }
 
@@ -158,7 +182,7 @@ $fontone: "sporten_personal_useregular";
       width: 100%;
       display: grid;
       grid-template-columns: repeat(2, 350px);
-      grid-template-rows: 100px 100px 200px 100px;
+      grid-template-rows: 100px 100px 200px 100px ;
 
       .form1 {
         display: flex;
@@ -188,17 +212,51 @@ $fontone: "sporten_personal_useregular";
       .form5 {
         display: flex;
         flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 100px;
+
+        label {
+          margin-top: 50px;
+        }
+      }
+
+      .form6 {
+        display: flex;
+        margin-right: 300px;
+      }
+
+  
+      .form7 {
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        button{
+          background-color: transparent;
+          color: white;
+          border: 2px solid white;
+        }
+          button:hover {
+          background-color: $ice;
+          cursor: pointer;
+        
+        }
+        
       }
-      .form6 {
+
+      .form8 {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
       }
-
-      .form7 {
+      button {
+          width: 70px;
+          height: 30px;
+        }
+      .form9 {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -229,14 +287,23 @@ input[type="submit"] {
 }
 
 .form7 {
+  button {
+    width: 45px;
+    height: 40px;
+    border-radius: 5px;
+  }
+}
+
+.form9 {
   input {
     width: 60px;
   }
+  }
   #marjorie:hover {
-    background-color: rgb(3, 41, 253);
+    background-color: $ice;
     cursor: pointer;
   }
-}
+
 
 input[type="file"] {
   height: 200px;
@@ -431,5 +498,7 @@ input[type="file"] {
     text-align: center;
   }
 }
+
+
 
  

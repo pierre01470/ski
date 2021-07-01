@@ -20,6 +20,9 @@
           placeholder="taper votre Date d'inscription..."
         />
       </div>
+      <div class="inputthree">
+        <input type="text" value="Valider" />
+      </div>
     </div>
     <div class="form">
       <form
@@ -68,11 +71,14 @@
           </div>
 
           <div class="form5">
+            <label for="#"> news </label>
+            <input type="text" />
             <label for="#"> Catégorie </label>
             <select type="text" name="category">
               <option value="1" v-for="category of categories" :key="category.id_category" >{{ category.name_category }}</option>
             </select>
           </div>
+
           <div class="form6">
             <div class="file-upload">
               <input
@@ -86,9 +92,14 @@
               <label for="file" id="picture">Photo</label>
             </div>
           </div>
+
           <div class="form7">
+            <button>salut</button>
+          </div>
+          <div class="form8">
             <input id="marjorie" type="submit" />
           </div>
+          <div class="form9"></div>
         </div>
       </form>
     </div>

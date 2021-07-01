@@ -7,10 +7,10 @@ $router->setBasePath('/ski/API');
 
 $router->map('GET', '/category', 'ControllerCategory#allCategories');
 $router->map('GET', '/participant', 'ControllerParticipants#allParticipant');
-$router->map('GET', '/run', 'ControllerRun#allRun');
+$router->map('GET', '/run', 'ControllerRun#allRuns');
 $router->map('GET', '/trial', 'ControllerTrial#allTrial');
 
-
+$router->map('GET', '/deleteParticipant[i:id]','ControllerParticipants#deleteOneParticipant');
 
 $match = $router->match();
 if ($match) {

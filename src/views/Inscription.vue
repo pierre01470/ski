@@ -70,7 +70,7 @@
           <div class="form5">
             <label for="#"> Catégorie </label>
             <select type="text" name="category">
-              <option value="1" v-for="categories in category" :key="categories.id_category">{{ categories.name_category }}</option>
+              <option value="1" v-for="category of categories" :key="category.id_category" >{{ category.name_category }}</option>
             </select>
           </div>
           <div class="form6">
@@ -96,28 +96,21 @@
 </template>
 
 <script>
-import ApiService from "../services/api.services.js";
-const apiservice = new ApiService();
+const axios = require("axios");
 
 export default {
-  name: "Inscription",
-  props: {
-    id_category: Number,
-    name_category: String
-  },
   data() {
     return {
-      category: null
+      categories: [],
+      errors: [],
     };
   },
-  mounted() {
-    this.listCategory();
-  },
-  methods: {
-    async listCategory() {
-      const res = await apiservice.getCategory();
-      const data = await res.json();
-      this.category = data;
+  async created() {
+    try {
+      const response = await axios.get(`http://localhost/ski/API/category`)
+      this.categories = response.data
+    } catch (e) {
+      this.errors.push(e)
     }
   }
 };

@@ -22,7 +22,6 @@ class RunsManager extends Model
 
     public function deleteRun($id)
     {
-        var_dump($id['id']);
         $db = $this->getDb();
         $req = $db->prepare('DELETE * FROM `run`  WHERE `id_run` = :id_run');
         $req->bindValue(':id_run', $id['id']);

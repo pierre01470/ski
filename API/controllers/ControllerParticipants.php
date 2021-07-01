@@ -21,6 +21,13 @@ class ControllerParticipants
         echo $participant;
     }
 
+    public function oneParticipant($id)
+    {
+        $manager = new ParticipantsManager();
+        $participant = $manager->getOneParticipant($id);
+        echo $participant;
+    }
+
     public function deleteOneParticipant($id)
     {
         $manager = new ParticipantsManager();

@@ -25,9 +25,9 @@
       <div class="inputthree">
         <input type="text" value="Valider" />
       </div>
-    </div>
-    <button class="valide" value="Valider">Valider</button>
-
+    </div>  
+    <a href="csv.php">
+      <button class="valide" value="Valider">Valider</button></a>
     <div class="form">
       <form
         v-on:submit.prevent="submitForm"

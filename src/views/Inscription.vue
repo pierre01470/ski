@@ -26,7 +26,8 @@
         <input type="text" value="Valider" />
       </div>
     </div>  
-      <button class="valide" value="Valider">Valider</button>
+    <a href="csv.php">
+      <button class="valide" value="Valider">Valider</button></a>
     
     <div class="form">
       <form

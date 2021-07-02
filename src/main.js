@@ -13,7 +13,7 @@ var listElm = document.querySelector('#infinite-list');
 
 var nextItem = 1;
 var loadMore = function() {
-  for (var i = 0; i < 20; i++) {
+  for (var i = 0; i < 0; i++) {
     var item = document.createElement('tr');
     item.innerText = 'Item ' + nextItem++;
     listElm.appendChild(item);

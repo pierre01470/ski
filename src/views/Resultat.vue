@@ -33,7 +33,6 @@
                             <td>temps</td>
                             <td>{{value.id_trial}}</td>
                             <td><button><img src="@/assets/ressources/poubelles.jpg" height="45px" width="45px" id="test" alt=""></button></td> 
-                            
                         </tr>
                 </tbody>
             </table>

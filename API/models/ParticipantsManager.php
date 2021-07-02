@@ -82,4 +82,27 @@ class ParticipantsManager extends Model
         $req->bindValue(':id_participant', $id['id']);
         $req->execute();
     }
+
+    public function getExportExcel()
+    {
+        $db = $this->getDb();
+        $select = $db->prepare('SELECT * FROM `participant`');
+
+        $select->setFetchMode(PDO::FETCH_ASSOC);
+        $select->execute();
+
+        $newReservations = $select->fetchAll();
+
+        $excel = "";
+        $excel .=  "Id\tNom\tPrénom\tN° dossard\n";
+
+        foreach ($newReservations as $row) {
+            $excel .= "$row[id_participant]\t$row[firstname]\t$row[lastname]\t$row[number]\n";
+        }
+
+        header("Content-type: application/vnd.ms-excel");
+        header("Content-disposition: attachment; filename=liste-participants.xls");
+        print $excel;
+        exit;
+    }
 }

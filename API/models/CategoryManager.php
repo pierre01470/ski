@@ -20,7 +20,6 @@ class CategoryManager extends Model
 
    public function deleteCategory($id)
    {
-      var_dump($id['id']);
       $db = $this->getDb();
       $req = $db->prepare('DELETE FROM `category`  WHERE `id_category` = :id_category');
       $req->bindValue(':id_category', $id['id']);

@@ -25,9 +25,15 @@
       <div class="inputthree">
         <input type="text" value="Valider" />
       </div>
-    </div>
-    <div class="form" v-on:submit="submitForm">
-      <form method="post">
+    </div>  
+      <button class="valide" value="Valider">Valider</button>
+    
+    <div class="form">
+      <form
+        action="./insertParticipants"
+        method="POST"
+        enctype="multipart/form-data"
+      >
         <div class="titre-form">
           <h2>Formulaire</h2>
         </div>

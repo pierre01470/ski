@@ -10,44 +10,35 @@
     </div>
 
     <div class="category">
-      <table>
-        <thead class="header-table">
-          <tr>
-            <th scope="col">Photo</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Prénom</th>
-            <th scope="col">Catégorie</th>
-            <th scope="col">Dossard</th>
-            <th scope="col">Temps</th>
-            <th scope="col">Classement</th>
-            <th scope="col">SUPPRIMER</th>
-          </tr>
-        </thead>
-        <tbody class="body-table" v-if="participants && participants.length">
-          <tr
-            v-for="participant of participants"
-            :key="participant.id_participant"
-          >
-            <td></td>
-            <td>{{ participant.lastname }}</td>
-            <td>{{ participant.firstname }}</td>
-            <td>{{ participant.id_category }}</td>
-            <td>{{ participant.number }}</td>
-            <td>temps</td>
-            <td>{{ participant.id_trial }}</td>
-            <td>
-              <button v-on:click="del()">
-                <img
-                  :src="''"
-                  width="40px"
-                  height="40px"
-                  alt="logo_supprimer"
-                />
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <table >
+                <thead class="header-table">
+                    <tr>
+                        <th scope="col">Photo</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prénom</th>
+                        <th scope="col">Catégorie</th>
+                        <th scope="col">Dossard</th>
+                        <th scope="col">Temps</th>
+                        <th scope="col">Classement</th>
+                        <th scope="col">SUPPRIMER</th>
+                    </tr>
+                </thead>
+                <tbody class="body-table" id = "infinite-list">
+                        <tr v-for="value in data" :key="value.id_participant">
+                            <td>Photo</td>
+                            <td>{{value.lastname}}</td>
+                            <td>{{value.firstname}}</td>
+                            <td>{{value.id_category}}</td>
+                            <td>{{value.number}}</td>
+                            <td>temps</td>
+                            <td>{{value.id_trial}}</td>
+                            <td><button><img src="@/assets/ressources/poubelles.jpg" height="45px" width="45px" id="test" alt=""></button></td> 
+                            
+                        </tr>
+                </tbody>
+            </table>
+
+      
     </div>
   </section>
 </template>

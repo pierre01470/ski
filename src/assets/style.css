@@ -56,6 +56,27 @@
   color: black;
 }
 
+.container-header .valide {
+  background: rgba(3, 3, 3, 0.37);
+  border-radius: 5px;
+  height: 80px;
+  width: 110px;
+  border: 2px solid black;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  left: 1200px;
+  top: 300px;
+  margin-right: 50px;
+  font-size: 25px;
+  position: fixed;
+}
+
+.container-header button:hover {
+  background-color: #00b7c47e;
+  cursor: pointer;
+}
+
 .container-header .main .name_date {
   background: rgba(3, 3, 3, 0.692);
   height: 340px;
@@ -572,6 +593,7 @@ input[type="file"] #picture {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: rgba(42, 166, 248, 0.7);
+  height: 450px;
 }
 
 .main-resultat .category .body-table tr {
@@ -592,6 +614,7 @@ input[type="file"] #picture {
   padding: 30px;
   border-collapse: collapse;
   width: 50px;
+  height: 50px;
 }
 
 .main-resultat .category .body-table tr:hover {
@@ -632,5 +655,9 @@ input[type="file"] #picture {
   width: 80%;
   padding-left: 18px;
   text-align: center;
+}
+
+#infinite-list {
+  overflow: auto;
 }
 /*# sourceMappingURL=style.css.map */

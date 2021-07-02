@@ -23,7 +23,7 @@
                         <th scope="col">SUPPRIMER</th>
                     </tr>
                 </thead>
-                <tbody class="body-table">
+                <tbody class="body-table" id = "infinite-list">
                         <tr v-for="value in data" :key="value.id_participant">
                             <td>Photo</td>
                             <td>{{value.lastname}}</td>
@@ -32,49 +32,32 @@
                             <td>{{value.number}}</td>
                             <td>temps</td>
                             <td>{{value.id_trial}}</td>
-                            <td><button><img :src="''" width="40px" height="40px" alt="logo_supprimer"></button></td>
+                            <td><button><img src="@/assets/ressources/poubelles.jpg" height="45px" width="45px" id="test" alt=""></button></td> 
+                            
                         </tr>
                 </tbody>
             </table>
+
       
     </div>
   </section>
 </template>
 
 <script>
-
-
-import ApiService from "../services/api.services.js";
-
-
-const apiservice = new ApiService();
-
+const axios = require("axios");
 export default {
-  name: "Resultat",
-  props: {
-    id_participant: Number,
-    firstname: String,
-    lastname: String,
-    date_birth: Date,
-    email: String,
-    number: String,
-    photo: String,
-    id_trial: Number,
-    id_category: Number,
-  },
   data() {
     return {
-      data: null,
+      participants: []
     };
   },
-  mounted() {
-    this.listParticipant();
+  async mounted() {
+    const response = await axios.get(`http://localhost/ski/API/participant`);
+    this.participants = response.data;
   },
   methods: {
-    async listParticipant() {
-      const res = await apiservice.getParticipant();
-      const data = await res.json();
-      this.data = data;
+    async del() {
+      await axios.delete(`http://localhost/ski/API/deleteParticipant`);
     },
   },
 };

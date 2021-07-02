@@ -1,5 +1,5 @@
 <template>
-  <div id="" class="container-header">
+  <div id="app" class="container-header">
     <Header />
     <router-view />
     <Footer />
@@ -9,9 +9,6 @@
 <script>
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
-import ApiService from "./services/api.services.js";
-
-const apiservice = new ApiService();
 
 export default {
   name: "App",

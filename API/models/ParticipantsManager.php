@@ -94,14 +94,14 @@ class ParticipantsManager extends Model
         $newReservations = $select->fetchAll();
 
         $excel = "";
-        $excel .=  "Id\tNom\tPrénom\tN° dossard\n";
+        $excel .=  "Id".';'."Nom".';'."Prénom".';'."N° dossard".';'."1er passage".';'."2nd passage";
 
         foreach ($newReservations as $row) {
-            $excel .= "$row[id_participant]\t$row[firstname]\t$row[lastname]\t$row[number]\n";
+            $excel .= "\n".'"'.$row['id_participant'].'";"'.$row['firstname'].'";"'.$row['lastname'].'";"'.$row['number'].'"';
         }
 
-        header("Content-type: application/vnd.ms-excel");
-        header("Content-disposition: attachment; filename=liste-participants.xls");
+        header("Content-type: application/vnd.ms-excel;charset=UTF-8");
+        header("Content-disposition: attachment; filename=liste-participants.csv;charset=UTF-8");
         print $excel;
         exit;
     }

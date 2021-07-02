@@ -6,7 +6,7 @@ $router = new AltoRouter();
 $router->setBasePath('/ski/API');
 
 $router->map('POST', '/insertParticipant','ControllerParticipants#insertParticipants');
-$router->map('POST', '/exportExcel','ControllerParticipants#exportExcel');
+$router->map('GET', '/exportExcel','ControllerParticipants#exportExcel');
 
 $router->map('GET', '/category', 'ControllerCategory#allCategories');
 $router->map('GET', '/participant', 'ControllerParticipants#allParticipant');

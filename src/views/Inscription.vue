@@ -26,8 +26,7 @@
         <input type="text" value="Valider" />
       </div>
     </div>  
-    <a href="csv.php">
-      <button class="valide" value="Valider">Valider</button></a>
+      <button v-on:click.prevent="exportForm" class="valide" value="Valider">Valider</button>
     <div class="form">
       <form
         v-on:submit.prevent="submitForm"
@@ -153,8 +152,10 @@ export default {
     },
     async submitForm() {
       console.log(this.form)
-      await axios.post(`http://localhost/ski/API/insertParticipant`,
-      this.form);
+      await axios.post(`http://localhost/ski/API/insertParticipant`, this.form);
+    },
+    async exportForm() {
+      await axios.get(`http://localhost/ski/API/exportExcel`);
     },
   },
 };

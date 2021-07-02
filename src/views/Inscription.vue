@@ -7,6 +7,7 @@
       <div class="inputone">
         <label for="#"> Nom de la station </label>
         <input
+          v-model="station_name"
           type="text"
           name="station_name"
           placeholder="taper votre Nom station..."
@@ -15,6 +16,7 @@
       <div class="inputtwo">
         <label for="#"> Date d'inscription </label>
         <input
+          v-model="registration_date"
           type="text"
           name="registration_date"
           placeholder="taper votre Date d'inscription..."
@@ -23,9 +25,7 @@
       <div class="inputthree">
         <input type="text" value="Valider" />
       </div>
-    </div>
-
-    
+    </div>  
       <button class="valide" value="Valider">Valider</button>
     
     <div class="form">
@@ -41,6 +41,7 @@
           <div class="form1">
             <label for="#"> Nom </label>
             <input
+              v-model="lastname"
               type="text"
               name="lastname"
               placeholder="taper votre Nom..."
@@ -50,6 +51,7 @@
           <div class="form2">
             <label for="#"> Prénom </label>
             <input
+              v-model="firstname"
               type="text"
               name="firstname"
               placeholder="taper votre Prénom..."
@@ -59,6 +61,7 @@
           <div class="form3">
             <label for="#"> Email </label>
             <input
+              v-model="email"
               type="email"
               name="email"
               placeholder="taper votre Email..."
@@ -68,6 +71,7 @@
           <div class="form4">
             <label for="#"> Date de naissance </label>
             <input
+              v-model="date_birth"
               type="date"
               name="date_birth"
               placeholder="taper votre Date de naissance..."
@@ -75,11 +79,16 @@
           </div>
 
           <div class="form5">
-            <label for="#"> news </label>
-            <input type="text" />
+            <label for="number">n° Dossard</label>
+            <input type="text" name="number" id="number" />
             <label for="#"> Catégorie </label>
-            <select type="text" name="category">
-              <option value="1" v-for="category of categories" :key="category.id_category" >{{ category.name_category }}</option>
+            <select type="text" name="category" v-model="category">
+              <option
+                v-for="category of categories"
+                :key="category.id_category"
+                :value="category.id_category"
+                >{{ category.name_category }}</option
+              >
             </select>
           </div>
 
@@ -98,10 +107,10 @@
           </div>
 
           <div class="form7">
-            <button>salut</button>
+            <div id="idButton" v-on:click="generate()">Generer ID</div>
           </div>
           <div class="form8">
-            <input id="marjorie" type="submit" />
+            <input id="marjorie" type="submit" value="Ajout participant" />
           </div>
           <div class="form9"></div>
         </div>
@@ -112,21 +121,39 @@
 
 <script>
 const axios = require("axios");
-
 export default {
   data() {
     return {
       categories: [],
-      errors: [],
+      form: {
+                station_name: '',
+                registration_date: '',
+                lastname: '',
+                firstname: '',
+                profession: '',
+                message: '',
+                satisfaction: '5',
+                interested: '',
+                terms: ''
+            }
     };
   },
-  async created() {
-    try {
-      const response = await axios.get(`http://localhost/ski/API/category`)
-      this.categories = response.data
-    } catch (e) {
-      this.errors.push(e)
-    }
-  }
+  async mounted() {
+    const response = await axios.get(`http://localhost/ski/API/category`);
+    this.categories = response.data;
+  },
+  methods: {
+    async generate() {
+      let id = () => {
+        return Math.floor((1 + Math.random()) * 0x10000)
+          .toString(16)
+          .substring(1);
+      };
+      document.getElementById("number").value = id();
+    },
+    async submitForm() {
+      
+    },
+  },
 };
 </script>

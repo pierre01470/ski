@@ -5,9 +5,10 @@ class TrialsManager extends Model
     public function getAllTrial()
    {
       $db = $this->getDb();
-      $req = json_encode($db->query('SELECT * FROM `trial`')->fetchAll(PDO::FETCH_KEY_PAIR));
-      return $req;
+      $req = $db->query('SELECT * FROM `trial`')->fetchAll(PDO::FETCH_ASSOC);
+      return json_encode($req);
    }
+
     public function getInsertTrial($insert){
     $db = $this->getDb();
     $req = $db->prepare('INSERT INTO `trial`(`id_trial`, `name_station`, `trial_date`) VALUE (:id_trial, :name_station, :trial_date');
@@ -17,6 +18,7 @@ class TrialsManager extends Model
     $req->bindValue(':number', $insert->getNumber());
     $req->execute();
     }
+
     public function deleteTrial($id)
     {
         var_dump($id['id']);

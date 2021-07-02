@@ -45,45 +45,26 @@
 </template>
 
 <script>
-
-
-import ApiService from "../services/api.services.js";
-
-
-
-const apiservice = new ApiService();
-
+const axios = require("axios");
 export default {
-  name: "Resultat",
-  props: {
-    id_participant: Number,
-    firstname: String,
-    lastname: String,
-    date_birth: Date,
-    email: String,
-    number: String,
-    photo: String,
-    id_trial: Number,
-    id_category: Number,
-  },
   data() {
     return {
-      data: null,
+      participants: [],
+      errors: [],
     };
   },
-  mounted() {
-    this.listParticipant();
+  async mounted() {
+    try {
+      const response = await axios.get(`http://localhost/ski/API/participant`);
+      this.participants = response.data;
+    } catch (e) {
+      this.errors.push(e);
+    }
   },
   methods: {
-    async listParticipant() {
-      const res = await apiservice.getParticipant();
-      const data = await res.json();
-      this.data = data;
+    async del() {
+      await axios.get(`http://localhost/ski/API/deleteParticipant3`);
     },
   },
 };
-
-
-    
-
 </script>

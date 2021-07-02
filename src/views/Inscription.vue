@@ -7,7 +7,7 @@
       <div class="inputone">
         <label for="#"> Nom de la station </label>
         <input
-          v-model="station_name"
+          v-model="form.station_name"
           type="text"
           name="station_name"
           placeholder="taper votre Nom station..."
@@ -16,7 +16,7 @@
       <div class="inputtwo">
         <label for="#"> Date d'inscription </label>
         <input
-          v-model="registration_date"
+          v-model="form.registration_date"
           type="text"
           name="registration_date"
           placeholder="taper votre Date d'inscription..."
@@ -25,12 +25,13 @@
       <div class="inputthree">
         <input type="text" value="Valider" />
       </div>
-    </div>  
-      <button class="valide" value="Valider">Valider</button>
-    
+    </div>
+    <button class="valide" value="Valider">Valider</button>
+
     <div class="form">
       <form
-        action="./insertParticipants"
+        v-on:submit.prevent="submitForm"
+        action=""
         method="POST"
         enctype="multipart/form-data"
       >
@@ -41,7 +42,7 @@
           <div class="form1">
             <label for="#"> Nom </label>
             <input
-              v-model="lastname"
+              v-model="form.lastname"
               type="text"
               name="lastname"
               placeholder="taper votre Nom..."
@@ -51,7 +52,7 @@
           <div class="form2">
             <label for="#"> Prénom </label>
             <input
-              v-model="firstname"
+              v-model="form.firstname"
               type="text"
               name="firstname"
               placeholder="taper votre Prénom..."
@@ -61,7 +62,7 @@
           <div class="form3">
             <label for="#"> Email </label>
             <input
-              v-model="email"
+              v-model="form.email"
               type="email"
               name="email"
               placeholder="taper votre Email..."
@@ -71,7 +72,7 @@
           <div class="form4">
             <label for="#"> Date de naissance </label>
             <input
-              v-model="date_birth"
+              v-model="form.date_birth"
               type="date"
               name="date_birth"
               placeholder="taper votre Date de naissance..."
@@ -80,9 +81,9 @@
 
           <div class="form5">
             <label for="number">n° Dossard</label>
-            <input type="text" name="number" id="number" />
+            <input type="text" name="number" id="number" v-model="form.number"/>
             <label for="#"> Catégorie </label>
-            <select type="text" name="category" v-model="category">
+            <select type="text" name="category" v-model="form.category">
               <option
                 v-for="category of categories"
                 :key="category.id_category"
@@ -126,16 +127,15 @@ export default {
     return {
       categories: [],
       form: {
-                station_name: '',
-                registration_date: '',
-                lastname: '',
-                firstname: '',
-                profession: '',
-                message: '',
-                satisfaction: '5',
-                interested: '',
-                terms: ''
-            }
+        station_name: "",
+        registration_date: "",
+        lastname: "",
+        firstname: "",
+        email: "",
+        date_birth: "",
+        number: "",
+        category: "",
+      },
     };
   },
   async mounted() {
@@ -152,7 +152,9 @@ export default {
       document.getElementById("number").value = id();
     },
     async submitForm() {
-      
+      console.log(this.form)
+      await axios.post(`http://localhost/ski/API/insertParticipant`,
+      this.form);
     },
   },
 };

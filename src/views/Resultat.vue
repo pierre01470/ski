@@ -24,7 +24,7 @@
                     </tr>
                 </thead>
                 <tbody class="body-table" id = "infinite-list">
-                        <tr v-for="value in data" :key="value.id_participant">
+                        <tr v-for="value in participants" :key="value.id_participant">
                             <td>Photo</td>
                             <td>{{value.lastname}}</td>
                             <td>{{value.firstname}}</td>
@@ -33,7 +33,6 @@
                             <td>temps</td>
                             <td>{{value.id_trial}}</td>
                             <td><button><img src="@/assets/ressources/poubelles.jpg" height="45px" width="45px" id="test" alt=""></button></td> 
-                            
                         </tr>
                 </tbody>
             </table>

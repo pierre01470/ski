@@ -25,8 +25,10 @@
       <div class="inputthree">
         <input type="text" value="Valider" />
       </div>
-    </div>  
-      <button v-on:click.prevent="exportForm" class="valide" value="Valider">Valider</button>
+    </div>
+    <button v-on:click.prevent="exportForm" class="valide" value="Valider">
+      Valider
+    </button>
     <div class="form">
       <form
         v-on:submit.prevent="submitForm"
@@ -80,7 +82,12 @@
 
           <div class="form5">
             <label for="number">n° Dossard</label>
-            <input type="text" name="number" id="number" v-model="form.number"/>
+            <input
+              type="text"
+              name="number"
+              id="number"
+              v-model="form.number"
+            />
             <label for="#"> Catégorie </label>
             <select type="text" name="category" v-model="form.category">
               <option
@@ -95,6 +102,7 @@
           <div class="form6">
             <div class="file-upload">
               <input
+                @change="previewFiles"
                 class="inPhoto"
                 type="file"
                 name="photo"
@@ -134,6 +142,7 @@ export default {
         date_birth: "",
         number: "",
         category: "",
+        photo: null
       },
     };
   },
@@ -150,8 +159,11 @@ export default {
       };
       document.getElementById("number").value = id();
     },
+    previewFiles(event) {
+      const photo = event.target.files
+      return this.photo = photo
+   },
     async submitForm() {
-      console.log(this.form)
       await axios.post(`http://localhost/ski/API/insertParticipant`, this.form);
     },
     async exportForm() {

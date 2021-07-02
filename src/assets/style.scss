@@ -233,12 +233,12 @@ $fontone: "sporten_personal_useregular";
         justify-content: center;
         align-items: center;
 
-        button{
+        div{
           background-color: transparent;
           color: white;
           border: 2px solid white;
         }
-          button:hover {
+          div:hover {
           background-color: $ice;
           cursor: pointer;
         

@@ -316,13 +316,13 @@
           align-items: center;
 }
 
-.container-header .form .la-in .form7 button {
+.container-header .form .la-in .form7 div {
   background-color: transparent;
   color: white;
   border: 2px solid white;
 }
 
-.container-header .form .la-in .form7 button:hover {
+.container-header .form .la-in .form7 div:hover {
   background-color: #00b7c47e;
   cursor: pointer;
 }

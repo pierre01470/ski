@@ -50,7 +50,6 @@
       </table>
     </div>
   </section>
-  
 </template>
 
 <script>
@@ -58,21 +57,16 @@ const axios = require("axios");
 export default {
   data() {
     return {
-      participants: [],
-      errors: [],
+      participants: []
     };
   },
   async mounted() {
-    try {
-      const response = await axios.get(`http://localhost/ski/API/participant`);
-      this.participants = response.data;
-    } catch (e) {
-      this.errors.push(e);
-    }
+    const response = await axios.get(`http://localhost/ski/API/participant`);
+    this.participants = response.data;
   },
   methods: {
     async del() {
-      await axios.get(`http://localhost/ski/API/deleteParticipant3`);
+      await axios.delete(`http://localhost/ski/API/deleteParticipant`);
     },
   },
 };

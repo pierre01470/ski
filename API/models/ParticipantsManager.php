@@ -4,6 +4,7 @@ class ParticipantsManager extends Model
 {
     public function addParticipants($insert)
     {
+        $db = $this->getDb();
         // Insert Photo
         if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0) {
             $dossier = './ressources/profile\\';
@@ -43,7 +44,6 @@ class ParticipantsManager extends Model
             if (
                 isset($_POST['lastname']) && !empty($_POST['lastname']) && isset($_POST['firstname']) && !empty($_POST['firstname']) && isset($_POST['date_birth']) && !empty($_POST['date_birth']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_FILES['photo']) && !empty($_FILES['photo']) && isset($_POST['number']) && !empty($_POST['number'])
             ) {
-                $db = $this->getDb();
                 $req = $db->prepare('INSERT INTO `participant`(`lastname`, `firstname`, `date_birth`, `email`, `photo`, `number`, `id_trial`, `id_category`) VALUES (:lastname, :firstname, :date_birth, :email, :photo, :number, :id_trial, :id_category)');
                 $req->bindValue(':lastname', $insert->getLastname());
                 $req->bindValue(':firstname', $insert->getFirstname());

@@ -1,10 +1,7 @@
 <?php
-
-
-
 //conversion en milli//
 
-$timeString = '00:52:24,68';
+$timeString = $;
 $dateTime   = DateTime::createFromFormat('H:i:s,u', $timeString);
  
 $milliseconds =
@@ -16,7 +13,7 @@ $milliseconds =
 echo $milliseconds;
 
 //conversion en min-sec
-$input = 3144680;
+$input = $milliseconds;
 
 $milliseconds= $input % 1000;
 $input = floor($input / 1000);

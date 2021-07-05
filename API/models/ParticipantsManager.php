@@ -100,7 +100,7 @@ class ParticipantsManager extends Model
             $excel .= "\n".'"'.$row['id_participant'].'";"'.$row['firstname'].'";"'.$row['lastname'].'";"'.$row['number'].'"';
         }
 
-        header("Content-type: application/vnd.ms-excel;charset=UTF-8");
+        header("Content-type: text/html;charset=UTF-8");
         header("Content-disposition: attachment; filename=liste-participants.csv;charset=UTF-8");
         print $excel;
         exit;

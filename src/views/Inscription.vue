@@ -25,9 +25,9 @@
       <div class="inputthree">
         <input type="text" value="Valider" />
       </div>
-    </div>  
-      <button class="valide" value="Valider">Valider</button>
-    
+    </div>
+    <button class="valide" value="Valider">Valider</button>
+
     <div class="form">
       <form
         action="./insertParticipants"
@@ -80,15 +80,16 @@
 
           <div class="form5">
             <label for="number">n° Dossard</label>
-            <input type="text" name="number" id="number" />
+            <input type="text" name="number" id="number" placeholder="taper votre Numero de dossard..." />
             <label for="#"> Catégorie </label>
             <select type="text" name="category" v-model="category">
               <option
                 v-for="category of categories"
                 :key="category.id_category"
                 :value="category.id_category"
-                >{{ category.name_category }}</option
               >
+                {{ category.name_category }}
+              </option>
             </select>
           </div>
 
@@ -107,7 +108,7 @@
           </div>
 
           <div class="form7">
-            <div id="idButton" v-on:click="generate()">Generer ID</div>
+            <div id="dossardBtn" v-on:click="generate()">Generer: <br> N° dossard</div>
           </div>
           <div class="form8">
             <input id="marjorie" type="submit" value="Ajout participant" />
@@ -116,8 +117,51 @@
         </div>
       </form>
     </div>
+
+    <div class="liste-participant">
+      <table>
+        <thead class="liste-header">
+          <tr>
+            <th scope="col">M1</th>
+            <th scope="col">M2</th>
+            <th scope="col">M3</th>
+            <th scope="col">Senior</th>
+            <th scope="col">V</th>
+            <th scope="col">Snow</th>
+            <th scope="col">Nouvelle Glisse</th>
+          </tr>
+          <tr class="nbr-parti">
+            
+              <th scope="col">Nombre participant</th>
+            <th scope="col">Nombre participant</th>
+            <th scope="col">Nombre participant</th>
+            <th scope="col">Nombre participant</th>
+            <th scope="col">Nombre participant</th>
+            <th scope="col">Nombre participant</th>
+            <th scope="col">Nombre participant</th>
+
+          </tr>
+        </thead>
+        <tbody class="liste-middle">
+          <tr>
+            <td>Nbr parti</td>
+            <td>Nbr parti</td>
+            <td>Nbr parti</td>
+            <td>Nbr parti</td>
+            <td>Nbr parti</td>
+            <td>Nbr parti</td>
+            <td>Nbr parti</td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 </template>
+
+
+
+
 
 <script>
 const axios = require("axios");
@@ -125,22 +169,27 @@ export default {
   data() {
     return {
       categories: [],
+      participants: [],
       form: {
-                station_name: '',
-                registration_date: '',
-                lastname: '',
-                firstname: '',
-                profession: '',
-                message: '',
-                satisfaction: '5',
-                interested: '',
-                terms: ''
-            }
+        station_name: "",
+        registration_date: "",
+        lastname: "",
+        firstname: "",
+        profession: "",
+        message: "",
+        satisfaction: "5",
+        interested: "",
+        terms: "",
+      },
     };
   },
   async mounted() {
     const response = await axios.get(`http://localhost/ski/API/category`);
     this.categories = response.data;
+  },
+  async mounted() {
+    const response = await axios.get(`http://localhost/ski/API/participant`);
+    this.participants = response.data;
   },
   methods: {
     async generate() {
@@ -149,11 +198,10 @@ export default {
           .toString(16)
           .substring(1);
       };
+
       document.getElementById("number").value = id();
     },
-    async submitForm() {
-      
-    },
+    async submitForm() {},
   },
 };
 </script>

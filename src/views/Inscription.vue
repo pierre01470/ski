@@ -31,7 +31,7 @@
     </button>
     <div class="form">
       <form
-        v-on:submit.prevent="submitForm"
+        v-on:submit.prevent="submitForm()"
         action=""
         method="POST"
         enctype="multipart/form-data"
@@ -142,7 +142,7 @@ export default {
         date_birth: "",
         number: "",
         category: "",
-        photo: null
+        photo: '',
       },
     };
   },
@@ -160,11 +160,21 @@ export default {
       document.getElementById("number").value = id();
     },
     previewFiles(event) {
-      const photo = event.target.files
-      return this.photo = photo
-   },
+      console.log(event)
+      const photo = event.target.files;
+      this.photo = photo.results;
+      console.log(photo)
+    },
     async submitForm() {
-      await axios.post(`http://localhost/ski/API/insertParticipant`, this.form);
+      await axios.post(
+        `http://localhost/ski/API/insertParticipant`,
+        this.form,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
     },
     async exportForm() {
       await axios.get(`http://localhost/ski/API/exportExcel`);

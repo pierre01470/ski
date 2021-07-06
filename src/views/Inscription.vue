@@ -23,7 +23,7 @@
         />
       </div>
       <div class="inputthree">
-        <input type="text" value="Valider" />
+        <input type="submit" value="Valider" />
       </div>
     </div>
     <button v-on:click.prevent="exportForm" class="valide" value="Valider">
@@ -31,7 +31,7 @@
     </button>
     <div class="form">
       <form
-        v-on:submit.prevent="submitForm()"
+        v-on:submit.prevent="submitForm"
         action=""
         method="POST"
         enctype="multipart/form-data"
@@ -83,6 +83,7 @@
           <div class="form5">
             <label for="number">n° Dossard</label>
             <input
+              disabled
               type="text"
               name="number"
               id="number"
@@ -118,7 +119,7 @@
             <div id="idButton" v-on:click="generate()">Generer ID</div>
           </div>
           <div class="form8">
-            <input id="marjorie" type="submit" value="Ajout participant" />
+            <button id="marjorie" type="submit" value="Ajout participant" />
           </div>
           <div class="form9"></div>
         </div>
@@ -142,7 +143,6 @@ export default {
         date_birth: "",
         number: "",
         category: "",
-        photo: '',
       },
     };
   },
@@ -152,29 +152,26 @@ export default {
   },
   methods: {
     async generate() {
-      let id = () => {
-        return Math.floor((1 + Math.random()) * 0x10000)
-          .toString(16)
-          .substring(1);
-      };
-      document.getElementById("number").value = id();
+      var id = Math.floor((1 + Math.random()) * 0x1000000)
+        .toString(16)
+        .substring(1);
+      document.getElementById("number").value = id;
+      this.form.number = id;
     },
-    previewFiles(event) {
-      console.log(event)
-      const photo = event.target.files;
-      this.photo = photo.results;
-      console.log(photo)
+    previewFiles(e) {
+      const selectedImage = e.target.files[0];
+      this.createBase64Image(selectedImage);
+    },
+    createBase64Image(fileObject) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.form.photo = e.target.result;
+      };
+      reader.readAsDataURL(fileObject);
     },
     async submitForm() {
-      await axios.post(
-        `http://localhost/ski/API/insertParticipant`,
-        this.form,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      console.log(this.form);
+      await axios.post(`http://localhost/ski/API/insertParticipant`, this.form);
     },
     async exportForm() {
       await axios.get(`http://localhost/ski/API/exportExcel`);

@@ -7,7 +7,26 @@ class ControllerParticipants
     {
         $data = json_decode(file_get_contents('php://input'));
         var_dump($data);
-        $insert = new Participants(array('lastname' => $data->lastname, 'firstname' => $data->firstname, 'date_birth' => $data->date_birth, 'email' => $data->email, 'photo' => $_FILES['photo'], 'number' => $data->number, 'id_category' => $data->category));
+        if (!empty($data->photo)) {
+            $b64 = explode(',', $data->photo);
+            $bin = base64_decode($b64[1]);
+            $im = imageCreateFromString($bin);
+            if (!$im) {
+                die('Base64 value is not a valid image');
+            }
+            // rename Photo
+            if (isset($im)) {
+                // check if the file already exist
+                $filename = uniqid(date("Ymd"));
+                $file_rename = "../src/assets/ressources/profile/" . $filename . ".png";
+                $file_rename;
+                imagepng($im, $file_rename, 0);
+            }
+        } else {
+            // if no photo selected send default photo
+            $file_rename = '../src/assets/ressources/profile/camera.png"';
+        }
+        $insert = new Participants(array('lastname' => $data->lastname, 'firstname' => $data->firstname, 'date_birth' => $data->date_birth, 'email' => $data->email, 'photo' => $file_rename, 'number' => $data->number, 'id_category' => $data->category));
         $manager = new ParticipantsManager();
         $participants = $manager->addParticipants($insert);
     }
@@ -33,7 +52,8 @@ class ControllerParticipants
         $manager->deleteParticipant($id);
     }
 
-    public function exportExcel(){
+    public function exportExcel()
+    {
         $manager = new ParticipantsManager();
         $manager->getExportExcel();
     }

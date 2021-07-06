@@ -160,7 +160,7 @@
 }
 
 .container-header .main .name_date .inputthree input:hover {
-  background-color: #0329fd;
+  background-color: #0CEEF6;
   cursor: pointer;
 }
 
@@ -406,10 +406,20 @@ input[type="submit"] {
   width: 220px;
 }
 
-.form7 button {
-  width: 45px;
-  height: 40px;
+.form7 #dossardBtn {
+  width: 80px;
+  height: 50px;
   border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
 }
 
 .form9 input {
@@ -417,7 +427,7 @@ input[type="submit"] {
 }
 
 #marjorie:hover {
-  background-color: #00b7c47e;
+  background-color: #0CEEF6;
   cursor: pointer;
 }
 
@@ -538,6 +548,16 @@ input[type="file"] #picture {
   width: 100%;
 }
 
+.main-resultat .name-station {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.main-resultat .date-epr {
+  text-align: center;
+  margin-top: 5px;
+}
+
 .main-resultat .category {
   background-color: #08080885;
   height: 500px;
@@ -613,6 +633,11 @@ input[type="file"] #picture {
   border-collapse: collapse;
   width: 50px;
   height: 50px;
+  text-align: center;
+}
+
+.main-resultat .category .body-table td img {
+  width: 50px;
 }
 
 .main-resultat .category .body-table tr:hover {
@@ -657,5 +682,95 @@ input[type="file"] #picture {
 
 #infinite-list {
   overflow: auto;
+}
+
+.liste-participant {
+  background-color: #08080885;
+  width: 70%;
+  height: auto;
+  margin: 20px auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (2)[2];
+      grid-template-rows: repeat(2, 2);
+}
+
+.liste-participant tr {
+  height: 80px;
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.liste-participant tr td {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.liste-participant .liste-header {
+  background: rgba(15, 113, 226, 0.685);
+  width: 100%;
+  color: white;
+}
+
+.liste-participant .liste-header tr {
+  height: 80px;
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.liste-participant .liste-header tr th {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 25px;
+}
+
+.liste-participant .liste-header .nbr-parti {
+  background-color: rgba(145, 240, 219, 0.698);
+}
+
+.liste-participant .liste-middle {
+  background: rgba(251, 251, 251, 0.575);
+  width: 100%;
+}
+
+.liste-participant .liste-middle tr {
+  height: 80px;
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.liste-participant .liste-middle tr td {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=style.css.map */

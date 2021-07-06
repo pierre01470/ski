@@ -95,8 +95,9 @@
                 v-for="category of categories"
                 :key="category.id_category"
                 :value="category.id_category"
-                >{{ category.name_category }}</option
               >
+                {{ category.name_category }}
+              </option>
             </select>
           </div>
 
@@ -116,7 +117,7 @@
           </div>
 
           <div class="form7">
-            <div id="idButton" v-on:click="generate()">Generer ID</div>
+            <div id="dossardBtn" v-on:click="generate()">Generer: <br> N° dossard</div>
           </div>
           <div class="form8">
             <button id="marjorie" type="submit" value="Ajout participant" />
@@ -125,8 +126,51 @@
         </div>
       </form>
     </div>
+
+    <div class="liste-participant">
+      <table>
+        <thead class="liste-header">
+          <tr>
+            <th scope="col">M1</th>
+            <th scope="col">M2</th>
+            <th scope="col">M3</th>
+            <th scope="col">Senior</th>
+            <th scope="col">V</th>
+            <th scope="col">Snow</th>
+            <th scope="col">Nouvelle Glisse</th>
+          </tr>
+          <tr class="nbr-parti">
+            
+              <th scope="col">Nombre participant</th>
+            <th scope="col">Nombre participant</th>
+            <th scope="col">Nombre participant</th>
+            <th scope="col">Nombre participant</th>
+            <th scope="col">Nombre participant</th>
+            <th scope="col">Nombre participant</th>
+            <th scope="col">Nombre participant</th>
+
+          </tr>
+        </thead>
+        <tbody class="liste-middle">
+          <tr>
+            <td>Nbr parti</td>
+            <td>Nbr parti</td>
+            <td>Nbr parti</td>
+            <td>Nbr parti</td>
+            <td>Nbr parti</td>
+            <td>Nbr parti</td>
+            <td>Nbr parti</td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 </template>
+
+
+
+
 
 <script>
 const axios = require("axios");
@@ -134,6 +178,7 @@ export default {
   data() {
     return {
       categories: [],
+      participants: [],
       form: {
         station_name: "",
         registration_date: "",
@@ -149,6 +194,10 @@ export default {
   async mounted() {
     const response = await axios.get(`http://localhost/ski/API/category`);
     this.categories = response.data;
+  },
+  async mounted() {
+    const response = await axios.get(`http://localhost/ski/API/participant`);
+    this.participants = response.data;
   },
   methods: {
     async generate() {

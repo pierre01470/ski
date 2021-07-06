@@ -11,7 +11,10 @@
   }
 }
 
+$red: #D9142B;
+$blue1: #0CEEF6;
 $ice: #00b7c47e;
+$blue2: #2F0CF6;
 $fontone: "sporten_personal_useregular";
 
 * {
@@ -154,7 +157,7 @@ $fontone: "sporten_personal_useregular";
         }
 
         input:hover {
-          background-color: rgb(3, 41, 253);
+          background-color: $blue1;
           cursor: pointer;
         }
 
@@ -311,10 +314,14 @@ input[type="submit"] {
 }
 
 .form7 {
-  button {
-    width: 45px;
-    height: 40px;
+  #dossardBtn {
+    width: 80px;
+    height: 50px;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
   }
 }
 
@@ -324,9 +331,12 @@ input[type="submit"] {
   }
   }
   #marjorie:hover {
-    background-color: $ice;
+    background-color: $blue1;
     cursor: pointer;
   }
+  
+
+
 
 
 input[type="file"] {
@@ -380,6 +390,8 @@ input[type="file"] {
   }
 }
 
+
+
     // Fin MIDDLE
     //FOOTER
 .pied-page {
@@ -430,6 +442,16 @@ input[type="file"] {
   margin: 90px auto;
   width: 100%;
   
+  .name-station {
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  .date-epr {
+    text-align: center;
+    margin-top: 5px;
+  }
+
   .category {
     
     background-color: #08080885;
@@ -447,9 +469,6 @@ input[type="file"] {
       display: flex;
       justify-content: space-around;
       box-sizing: border-box;
-     
-      
-      
     }
       tr {
         width: 100%;
@@ -485,6 +504,12 @@ input[type="file"] {
           border-collapse: collapse;
           width: 50px;
           height: 50px;
+          text-align: center;
+          
+          img {
+            width: 50px;
+
+          }
         }
       }
 
@@ -527,6 +552,75 @@ input[type="file"] {
 
 #infinite-list {
   overflow: auto;
+  
+}
+
+.liste-participant {
+    
+  background-color: #08080885;
+    width: 70%;
+    height: auto;
+    margin: 20px auto;
+    display: grid;
+    grid-template-rows: repeat(2,2);
+    
+
+
+    tr {
+      height: 80px;
+      grid-template-columns: repeat(7, 1fr);
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      
+      td {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  .liste-header {
+    background: rgba(15, 113, 226, 0.685);
+    width: 100%;
+    
+    color: white;
+      tr {
+        height: 80px;
+        grid-template-columns: repeat(7, 1fr);
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+      
+        th{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 25px;
+        }
+    }
+      .nbr-parti {
+         
+          background-color: rgba(145, 240, 219, 0.698);
+        }
+ }
+    .liste-middle {
+      
+      background: rgba(251, 251, 251, 0.575);
+      width: 100%;
+      tr {
+        height: 80px;
+        grid-template-columns: repeat(7, 1fr);
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        
+        td {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+
+    
+ 
   
 }
 

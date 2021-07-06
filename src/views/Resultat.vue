@@ -3,9 +3,15 @@
     <div class="back-date">
       <div class="station">
         <h2>Nom de la station</h2>
+        <div class="name-station">
+          <p>station de vaulx en velin</p>
+        </div>
       </div>
       <div class="test">
         <h2>Date de l'épreuve</h2>
+        <div class="date-epr">
+          <p>10/03/2865</p>
+        </div>
       </div>
     </div>
 
@@ -25,7 +31,15 @@
         </thead>
         <tbody class="body-table" id="infinite-list">
           <tr v-for="value in participants" :key="value.id_participant">
-            <td>Photo</td>
+            <td>
+              <img
+                v-if="photo == null"
+                :src="require(`../assets/ressources/${value.photo}`)"
+                alt="photo"
+                id="infinite-list"
+              />
+            </td>
+
             <td>{{ value.lastname }}</td>
             <td>{{ value.firstname }}</td>
             <td>{{ value.id_category }}</td>
@@ -61,6 +75,7 @@ export default {
       run: [],
     };
   },
+
   async mounted() {
     const responseParticipants = await axios.get(
       `http://localhost/ski/API/participant`

@@ -16,6 +16,7 @@ class ParticipantsManager extends Model
             $req->bindValue(':id_trial', '1');
             $req->bindValue(':id_category', '1');
             $req->execute();
+
         }
     }
 
@@ -46,24 +47,42 @@ class ParticipantsManager extends Model
 
     public function getExportExcel()
     {
+
+
         $db = $this->getDb();
-        $select = $db->prepare('SELECT * FROM `participant`');
 
-        $select->setFetchMode(PDO::FETCH_ASSOC);
-        $select->execute();
 
-        $newReservations = $select->fetchAll();
+        $spreadsheet = new PhpOffice\PhpSpreadsheet\Spreadsheet();
+        $Excel_writer = new PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+        
+ 
+$spreadsheet->setActiveSheetIndex(0);
+        $activeSheet = $spreadsheet->getActiveSheet();
+        $activeSheet->setCellValue('A1', 'Nom');
+        $activeSheet->setCellValue('B1', 'prénom');
+        $activeSheet->setCellValue('C1', 'N° dossard');
+        $activeSheet->setCellValue('D1', '1er run');
+        $activeSheet->setCellValue('E1', '2nd run');
+        $activeSheet->setCellValue('F1', 'résultat');
 
-        $excel = "";
-        $excel .=  "Id\tNom\tPrénom\tN° dossard\n";
+        $writer = new PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+        $writer->save('ListeCourse.xlsx');
+        $req = $db->query("SELECT * FROM `participant`ORDER BY id_participant DESC");
+        if ($req->num_rows > 0) {
 
-        foreach ($newReservations as $row) {
-            $excel .= "$row[id_participant]\t$row[firstname]\t$row[lastname]\t$row[number]\n";
+            $i = 2;
+            while ($row = $req->fetch_assoc()) {
+                $activeSheet->setCellValue('A' . $i, $row['product_name']);
+                $activeSheet->setCellValue('B' . $i, $row['product_sku']);
+                $activeSheet->setCellValue('C' . $i, $row['product_price']);
+                $i++;
+            }
         }
+        $filename = 'ListeCourse.xlsx';
+ 
+header('Content-Type: application/vnd.ms-excel');
+header('Content-Disposition: attachment;filename='. $filename);
 
-        header("Content-type: application/vnd.ms-excel");
-        header("Content-disposition: attachment; filename=liste-participants.xls");
-        print $excel;
-        exit;
+$Excel_writer->save('php://output');
     }
 }

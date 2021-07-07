@@ -160,20 +160,49 @@
             v-for="participant in participants"
             :key="participant.id_participant"
           >
-            <span v-if="participant.id_category == 3">id3</span>
+            <span v-if="participant.id_category == 3">{{
+              participant.lastname}}</span>
           </div>
         </div>
         <div class="column">
           <h2>Senior</h2>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.id_category == 4">{{
+              participant.lastname}}</span>
+          </div>
         </div>
         <div class="column">
           <h2>V</h2>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.id_category == 5">{{
+              participant.lastname}}</span>
+          </div>
         </div>
         <div class="column">
           <h2>Snow</h2>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.id_category == 6">{{
+              participant.lastname}}</span>
+          </div>
         </div>
         <div class="column">
           <h2>Nouvelle Glisse</h2>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.id_category == 7">{{
+              participant.lastname}}</span>
+          </div>
         </div>
       </div>
     </div>

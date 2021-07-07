@@ -22,7 +22,7 @@
             <th scope="col">Photo</th>
             <th scope="col">Nom</th>
             <th scope="col">Prénom</th>
-            <th scope="col">Catégorie</th>
+            <th id="cat" scope="col">Catégorie</th>
             <th scope="col">Dossard</th>
             <th scope="col">Temps</th>
             <th scope="col">Classement</th>
@@ -78,12 +78,15 @@ export default {
       `http://localhost/ski/API/participant`
     );
     this.participants = responseParticipants.data;
+
     const responseCategory = await axios.get(
       `http://localhost/ski/API/category`
     );
     this.categories = responseCategory.data;
+
     const responseTrial = await axios.get(`http://localhost/ski/API/trial`);
     this.trials = responseTrial.data;
+
     const responseRun = await axios.get(`http://localhost/ski/API/run`);
     this.runs = responseRun.data;
   },

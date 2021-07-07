@@ -6,7 +6,7 @@ class ControllerParticipants
     public function insertParticipants()
     {
         $data = json_decode(file_get_contents('php://input'));
-        var_dump($data);
+
         if (!empty($data->photo)) {
             $b64 = explode(',', $data->photo);
             $bin = base64_decode($b64[1]);
@@ -27,6 +27,7 @@ class ControllerParticipants
             $database_name = "profile/camera.png";
         }
         imagepng($im, $file_rename, 0);
+
         $insert = new Participants(array('lastname' => $data->lastname, 'firstname' => $data->firstname, 'date_birth' => $data->date_birth, 'email' => $data->email, 'photo' => $database_name, 'number' => $data->number, 'id_category' => $data->category));
         $manager = new ParticipantsManager();
         $participants = $manager->addParticipants($insert);
@@ -57,5 +58,11 @@ class ControllerParticipants
     {
         $manager = new ParticipantsManager();
         $manager->getExportExcel();
+    }
+    
+    // Truncate table
+    public function truncateTable(){
+        $manager = new ParticipantsManager();
+        $manager->getTruncateTable();
     }
 }

@@ -1,16 +1,16 @@
 <template>
   <section class="main-resultat">
-    <div class="back-date">
+    <div class="back-date" v-for="trial in trials" :key="trial.id_trial">
       <div class="station">
         <h2>Nom de la station</h2>
         <div class="name-station">
-          <p>station de vaulx en velin</p>
+          <p>{{trial.name_station}}</p>
         </div>
       </div>
       <div class="test">
         <h2>Date de l'épreuve</h2>
         <div class="date-epr">
-          <p>10/03/2865</p>
+          <p>{{trial.date}}</p>
         </div>
       </div>
     </div>
@@ -38,7 +38,6 @@
                 id="infinite-list"
               />
             </td>
-
             <td>{{ value.lastname }}</td>
             <td>{{ value.firstname }}</td>
             <td>{{ value.id_category }}</td>
@@ -69,12 +68,11 @@ export default {
   data() {
     return {
       participants: [],
-      category: [],
-      trial: [],
-      run: [],
+      categories: [],
+      trials: [],
+      runs: [],
     };
   },
-
   async mounted() {
     const responseParticipants = await axios.get(
       `http://localhost/ski/API/participant`
@@ -83,15 +81,22 @@ export default {
     const responseCategory = await axios.get(
       `http://localhost/ski/API/category`
     );
-    this.category = responseCategory.data;
+    this.categories = responseCategory.data;
     const responseTrial = await axios.get(`http://localhost/ski/API/trial`);
-    this.trial = responseTrial.data;
+    this.trials = responseTrial.data;
     const responseRun = await axios.get(`http://localhost/ski/API/run`);
-    this.run = responseRun.data;
+    this.runs = responseRun.data;
   },
   methods: {
     async del(id) {
-      await axios.get(`http://localhost/ski/API/deleteParticipant` + id);
+      var r = confirm("Etes-vous sûr de vouloir supprimer ce participant?");
+      if (r == true) {
+        await axios.get(`http://localhost/ski/API/deleteParticipant` + id);
+        const responseParticipants = await axios.get(
+          `http://localhost/ski/API/participant`
+        );
+        this.participants = responseParticipants.data;
+      }
     },
   },
 };

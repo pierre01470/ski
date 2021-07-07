@@ -6,6 +6,7 @@ $router = new AltoRouter();
 $router->setBasePath('/ski/API');
 
 $router->map('POST', '/insertParticipant','ControllerParticipants#insertParticipants');
+$router->map('POST', '/insertTrial','ControllerTrial#insertTrial');
 $router->map('POST', '/exportExcel','ControllerParticipants#exportExcel');
 
 $router->map('GET', '/category', 'ControllerCategory#allCategories');
@@ -13,6 +14,7 @@ $router->map('GET', '/participant', 'ControllerParticipants#allParticipant');
 $router->map('GET', '/run', 'ControllerRun#allRuns');
 $router->map('GET', '/trial', 'ControllerTrial#allTrial');
 
+$router->map('GET', '/truncateTable','ControllerParticipants#truncateTable');
 $router->map('GET', '/deleteParticipant[i:id]','ControllerParticipants#deleteOneParticipant');
 
 $match = $router->match();

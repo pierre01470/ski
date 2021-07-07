@@ -19,14 +19,15 @@ class ControllerParticipants
                 // check if the file already exist
                 $filename = uniqid(date("Ymd"));
                 $file_rename = "../src/assets/ressources/profile/" . $filename . ".png";
-                $file_rename;
-                imagepng($im, $file_rename, 0);
+                $database_name = "profile/" . $filename . ".png";
             }
         } else {
             // if no photo selected send default photo
             $file_rename = '../src/assets/ressources/profile/camera.png"';
+            $database_name = "profile/camera.png";
         }
-        $insert = new Participants(array('lastname' => $data->lastname, 'firstname' => $data->firstname, 'date_birth' => $data->date_birth, 'email' => $data->email, 'photo' => $file_rename, 'number' => $data->number, 'id_category' => $data->category));
+        imagepng($im, $file_rename, 0);
+        $insert = new Participants(array('lastname' => $data->lastname, 'firstname' => $data->firstname, 'date_birth' => $data->date_birth, 'email' => $data->email, 'photo' => $database_name, 'number' => $data->number, 'id_category' => $data->category));
         $manager = new ParticipantsManager();
         $participants = $manager->addParticipants($insert);
     }

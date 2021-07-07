@@ -17,7 +17,7 @@
         <label for="#"> Date d'inscription </label>
         <input
           v-model="form.registration_date"
-          type="text"
+          type="date"
           name="registration_date"
           placeholder="taper votre Date d'inscription..."
         />
@@ -92,12 +92,11 @@
             <label for="#"> Catégorie </label>
             <select type="text" name="category" v-model="form.category">
               <option
-                v-for="category of categories"
+                v-for="category in categories"
                 :key="category.id_category"
                 :value="category.id_category"
+                >{{ category.name_category }}</option
               >
-                {{ category.name_category }}
-              </option>
             </select>
           </div>
 
@@ -112,12 +111,15 @@
                 placeholder="Photo"
                 size="80px"
               />
-              <label for="file" id="picture">Photo</label>
+              <label for="file" id="picture"></label>
             </div>
           </div>
 
           <div class="form7">
-            <div id="dossardBtn" v-on:click="generate()">Generer: <br> N° dossard</div>
+            <div id="dossardBtn" v-on:click="generate()">
+              Generer: <br />
+              N° dossard
+            </div>
           </div>
           <div class="form8">
             <button id="marjorie" type="submit" value="Ajout participant" />
@@ -140,15 +142,13 @@
             <th scope="col">Nouvelle Glisse</th>
           </tr>
           <tr class="nbr-parti">
-            
-              <th scope="col">Nombre participant</th>
             <th scope="col">Nombre participant</th>
             <th scope="col">Nombre participant</th>
             <th scope="col">Nombre participant</th>
             <th scope="col">Nombre participant</th>
             <th scope="col">Nombre participant</th>
             <th scope="col">Nombre participant</th>
-
+            <th scope="col">Nombre participant</th>
           </tr>
         </thead>
         <tbody class="liste-middle">
@@ -160,25 +160,18 @@
             <td>Nbr parti</td>
             <td>Nbr parti</td>
             <td>Nbr parti</td>
-            
           </tr>
         </tbody>
       </table>
     </div>
   </section>
 </template>
-
-
-
-
-
 <script>
 const axios = require("axios");
 export default {
   data() {
     return {
       categories: [],
-      participants: [],
       form: {
         station_name: "",
         registration_date: "",
@@ -192,12 +185,14 @@ export default {
     };
   },
   async mounted() {
-    const response = await axios.get(`http://localhost/ski/API/category`);
-    this.categories = response.data;
-  },
-  async mounted() {
-    const response = await axios.get(`http://localhost/ski/API/participant`);
-    this.participants = response.data;
+    const responseParticipants = await axios.get(
+      `http://localhost/ski/API/participant`
+    );
+    this.participants = responseParticipants.data;
+    const responseCategory = await axios.get(
+      `http://localhost/ski/API/category`
+    );
+    this.categories = responseCategory.data;
   },
   methods: {
     async generate() {

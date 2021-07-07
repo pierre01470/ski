@@ -591,6 +591,14 @@ input[type="file"] {
   overflow: auto;
 }
 
+.picture-participant{
+  img {
+    height: 70px;
+    width: 100px;
+  }
+}
+
+
 #row{
   display: flex;
   color: white;

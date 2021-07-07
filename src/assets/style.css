@@ -773,6 +773,11 @@ input[type="file"] #picture {
   overflow: auto;
 }
 
+.picture-participant img {
+  height: 70px;
+  width: 100px;
+}
+
 #row {
   display: -webkit-box;
   display: -ms-flexbox;

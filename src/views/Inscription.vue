@@ -123,7 +123,7 @@
             </div>
           </div>
           <div class="form8">
-            <button id="marjorie" type="submit" value="Ajout participant" />
+            <input id="marjorie" type="submit" value="Ajout participant" />
           </div>
           <div class="form9"></div>
         </div>
@@ -160,20 +160,49 @@
             v-for="participant in participants"
             :key="participant.id_participant"
           >
-            <span v-if="participant.id_category == 3">id3</span>
+            <span v-if="participant.id_category == 3">{{
+              participant.lastname}}</span>
           </div>
         </div>
         <div class="column">
           <h2>Senior</h2>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.id_category == 4">{{
+              participant.lastname}}</span>
+          </div>
         </div>
         <div class="column">
           <h2>V</h2>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.id_category == 5">{{
+              participant.lastname}}</span>
+          </div>
         </div>
         <div class="column">
           <h2>Snow</h2>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.id_category == 6">{{
+              participant.lastname}}</span>
+          </div>
         </div>
         <div class="column">
           <h2>Nouvelle Glisse</h2>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.id_category == 7">{{
+              participant.lastname}}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -206,8 +235,8 @@ export default {
       `http://localhost/ski/API/participant`
     );
     this.participants = responseParticipants.data;
-    document.getElementById("participant").innerHTML =
-      responseParticipants.data.length;
+    //document.getElementById("participant").innerHTML =
+      //responseParticipants.data.length;
     // Get all categories
     const responseCategory = await axios.get(
       `http://localhost/ski/API/category`
@@ -238,7 +267,7 @@ export default {
     },
     async submitTrial() {
       // Truncate table
-      axios.get(`http://localhost/ski/API/truncateTable`);
+      //axios.get(`http://localhost/ski/API/truncateTable`);
       // Edit Dom
       document.getElementById("form").style.display = "flex";
       document.getElementById("form").className +=

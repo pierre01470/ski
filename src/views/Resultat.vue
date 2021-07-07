@@ -47,7 +47,7 @@
             <td>temps</td>
             <td>{{ value.id_trial }}</td>
             <td>
-              <button>
+              <button v-on:click="del(value.id_participant)">
                 <img
                   src="@/assets/ressources/poubelles.jpg"
                   height="45px"
@@ -70,16 +70,29 @@ export default {
   data() {
     return {
       participants: [],
+      category: [],
+      trial: [],
+      run: [],
     };
   },
 
   async mounted() {
-    const response = await axios.get(`http://localhost/ski/API/participant`);
-    this.participants = response.data;
+    const responseParticipants = await axios.get(
+      `http://localhost/ski/API/participant`
+    );
+    this.participants = responseParticipants.data;
+    const responseCategory = await axios.get(
+      `http://localhost/ski/API/category`
+    );
+    this.category = responseCategory.data;
+    const responseTrial = await axios.get(`http://localhost/ski/API/trial`);
+    this.trial = responseTrial.data;
+    const responseRun = await axios.get(`http://localhost/ski/API/run`);
+    this.run = responseRun.data;
   },
   methods: {
-    async del() {
-      await axios.delete(`http://localhost/ski/API/deleteParticipant`);
+    async del(id) {
+      await axios.get(`http://localhost/ski/API/deleteParticipant` + id);
     },
   },
 };

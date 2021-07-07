@@ -772,4 +772,18 @@ input[type="file"] #picture {
 #infinite-list {
   overflow: auto;
 }
+
+#row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  text-align: center;
+}
+
+.column {
+  text-align: center;
+}
 /*# sourceMappingURL=style.css.map */

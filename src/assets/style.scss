@@ -590,3 +590,14 @@ input[type="file"] {
 #infinite-list {
   overflow: auto;
 }
+
+#row{
+  display: flex;
+  color: white;
+  justify-content: space-around;
+  text-align: center;
+}
+.column{
+  text-align: center;
+}
+

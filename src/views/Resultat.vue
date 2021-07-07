@@ -4,13 +4,13 @@
       <div class="station">
         <h2>Nom de la station</h2>
         <div class="name-station">
-          <p>{{trial.name_station}}</p>
+          <p>{{ trial.name_station }}</p>
         </div>
       </div>
       <div class="test">
         <h2>Date de l'épreuve</h2>
         <div class="date-epr">
-          <p>{{trial.date}}</p>
+          <p>{{ trial.date }}</p>
         </div>
       </div>
     </div>

@@ -131,39 +131,51 @@
     </div>
 
     <div class="liste-participant" id="view">
-      <table>
-        <thead class="liste-header">
-          <tr>
-            <th scope="col">M1</th>
-            <th scope="col">M2</th>
-            <th scope="col">M3</th>
-            <th scope="col">Senior</th>
-            <th scope="col">V</th>
-            <th scope="col">Snow</th>
-            <th scope="col">Nouvelle Glisse</th>
-          </tr>
-          <tr class="nbr-parti">
-            <th scope="col">Nombre participant</th>
-            <th scope="col">Nombre participant</th>
-            <th scope="col">Nombre participant</th>
-            <th scope="col">Nombre participant</th>
-            <th scope="col">Nombre participant</th>
-            <th scope="col">Nombre participant</th>
-            <th scope="col">Nombre participant</th>
-          </tr>
-        </thead>
-        <tbody class="liste-middle">
-          <tr>
-            <td>Nbr parti</td>
-            <td>Nbr parti</td>
-            <td>Nbr parti</td>
-            <td>Nbr parti</td>
-            <td>Nbr parti</td>
-            <td>Nbr parti</td>
-            <td>Nbr parti</td>
-          </tr>
-        </tbody>
-      </table>
+      <div id="row">
+        <div class="column">
+          <h2>M1</h2>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.id_category == 1">{{
+              participant.lastname
+            }}</span>
+          </div>
+        </div>
+        <div class="column">
+          <h2>M2</h2>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.id_category == 2">{{
+              participant.lastname
+            }}</span>
+          </div>
+        </div>
+        <div class="column">
+          <h2>M3</h2>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.id_category == 3">id3</span>
+          </div>
+        </div>
+        <div class="column">
+          <h2>Senior</h2>
+        </div>
+        <div class="column">
+          <h2>V</h2>
+        </div>
+        <div class="column">
+          <h2>Snow</h2>
+        </div>
+        <div class="column">
+          <h2>Nouvelle Glisse</h2>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -194,6 +206,8 @@ export default {
       `http://localhost/ski/API/participant`
     );
     this.participants = responseParticipants.data;
+    document.getElementById("participant").innerHTML =
+      responseParticipants.data.length;
     // Get all categories
     const responseCategory = await axios.get(
       `http://localhost/ski/API/category`
@@ -225,7 +239,6 @@ export default {
     async submitTrial() {
       // Truncate table
       axios.get(`http://localhost/ski/API/truncateTable`);
-
       // Edit Dom
       document.getElementById("form").style.display = "flex";
       document.getElementById("form").className +=
@@ -238,7 +251,7 @@ export default {
     async submitForm() {
       // Send form participants
       await axios.post(`http://localhost/ski/API/insertParticipant`, this.form);
-      // document.getElementById("formulaire").reset();
+      document.getElementById("formulaire").reset();
     },
     async exportForm() {
       // export Excel

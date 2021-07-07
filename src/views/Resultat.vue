@@ -72,11 +72,17 @@ export default {
       participants: [],
     };
   },
-
   async mounted() {
-    const response = await axios.get(`http://localhost/ski/API/participant`);
-    this.participants = response.data;
+    const responseParticipants = await axios.get(
+      `http://localhost/ski/API/participant`
+    );
+    this.participants = responseParticipants.data;
+    const responseCategory = await axios.get(
+      `http://localhost/ski/API/category`
+    );
+    this.categories = responseCategory.data;
   },
+
   methods: {
     async del() {
       await axios.delete(`http://localhost/ski/API/deleteParticipant`);

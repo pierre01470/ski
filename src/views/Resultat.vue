@@ -32,13 +32,11 @@
         <tbody class="body-table" id="infinite-list">
           <tr v-for="value in participants" :key="value.id_participant">
             <td>
-              <div class="picture-participant">
-                <img
-                  :src="require(`../assets/ressources/${value.photo}`)"
-                  alt="photo"
-                  
-                />
-              </div>
+              <img
+                :src="require(`@/assets/ressources/${value.photo}`)"
+                alt="photo"
+                id="infinite-list"
+              />
             </td>
             <td>{{ value.lastname }}</td>
             <td>{{ value.firstname }}</td>

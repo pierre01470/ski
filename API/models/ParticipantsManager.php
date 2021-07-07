@@ -14,7 +14,7 @@ class ParticipantsManager extends Model
             $req->bindValue(':photo', $insert->getPhoto());
             $req->bindValue(':number', $insert->getNumber());
             $req->bindValue(':id_trial', '1');
-            $req->bindValue(':id_category', '1');
+            $req->bindValue(':id_category', $insert->getIdCategory());
             $req->execute();
 
         }

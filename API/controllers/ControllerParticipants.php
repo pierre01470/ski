@@ -24,7 +24,7 @@ class ControllerParticipants
         } else {
             // if no photo selected send default photo
             $file_rename = '../src/assets/ressources/profile/camera.png"';
-            $database_name = "profile/camera.png";
+            $database_name = "camera.png";
         }
         imagepng($im, $file_rename, 0);
 

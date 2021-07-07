@@ -8,19 +8,7 @@ class RunsManager extends Model
         if (!empty($_FILES['file'])) {
 
             //UPLOAD DU FICHIER CSV, vérification et insertion en BASE
-            if (isset($_FILES["file"]["type"]) != "application/vnd.ms-excel") {
-                die("Ce n'est pas un fichier de type .csv");
-            } elseif (is_uploaded_file($_FILES['file']['tmp_name'])) {
-                $req = $db->prepare('INSERT INTO `run` ( time_realized_one,time_realized_two,number) VALUES(?, ?, ?)');
-                $file = new SplFileObject($_FILES['file']['tmp_name']);
-                $file->setFlags(SplFileObject::READ_CSV | SplFileObject::SKIP_EMPTY);
-                foreach ($file as $row) {
-                    $req->execute([$row[0], $row[1], $row[2]]);
-                }
-                $req->closeCursor();
-            } else {
-                echo 'epic fail<br />';
-            }
+            
         }
     }
 

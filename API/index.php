@@ -8,7 +8,7 @@ $router->map('GET', '/','ControllerRun#viewtest2');
 
 $router->map('POST', '/insertParticipant','ControllerParticipants#insertParticipants');
 $router->map('GET', '/exportExcel','ControllerParticipants#exportExcel');
-$router->map('POST', '/importExcel','ControllerRun#importExcel');
+$router->map('GET', '/importExcel','ControllerRun#importExcel');
 
 $router->map('GET', '/category', 'ControllerCategory#allCategories');
 $router->map('GET', '/participant', 'ControllerParticipants#allParticipant');

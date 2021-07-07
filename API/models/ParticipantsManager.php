@@ -85,4 +85,19 @@ header('Content-Disposition: attachment;filename='. $filename);
 
 $Excel_writer->save('php://output');
     }
+
+    // Truncate Table
+    public function getTruncateTable()
+    {
+        $db = $this->getDb();
+        $db->query('TRUNCATE `ski_api`.`participant`');
+        $db->query('TRUNCATE `ski_api`.`run`');
+        $db->query('TRUNCATE `ski_api`.`trial`');
+        $dossier = "../src/assets/ressources/profile/";
+        $ouverture = opendir($dossier);
+        $fichier = readdir($ouverture);
+        while ($fichier = readdir($ouverture)) {
+            unlink("$dossier/$fichier");
+        }
+    }
 }

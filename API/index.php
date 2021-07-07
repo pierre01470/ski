@@ -7,14 +7,15 @@ $router->setBasePath('/ski/API');
 $router->map('GET', '/','ControllerRun#viewtest2');
 
 $router->map('POST', '/insertParticipant','ControllerParticipants#insertParticipants');
-$router->map('GET', '/exportExcel','ControllerParticipants#exportExcel');
-$router->map('GET', '/importExcel','ControllerRun#importExcel');
+$router->map('POST', '/insertTrial','ControllerTrial#insertTrial');
+$router->map('POST', '/exportExcel','ControllerParticipants#exportExcel');
 
 $router->map('GET', '/category', 'ControllerCategory#allCategories');
 $router->map('GET', '/participant', 'ControllerParticipants#allParticipant');
 $router->map('GET', '/run', 'ControllerRun#allRuns');
 $router->map('GET', '/trial', 'ControllerTrial#allTrial');
 
+$router->map('GET', '/truncateTable','ControllerParticipants#truncateTable');
 $router->map('GET', '/deleteParticipant[i:id]','ControllerParticipants#deleteOneParticipant');
 
 $match = $router->match();

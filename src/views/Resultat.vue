@@ -33,7 +33,7 @@
           <tr v-for="value in participants" :key="value.id_participant">
             <td>
               <img
-                :src="require(`../assets/ressources/${value.photo}`)"
+                :src="require(`@/assets/ressources/${value.photo}`)"
                 alt="photo"
                 id="infinite-list"
               />

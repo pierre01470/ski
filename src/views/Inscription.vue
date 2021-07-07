@@ -123,7 +123,7 @@
             </div>
           </div>
           <div class="form8">
-            <button id="marjorie" type="submit" value="Ajout participant" />
+            <input id="marjorie" type="submit" value="Ajout participant" />
           </div>
           <div class="form9"></div>
         </div>
@@ -206,8 +206,8 @@ export default {
       `http://localhost/ski/API/participant`
     );
     this.participants = responseParticipants.data;
-    document.getElementById("participant").innerHTML =
-      responseParticipants.data.length;
+    // document.getElementById("participant").innerHTML =
+    //   responseParticipants.data.length;
     // Get all categories
     const responseCategory = await axios.get(
       `http://localhost/ski/API/category`
@@ -238,7 +238,7 @@ export default {
     },
     async submitTrial() {
       // Truncate table
-      axios.get(`http://localhost/ski/API/truncateTable`);
+      // axios.get(`http://localhost/ski/API/truncateTable`);
       // Edit Dom
       document.getElementById("form").style.display = "flex";
       document.getElementById("form").className +=

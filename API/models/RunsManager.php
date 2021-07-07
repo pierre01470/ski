@@ -1,7 +1,17 @@
 <?php
-
 class RunsManager extends Model
 {
+    public function getImportExcel()
+    {
+        $db = $this->getDb();
+        // Insert CSV
+        if (!empty($_FILES['file'])) {
+
+            //UPLOAD DU FICHIER CSV, vérification et insertion en BASE
+            
+        }
+    }
+
     public function getAllRuns()
     {
         $db = $this->getDb();

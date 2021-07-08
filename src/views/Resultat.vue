@@ -49,8 +49,8 @@
             <td>{{ value.id_trial }}</td>
             <td>
               <button v-on:click="del(value.id_participant)">
-                <img
-                  src="@/assets/ressources/poubelles.jpg"
+                <img class="poubelle"
+                  src="@/assets/ressources/poubelle.png"
                   height="45px"
                   width="45px"
                   id="test"
@@ -95,6 +95,7 @@ export default {
     const responseRun = await axios.get(`http://localhost/ski/API/run`);
     this.runs = responseRun.data;
   },
+
   methods: {
     async del(id) {
       var r = confirm("Etes-vous sûr de vouloir supprimer ce participant?");

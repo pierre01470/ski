@@ -1,5 +1,8 @@
 <?php
 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 class ParticipantsManager extends Model
 {
     public function addParticipants($insert)
@@ -52,41 +55,51 @@ class ParticipantsManager extends Model
 
     public function getExportExcel()
     {
-
-
+        $filename = "ListeCourse";
+        $part = [];
         $db = $this->getDb();
-        $spreadsheet = new PhpOffice\PhpSpreadsheet\Spreadsheet();
-        $Excel_writer = new PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
-
-
-        $spreadsheet->setActiveSheetIndex(0);
-        $activeSheet = $spreadsheet->getActiveSheet();
-        $activeSheet->setCellValue('A1', 'Nom');
-        $activeSheet->setCellValue('B1', 'prénom');
-        $activeSheet->setCellValue('C1', 'N° dossard');
-        $activeSheet->setCellValue('D1', '1er run');
-        $activeSheet->setCellValue('E1', '2nd run');
-        $activeSheet->setCellValue('F1', 'résultat');
-
-        $writer = new PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
-        $writer->save('ListeCourse.xlsx');
-        $req = $db->query("SELECT * FROM `participant`ORDER BY id_participant DESC");
-        if ($req->num_rows > 0) {
-
-            $i = 2;
-            while ($row = $req->fetch_assoc()) {
-                $activeSheet->setCellValue('A' . $i, $row['product_name']);
-                $activeSheet->setCellValue('B' . $i, $row['product_sku']);
-                $activeSheet->setCellValue('C' . $i, $row['product_price']);
-                $i++;
-            }
+        $req = $db->query('SELECT * FROM `participant` INNER JOIN `run` ON participant.number = run.number');
+        while ($donnees = $req->fetch(PDO::FETCH_ASSOC)) {
+            $count = 0;
+            $part[] = new Participants($donnees);
+            $count++;
         }
-        $filename = 'ListeCourse.xlsx';
 
-        header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment;filename=' . $filename);
+        if ($count > 0) {
+            $spreadsheet = new Spreadsheet();
+            $sheet = $spreadsheet->getActiveSheet();
+            $spreadsheet->getActiveSheet()->getCell('E11')->getCalculatedValue();
 
-        $Excel_writer->save('php://output');
+            $sheet->setCellValue('A1', 'firsname');
+            $sheet->setCellValue('B1', 'lastname');
+            $sheet->setCellValue('C1', 'number');
+            $sheet->setCellValue('D1', 'time_realized_one');
+            $sheet->setCellValue('E1', 'time_realized_two');
+            $sheet->setCellValue('F1', 'result');
+
+            $rowCount = 2;
+            foreach ($part as $data) {
+                $sheet->setCellValue('A' . $rowCount, $data->getFirstName());
+                $sheet->setCellValue('B' . $rowCount, $data->getLastName());
+                $sheet->setCellValue('C' . $rowCount, $data->getNumber());
+                $sheet->setCellValue('D' . $rowCount, $data->getTimeRealizedOne());
+                $sheet->setCellValue('E' . $rowCount, $data->getTimeRealizedTwo());
+                $sheet->setCellValue('E' . $rowCount, $data->getTimeRealizedTwo());
+                $rowCount++;
+            }
+
+            $writer = new Xlsx($spreadsheet);
+            $final_filename = $filename . '.xlsx';
+
+            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+            header('Content-Disposition: attachment; filename="' . urlencode($final_filename) . '"');
+            $writer->save('php://output');
+        }
+    }
+    
+    public function getImportExcel()
+    {
+        
     }
 
     // Truncate Table

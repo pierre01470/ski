@@ -2,10 +2,10 @@
 
 class Runs
 {
-    private $_idRun;
-    private $_timeRealizedOne;
-    private $_timeRealizedTwo;
-    private $_number;
+    protected $_idRun;
+    protected $_timeRealizedOne;
+    protected $_timeRealizedTwo;
+    protected $_number;
 
     /*---------------construct----------------------------*/
     public function __construct(array $datas)

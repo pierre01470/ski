@@ -387,13 +387,21 @@
 }
 
 .liste-participant {
-  background-color: #08080885;
+  background-color: rgba(3, 3, 3, 0.692);
   width: 70%;
-  height: auto;
+  height: 500px;
   margin: 20px auto;
   display: none;
   -ms-grid-rows: (2)[2];
       grid-template-rows: repeat(2, 2);
+}
+
+.liste-participant span {
+  padding-top: 30px;
+}
+
+.liste-participant img {
+  margin: 3px 0 10px 20px;
 }
 
 .liste-participant tr {
@@ -710,13 +718,23 @@ input[type="file"] #picture {
       justify-content: space-around;
   -webkit-box-sizing: 0;
           box-sizing: 0;
+  font-size: 20px;
+}
+
+.main-resultat .category .body-table tr button {
+  background: transparent;
+  border: none;
+  padding-bottom: 15px;
 }
 
 .main-resultat .category .body-table td {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 30px;
+  padding: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border-collapse: collapse;
   width: 50px;
   height: 50px;
@@ -769,6 +787,10 @@ input[type="file"] #picture {
 
 #infinite-list {
   overflow: auto;
+}
+
+#infinite-list img {
+  background-color: transparent;
 }
 
 .picture-participant img {

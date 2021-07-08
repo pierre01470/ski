@@ -286,12 +286,20 @@ $fontone: "sporten_personal_useregular";
   }
 }
 .liste-participant {
-  background-color: #08080885;
+  background-color: rgba(3, 3, 3, 0.692);
   width: 70%;
-  height: auto;
+  height: 500px;
   margin: 20px auto;
   display: none;
   grid-template-rows: repeat(2, 2);
+
+  span {
+    padding-top: 30px;
+  }
+
+  img {
+    margin:  3px 0 10px 20px;
+  }
 
   tr {
     height: 80px;
@@ -536,12 +544,20 @@ input[type="file"] {
         color: white;
         display: flex;
         justify-content: space-around;
+        
         box-sizing: 0;
+        font-size: 20px;
+        button {
+          background: transparent;
+          border: none;
+          padding-bottom: 15px;
+        }
       }
-
+      
       td {
         display: flex;
-        padding: 30px;
+        padding: 10px;
+        align-items: center;
         border-collapse: collapse;
         width: 50px;
         height: 50px;
@@ -589,6 +605,10 @@ input[type="file"] {
 
 #infinite-list {
   overflow: auto;
+  img {
+    background-color: transparent;
+    
+  }
 }
 
 .picture-participant {

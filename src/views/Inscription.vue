@@ -145,7 +145,7 @@
               <img
                 src="../assets/ressources/cross.svg"
                 alt=""
-                width="15px"
+                width="20px"
                 v-on:click="del(participant.id_participant)"
             /></span>
           </div>
@@ -161,7 +161,7 @@
               <img
                 src="../assets/ressources/cross.svg"
                 alt=""
-                width="15px"
+                width="20px"
                 v-on:click="del(participant.id_participant)"
             /></span>
           </div>
@@ -177,7 +177,7 @@
               <img
                 src="../assets/ressources/cross.svg"
                 alt=""
-                width="15px"
+                width="20px"
                 v-on:click="del(participant.id_participant)"
             /></span>
           </div>
@@ -193,7 +193,7 @@
               <img
                 src="../assets/ressources/cross.svg"
                 alt=""
-                width="15px"
+                width="20px"
                 v-on:click="del(participant.id_participant)"
             /></span>
           </div>
@@ -209,7 +209,7 @@
               <img
                 src="../assets/ressources/cross.svg"
                 alt=""
-                width="15px"
+                width="20px"
                 v-on:click="del(participant.id_participant)"
             /></span>
           </div>
@@ -225,7 +225,7 @@
               <img
                 src="../assets/ressources/cross.svg"
                 alt=""
-                width="15px"
+                width="20px"
                 v-on:click="del(participant.id_participant)"
             /></span>
           </div>
@@ -241,7 +241,7 @@
               <img
                 src="../assets/ressources/cross.svg"
                 alt=""
-                width="15px"
+                width="20px"
                 v-on:click="del(participant.id_participant)"
             /></span>
           </div>

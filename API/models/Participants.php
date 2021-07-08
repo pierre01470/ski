@@ -1,16 +1,16 @@
 <?php
 
-class Participants
+class Participants extends Runs
 {
-    private $_id_participant;
-    private $_lastName;
-    private $_firstName;
-    private $_date_birth;
-    private $_email;
-    private $_photo;
-    private $_idTrial;
-    private $_idCategory;
-    private $_number;
+    protected $_id_participant;
+    protected $_lastName;
+    protected $_firstName;
+    protected $_date_birth;
+    protected $_email;
+    protected $_photo;
+    protected $_idTrial;
+    protected $_idCategory;
+    protected $_number;
 
     /*---------------construct----------------------------*/
     public function __construct(array $datas)

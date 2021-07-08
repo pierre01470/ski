@@ -76,7 +76,7 @@
 }
 
 .container-header .main .name_date {
-  background: rgba(3, 3, 3, 0.692);
+  background: rgba(3, 3, 3, 0.637);
   height: 340px;
   width: 340px;
   margin: 0 auto;
@@ -175,7 +175,12 @@
 }
 
 .container-header #form {
-  background: rgba(3, 3, 3, 0.692);
+  border-radius: 15px;
+  -webkit-box-shadow: 0 2px 2px  white;
+          box-shadow: 0 2px 2px  white;
+  background: rgba(3, 3, 3, 0.466);
+  border-top: 1px solid rgba(128, 128, 128, 0.555);
+  border-left: 1px solid rgba(121, 121, 121, 0.555);
   display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -206,6 +211,7 @@
 }
 
 .container-header #form .titre-form h2 {
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.527);
   font-size: 60px;
   color: #0db2e4;
   text-align: center;
@@ -242,6 +248,17 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.container-header #form .la-in .form1 input {
+  color: #0ceef6;
+  border-radius: 5px;
+  border: 2px solid white;
+  background: transparent;
+}
+
+.container-header #form .la-in .form1 input placeholder {
+  color: #d9142b;
 }
 
 .container-header #form .la-in .form2 {

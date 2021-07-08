@@ -20,6 +20,8 @@ use Composer\Semver\VersionParser;
 
 
 
+
+
 class InstalledVersions
 {
 private static $installed = array (
@@ -30,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'affe046d52c8e3ef2e46530a278306ad09ea028e',
+    'reference' => '20805bb3ff8b9fe1e77c141c96c2449342f402c9',
     'name' => 'stagiaire/ski',
   ),
   'versions' => 
@@ -141,7 +143,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'affe046d52c8e3ef2e46530a278306ad09ea028e',
+      'reference' => '20805bb3ff8b9fe1e77c141c96c2449342f402c9',
     ),
     'symfony/polyfill-mbstring' => 
     array (
@@ -169,7 +171,6 @@ $packages = array();
 foreach (self::getInstalled() as $installed) {
 $packages[] = array_keys($installed['versions']);
 }
-
 
 if (1 === \count($packages)) {
 return $packages[0];
@@ -362,6 +363,7 @@ public static function reload($data)
 self::$installed = $data;
 self::$installedByVendor = array();
 }
+
 
 
 

@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'affe046d52c8e3ef2e46530a278306ad09ea028e',
+    'reference' => '20805bb3ff8b9fe1e77c141c96c2449342f402c9',
     'name' => 'stagiaire/ski',
   ),
   'versions' => 
@@ -117,7 +117,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'affe046d52c8e3ef2e46530a278306ad09ea028e',
+      'reference' => '20805bb3ff8b9fe1e77c141c96c2449342f402c9',
     ),
     'symfony/polyfill-mbstring' => 
     array (

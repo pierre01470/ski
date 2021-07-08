@@ -591,20 +591,26 @@ input[type="file"] {
   overflow: auto;
 }
 
-.picture-participant{
+.picture-participant {
   img {
     height: 70px;
     width: 100px;
   }
 }
 
-
-#row{
+#row {
   display: flex;
   color: white;
   justify-content: space-around;
   text-align: center;
 }
-.column{
+
+.column {
   text-align: center;
+  div{
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+  }
 }
+

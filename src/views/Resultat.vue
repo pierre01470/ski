@@ -22,7 +22,9 @@
             <th scope="col">Photo</th>
             <th scope="col">Nom</th>
             <th scope="col">Prénom</th>
-            <th id="cat" scope="col">Catégorie</th>
+            <th id="cat" scope="col" v-on:click="orderByCategory()">
+              Catégorie
+            </th>
             <th scope="col">Dossard</th>
             <th scope="col">Temps</th>
             <th scope="col">Classement</th>
@@ -40,7 +42,7 @@
             </td>
             <td>{{ value.lastname }}</td>
             <td>{{ value.firstname }}</td>
-            <td>{{ value.id_category }}</td>
+            <td>{{ value.name_category }}</td>
             <td>{{ value.number }}</td>
             <td>temps</td>
             <td>{{ value.id_trial }}</td>
@@ -78,9 +80,10 @@ export default {
       `http://localhost/ski/API/participant`
     );
     this.participants = responseParticipants.data;
+    console.log(this.participants)
 
     const responseCategory = await axios.get(
-      `http://localhost/ski/API/category`
+      `http://localhost/ski/API/categoryByName`
     );
     this.categories = responseCategory.data;
 
@@ -100,6 +103,12 @@ export default {
         );
         this.participants = responseParticipants.data;
       }
+    },
+    async orderByCategory() {
+      const responseParticipants = await axios.get(
+        `http://localhost/ski/API/participantByCategory`
+      );
+      this.participants = responseParticipants.data;
     },
   },
 };

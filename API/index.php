@@ -14,6 +14,7 @@ $router->map('GET', '/category', 'ControllerCategory#allCategories');
 $router->map('GET', '/participant', 'ControllerParticipants#allParticipant');
 $router->map('GET', '/run', 'ControllerRun#allRuns');
 $router->map('GET', '/trial', 'ControllerTrial#allTrial');
+$router->map('GET', '/participantByCategory', 'ControllerParticipants#participantByCategory');
 
 $router->map('GET', '/truncateTable','ControllerParticipants#truncateTable');
 $router->map('GET', '/deleteParticipant[i:id]','ControllerParticipants#deleteOneParticipant');

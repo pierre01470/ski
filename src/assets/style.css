@@ -789,4 +789,13 @@ input[type="file"] #picture {
 .column {
   text-align: center;
 }
+
+.column div {
+  width: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
 /*# sourceMappingURL=style.css.map */

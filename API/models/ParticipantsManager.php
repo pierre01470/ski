@@ -16,15 +16,13 @@ class ParticipantsManager extends Model
             $req->bindValue(':id_trial', '1');
             $req->bindValue(':id_category', $insert->getIdCategory());
             $req->execute();
-
         }
     }
 
     public function getAllParticipant()
     {
-
         $db = $this->getDb();
-        $req = $db->query('SELECT * FROM `participant`')->fetchAll(PDO::FETCH_ASSOC);
+        $req = $db->query('SELECT * FROM `participant` INNER JOIN `category` ON participant.id_category = category.id_category')->fetchAll(PDO::FETCH_ASSOC);
         return json_encode($req);
     }
 
@@ -34,6 +32,13 @@ class ParticipantsManager extends Model
         $req = $db->prepare('SELECT * FROM `participant` WHERE `id_participant` = :id_participant');
         $req->bindValue(':id_participant', $id['id']);
         $req->execute();
+        return json_encode($req->fetchAll(PDO::FETCH_ASSOC));
+    }
+
+    public function getParticipantByCategory()
+    {
+        $db = $this->getDb();
+        $req = $db->query('SELECT * FROM `participant` INNER JOIN `category` ON participant.id_category = category.id_category ORDER BY `name_category` ASC');
         return json_encode($req->fetchAll(PDO::FETCH_ASSOC));
     }
 
@@ -50,13 +55,11 @@ class ParticipantsManager extends Model
 
 
         $db = $this->getDb();
-
-
         $spreadsheet = new PhpOffice\PhpSpreadsheet\Spreadsheet();
         $Excel_writer = new PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
-        
- 
-$spreadsheet->setActiveSheetIndex(0);
+
+
+        $spreadsheet->setActiveSheetIndex(0);
         $activeSheet = $spreadsheet->getActiveSheet();
         $activeSheet->setCellValue('A1', 'Nom');
         $activeSheet->setCellValue('B1', 'prénom');
@@ -79,11 +82,11 @@ $spreadsheet->setActiveSheetIndex(0);
             }
         }
         $filename = 'ListeCourse.xlsx';
- 
-header('Content-Type: application/vnd.ms-excel');
-header('Content-Disposition: attachment;filename='. $filename);
 
-$Excel_writer->save('php://output');
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename=' . $filename);
+
+        $Excel_writer->save('php://output');
     }
 
     // Truncate Table

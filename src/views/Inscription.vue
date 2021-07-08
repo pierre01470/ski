@@ -6,11 +6,21 @@
       </div>
       <div class="inputone">
         <label for="#"> Nom de la station </label>
-        <input v-model="trial.station_name" type="text" name="station_name" placeholder="taper votre Nom station..." />
+        <input
+          v-model="trial.station_name"
+          type="text"
+          name="station_name"
+          placeholder="taper votre Nom station..."
+        />
       </div>
       <div class="inputtwo">
         <label for="#"> Date d'inscription </label>
-        <input v-model="trial.registration_date" type="date" name="registration_date" placeholder="taper votre Date d'inscription..." />
+        <input
+          v-model="trial.registration_date"
+          type="date"
+          name="registration_date"
+          placeholder="taper votre Date d'inscription..."
+        />
       </div>
       <div class="inputthree">
         <input v-on:click.prevent="submitTrial" type="submit" value="Valider" />
@@ -20,37 +30,73 @@
       Valider
     </button>
     <div class="" id="form">
-      <form v-on:submit.prevent="submitForm" action="" method="POST" enctype="multipart/form-data" id="formulaire">
+      <form
+        v-on:submit.prevent="submitForm"
+        action=""
+        method="POST"
+        enctype="multipart/form-data"
+        id="formulaire"
+      >
         <div class="titre-form">
           <h2>Formulaire</h2>
         </div>
         <div class="la-in">
           <div class="form1">
             <label for="#"> Nom </label>
-            <input v-model="form.lastname" type="text" name="lastname" placeholder="taper votre Nom..." />
+            <input
+              v-model="form.lastname"
+              type="text"
+              name="lastname"
+              placeholder="taper votre Nom..."
+            />
           </div>
 
           <div class="form2">
             <label for="#"> Prénom </label>
-            <input v-model="form.firstname" type="text" name="firstname" placeholder="taper votre Prénom..." />
+            <input
+              v-model="form.firstname"
+              type="text"
+              name="firstname"
+              placeholder="taper votre Prénom..."
+            />
           </div>
 
           <div class="form3">
             <label for="#"> Email </label>
-            <input v-model="form.email" type="email" name="email" placeholder="taper votre Email..." />
+            <input
+              v-model="form.email"
+              type="email"
+              name="email"
+              placeholder="taper votre Email..."
+            />
           </div>
 
           <div class="form4">
             <label for="#"> Date de naissance </label>
-            <input v-model="form.date_birth" type="date" name="date_birth" placeholder="taper votre Date de naissance..." />
+            <input
+              v-model="form.date_birth"
+              type="date"
+              name="date_birth"
+              placeholder="taper votre Date de naissance..."
+            />
           </div>
 
           <div class="form5">
             <label for="number">n° Dossard</label>
-            <input disabled type="text" name="number" id="number" v-model="form.number" />
+            <input
+              disabled
+              type="text"
+              name="number"
+              id="number"
+              v-model="form.number"
+            />
             <label for="#"> Catégorie </label>
             <select type="text" name="category" v-model="form.category">
-              <option v-for="category in categories" :key="category.id_category" :value="category.id_category">
+              <option
+                v-for="category in categories"
+                :key="category.id_category"
+                :value="category.id_category"
+              >
                 {{ category.name_category }}
               </option>
             </select>
@@ -58,7 +104,16 @@
 
           <div class="form6">
             <div class="file-upload">
-              <input @change="previewFiles" class="inPhoto" type="file" name="photo" value="Photo" placeholder="Photo" size="80px" />
+              <input
+                @change="previewFiles"
+                class="inPhoto"
+                type="file"
+                name="photo"
+                value="Photo"
+                placeholder="Photo"
+                size="80px"
+              />
+              <img v-if="url" :src="url" width="154px" />
               <label for="file" id="picture"></label>
             </div>
           </div>
@@ -81,44 +136,114 @@
       <div id="row">
         <div class="column">
           <h2>M1<br /><span id="nbr"></span></h2>
-          <div v-for="participant in participants" :key="participant.id_participant">
-            <span v-if="participant.id_category == 1">{{ participant.lastname }}<img id="cross" src="../assets/ressources/cross.svg" alt=""></span>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.name_category == 'M1'"
+              >{{ participant.lastname }}
+              <img
+                src="../assets/ressources/cross.svg"
+                alt=""
+                width="15px"
+                v-on:click="del(participant.id_participant)"
+            /></span>
           </div>
         </div>
         <div class="column">
           <h2>M2</h2>
-          <div v-for="participant in participants" :key="participant.id_participant">
-            <span v-if="participant.id_category == 2">{{ participant.lastname }}</span>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.name_category == 'M2'"
+              >{{ participant.lastname }}
+              <img
+                src="../assets/ressources/cross.svg"
+                alt=""
+                width="15px"
+                v-on:click="del(participant.id_participant)"
+            /></span>
           </div>
         </div>
         <div class="column">
           <h2>M3</h2>
-          <div v-for="participant in participants" :key="participant.id_participant">
-            <span v-if="participant.id_category == 3">{{ participant.lastname }}</span>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.name_category == 'M3'"
+              >{{ participant.lastname }}
+              <img
+                src="../assets/ressources/cross.svg"
+                alt=""
+                width="15px"
+                v-on:click="del(participant.id_participant)"
+            /></span>
           </div>
         </div>
         <div class="column">
           <h2>Senior</h2>
-          <div v-for="participant in participants" :key="participant.id_participant">
-            <span v-if="participant.id_category == 4">{{ participant.lastname }}</span>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.name_category == 'Senior'"
+              >{{ participant.lastname }}
+              <img
+                src="../assets/ressources/cross.svg"
+                alt=""
+                width="15px"
+                v-on:click="del(participant.id_participant)"
+            /></span>
           </div>
         </div>
         <div class="column">
           <h2>V</h2>
-          <div v-for="participant in participants" :key="participant.id_participant">
-            <span v-if="participant.id_category == 5">{{ participant.lastname }}</span>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.name_category == 'V'"
+              >{{ participant.lastname }}
+              <img
+                src="../assets/ressources/cross.svg"
+                alt=""
+                width="15px"
+                v-on:click="del(participant.id_participant)"
+            /></span>
           </div>
         </div>
         <div class="column">
           <h2>Snow</h2>
-          <div v-for="participant in participants" :key="participant.id_participant">
-            <span v-if="participant.id_category == 6">{{ participant.lastname }}</span>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.name_category == 'Snow'"
+              >{{ participant.lastname }}
+              <img
+                src="../assets/ressources/cross.svg"
+                alt=""
+                width="15px"
+                v-on:click="del(participant.id_participant)"
+            /></span>
           </div>
         </div>
         <div class="column">
           <h2>Nouvelle Glisse</h2>
-          <div v-for="participant in participants" :key="participant.id_participant">
-            <span v-if="participant.id_category == 7">{{ participant.lastname }}<img src="../assets/ressources/cross.svg" alt=""></span>
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
+            <span v-if="participant.name_category == 'Nouvelle Glisse'"
+              >{{ participant.lastname }}
+              <img
+                src="../assets/ressources/cross.svg"
+                alt=""
+                width="15px"
+                v-on:click="del(participant.id_participant)"
+            /></span>
           </div>
         </div>
       </div>
@@ -132,6 +257,7 @@ export default {
     return {
       participants: [],
       categories: [],
+      url: "",
       trial: {
         station_name: "",
         registration_date: "",
@@ -148,11 +274,15 @@ export default {
   },
   async mounted() {
     // Get all participants
-    const responseParticipants = await axios.get(`http://localhost/ski/API/participant`);
+    const responseParticipants = await axios.get(
+      `http://localhost/ski/API/participant`
+    );
     this.participants = responseParticipants.data;
 
     // Get all categories
-    const responseCategory = await axios.get(`http://localhost/ski/API/category`);
+    const responseCategory = await axios.get(
+      `http://localhost/ski/API/category`
+    );
     this.categories = responseCategory.data;
   },
   methods: {
@@ -169,6 +299,7 @@ export default {
     previewFiles(e) {
       const selectedImage = e.target.files[0];
       this.createBase64Image(selectedImage);
+      this.url = URL.createObjectURL(selectedImage);
     },
 
     createBase64Image(fileObject) {
@@ -181,10 +312,14 @@ export default {
 
     async submitTrial() {
       // Truncate table
-      // axios.get(`http://localhost/ski/API/truncateTable`);
+      var truncate = confirm("Voulez-vous vider la badse de données?");
+      if (truncate == true) {
+        axios.get(`http://localhost/ski/API/truncateTable`);
+      }
       // Edit Dom
       document.getElementById("form").style.display = "flex";
-      document.getElementById("form").className += "animate__animated animate__fadeInUp form";
+      document.getElementById("form").className +=
+        "animate__animated animate__fadeInUp form";
       document.getElementById("view").style.display = "grid";
       document.getElementById("trial").style.display = "none";
       // Send form trial
@@ -195,10 +330,22 @@ export default {
       // Send form participants
       await axios.post(`http://localhost/ski/API/insertParticipant`, this.form);
       document.getElementById("formulaire").reset();
-      const responseParticipants = await axios.get(`http://localhost/ski/API/participant`);
+      const responseParticipants = await axios.get(
+        `http://localhost/ski/API/participant`
+      );
       this.participants = responseParticipants.data;
     },
 
+    async del(id) {
+      var r = confirm("Etes-vous sûr de vouloir supprimer ce participant?");
+      if (r == true) {
+        await axios.get(`http://localhost/ski/API/deleteParticipant` + id);
+        const responseParticipants = await axios.get(
+          `http://localhost/ski/API/participant`
+        );
+        this.participants = responseParticipants.data;
+      }
+    },
     async exportForm() {
       // export Excel
       await axios.get(`http://localhost/ski/API/exportExcel`);

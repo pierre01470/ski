@@ -1,16 +1,16 @@
 <template>
   <section class="main-resultat">
-    <div class="back-date">
+    <div class="back-date" v-for="trial in trials" :key="trial.id_trial">
       <div class="station">
         <h2>Nom de la station</h2>
         <div class="name-station">
-          <p>station de vaulx en velin</p>
+          <p>{{ trial.name_station }}</p>
         </div>
       </div>
       <div class="test">
         <h2>Date de l'épreuve</h2>
         <div class="date-epr">
-          <p>10/03/2865</p>
+          <p>{{ trial.date }}</p>
         </div>
       </div>
     </div>
@@ -22,7 +22,9 @@
             <th scope="col">Photo</th>
             <th scope="col">Nom</th>
             <th scope="col">Prénom</th>
-            <th scope="col">Catégorie</th>
+            <th id="cat" scope="col" v-on:click="orderByCategory()">
+              Catégorie
+            </th>
             <th scope="col">Dossard</th>
             <th scope="col">Temps</th>
             <th scope="col">Classement</th>
@@ -33,21 +35,19 @@
           <tr v-for="value in participants" :key="value.id_participant">
             <td>
               <img
-                v-if="photo == null"
-                :src="require(`../assets/ressources/${value.photo}`)"
+                :src="require(`@/assets/ressources/${value.photo}`)"
                 alt="photo"
                 id="infinite-list"
               />
             </td>
-
             <td>{{ value.lastname }}</td>
             <td>{{ value.firstname }}</td>
-            <td>{{ value.id_category }}</td>
+            <td>{{ value.name_category }}</td>
             <td>{{ value.number }}</td>
             <td>temps</td>
             <td>{{ value.id_trial }}</td>
             <td>
-              <button>
+              <button v-on:click="del(value.id_participant)">
                 <img
                   src="@/assets/ressources/poubelles.jpg"
                   height="45px"
@@ -70,6 +70,9 @@ export default {
   data() {
     return {
       participants: [],
+      categories: [],
+      trials: [],
+      runs: [],
     };
   },
   async mounted() {
@@ -77,15 +80,36 @@ export default {
       `http://localhost/ski/API/participant`
     );
     this.participants = responseParticipants.data;
+    console.log(this.participants)
+
     const responseCategory = await axios.get(
-      `http://localhost/ski/API/category`
+      `http://localhost/ski/API/categoryByName`
     );
     this.categories = responseCategory.data;
+
+    const responseTrial = await axios.get(`http://localhost/ski/API/trial`);
+    this.trials = responseTrial.data;
+
+    const responseRun = await axios.get(`http://localhost/ski/API/run`);
+    this.runs = responseRun.data;
   },
 
   methods: {
-    async del() {
-      await axios.delete(`http://localhost/ski/API/deleteParticipant`);
+    async del(id) {
+      var r = confirm("Etes-vous sûr de vouloir supprimer ce participant?");
+      if (r == true) {
+        await axios.get(`http://localhost/ski/API/deleteParticipant` + id);
+        const responseParticipants = await axios.get(
+          `http://localhost/ski/API/participant`
+        );
+        this.participants = responseParticipants.data;
+      }
+    },
+    async orderByCategory() {
+      const responseParticipants = await axios.get(
+        `http://localhost/ski/API/participantByCategory`
+      );
+      this.participants = responseParticipants.data;
     },
   },
 };

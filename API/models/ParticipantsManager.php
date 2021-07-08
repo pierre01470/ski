@@ -4,65 +4,25 @@ class ParticipantsManager extends Model
 {
     public function addParticipants($insert)
     {
-        // Insert Photo
-        if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0) {
-            $dossier = './ressources/profile\\';
-            $allowed = array('JPG', 'JPEG', 'PNG', 'GIF', 'JFIF');
-            $filename = basename($_FILES['photo']['name']);
-            $filesize = $_FILES['photo']['size'];
-            $ext = strtoupper(pathinfo($filename, PATHINFO_EXTENSION));
-            $file_tmp = $_FILES['photo']['tmp_name'];
-            $rename = $filename . uniqid(date("Ymd")) . '.' . $ext;
-            $file = $dossier . $filename;
-            $file_rename = $dossier . $rename;
-
-            // check size 
-            if ($filesize > 2000000) {
-                echo "Erreur: La taille du fichier est supérieure à la limite autorisée.";
-            } else {
-                // check the extension
-                if (!in_array($ext, $allowed)) {
-                    echo "Erreur : Veuillez sélectionner un format de fichier valide.";
-                } else {
-                    // check if the file already exist
-                    if (file_exists("./ressources/profile/" . $_FILES["photo"]["name"])) {
-                        move_uploaded_file($file_tmp, $file_rename);
-                        $return_name = $file_rename;
-                    } else {
-                        move_uploaded_file($file_tmp, $file);
-                        $return_name = $dossier . $filename;
-                    }
-                }
-            }
-        } else {
-            // if no photo selected send default photo
-            $return_name = './ressources/camera.png';
-        }
-
-        if (isset($_POST)) {
-            if (
-                isset($_POST['lastname']) && !empty($_POST['lastname']) && isset($_POST['firstname']) && !empty($_POST['firstname']) && isset($_POST['date_birth']) && !empty($_POST['date_birth']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_FILES['photo']) && !empty($_FILES['photo']) && isset($_POST['number']) && !empty($_POST['number'])
-            ) {
-                $db = $this->getDb();
-                $req = $db->prepare('INSERT INTO `participant`(`lastname`, `firstname`, `date_birth`, `email`, `photo`, `number`, `id_trial`, `id_category`) VALUES (:lastname, :firstname, :date_birth, :email, :photo, :number, :id_trial, :id_category)');
-                $req->bindValue(':lastname', $insert->getLastname());
-                $req->bindValue(':firstname', $insert->getFirstname());
-                $req->bindValue(':date_birth', $insert->getDate_birth());
-                $req->bindValue(':email', $insert->getEmail());
-                $req->bindValue(':photo', $return_name);
-                $req->bindValue(':number', $insert->getNumber());
-                $req->bindValue(':id_trial', '1');
-                $req->bindValue(':id_category', $_POST['category']);
-                $req->execute();
-            }
+        if (isset($insert)) {
+            $db = $this->getDb();
+            $req = $db->prepare('INSERT INTO `participant`(`lastname`, `firstname`, `date_birth`, `email`, `photo`, `number`, `id_trial`, `id_category`) VALUES (:lastname, :firstname, :date_birth, :email, :photo, :number, :id_trial, :id_category)');
+            $req->bindValue(':lastname', $insert->getLastname());
+            $req->bindValue(':firstname', $insert->getFirstname());
+            $req->bindValue(':date_birth', $insert->getDate_birth());
+            $req->bindValue(':email', $insert->getEmail());
+            $req->bindValue(':photo', $insert->getPhoto());
+            $req->bindValue(':number', $insert->getNumber());
+            $req->bindValue(':id_trial', '1');
+            $req->bindValue(':id_category', $insert->getIdCategory());
+            $req->execute();
         }
     }
 
     public function getAllParticipant()
     {
-
         $db = $this->getDb();
-        $req = $db->query('SELECT * FROM `participant`')->fetchAll(PDO::FETCH_ASSOC);
+        $req = $db->query('SELECT * FROM `participant` INNER JOIN `category` ON participant.id_category = category.id_category')->fetchAll(PDO::FETCH_ASSOC);
         return json_encode($req);
     }
 
@@ -75,11 +35,72 @@ class ParticipantsManager extends Model
         return json_encode($req->fetchAll(PDO::FETCH_ASSOC));
     }
 
+    public function getParticipantByCategory()
+    {
+        $db = $this->getDb();
+        $req = $db->query('SELECT * FROM `participant` INNER JOIN `category` ON participant.id_category = category.id_category ORDER BY `name_category` ASC');
+        return json_encode($req->fetchAll(PDO::FETCH_ASSOC));
+    }
+
     public function deleteParticipant($id)
     {
         $db = $this->getDb();
         $req = $db->prepare('DELETE FROM `participant`  WHERE `id_participant` = :id_participant');
         $req->bindValue(':id_participant', $id['id']);
         $req->execute();
+    }
+
+    public function getExportExcel()
+    {
+
+
+        $db = $this->getDb();
+        $spreadsheet = new PhpOffice\PhpSpreadsheet\Spreadsheet();
+        $Excel_writer = new PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+
+
+        $spreadsheet->setActiveSheetIndex(0);
+        $activeSheet = $spreadsheet->getActiveSheet();
+        $activeSheet->setCellValue('A1', 'Nom');
+        $activeSheet->setCellValue('B1', 'prénom');
+        $activeSheet->setCellValue('C1', 'N° dossard');
+        $activeSheet->setCellValue('D1', '1er run');
+        $activeSheet->setCellValue('E1', '2nd run');
+        $activeSheet->setCellValue('F1', 'résultat');
+
+        $writer = new PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+        $writer->save('ListeCourse.xlsx');
+        $req = $db->query("SELECT * FROM `participant`ORDER BY id_participant DESC");
+        if ($req->num_rows > 0) {
+
+            $i = 2;
+            while ($row = $req->fetch_assoc()) {
+                $activeSheet->setCellValue('A' . $i, $row['product_name']);
+                $activeSheet->setCellValue('B' . $i, $row['product_sku']);
+                $activeSheet->setCellValue('C' . $i, $row['product_price']);
+                $i++;
+            }
+        }
+        $filename = 'ListeCourse.xlsx';
+
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename=' . $filename);
+
+        $Excel_writer->save('php://output');
+    }
+
+    // Truncate Table
+    public function getTruncateTable()
+    {
+        $db = $this->getDb();
+        $db->query('TRUNCATE `ski_api`.`participant`');
+        $db->query('TRUNCATE `ski_api`.`run`');
+        $db->query('TRUNCATE `ski_api`.`trial`');
+        $dossier = "../src/assets/ressources/profile/";
+        $ouverture = opendir($dossier);
+        $fichier = readdir($ouverture);
+        while ($fichier = readdir($ouverture)) {
+            unlink("$dossier/$fichier");
+        }
     }
 }

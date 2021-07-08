@@ -1,5 +1,6 @@
 <template>
   <section class="main-resultat">
+    <button v-on:click="importExcel()"></button>
     <div class="back-date" v-for="trial in trials" :key="trial.id_trial">
       <div class="station">
         <h2>Nom de la station</h2>
@@ -73,6 +74,7 @@ export default {
       categories: [],
       trials: [],
       runs: [],
+      file: []
     };
   },
   async mounted() {

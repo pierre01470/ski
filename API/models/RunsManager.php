@@ -1,14 +1,26 @@
 <?php
+
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
+
 class RunsManager extends Model
 {
     public function getImportExcel()
     {
-        $db = $this->getDb();
-        // Insert CSV
-        if (!empty($_FILES['file'])) {
+        $inputFileName = $_FILES['file']['tmp_name'];
 
-            //UPLOAD DU FICHIER CSV, vérification et insertion en BASE
-            
+        $reader = new Xlsx();
+        $spreadsheet = $reader->load($inputFileName);
+
+        $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+        
+        foreach ($sheetData as $value) {
+            var_dump($sheetData);
+            $db = $this->getDb();
+            $req = $db->prepare('INSERT INTO `run`(`time_realized_one`,`time_realized_two`,`number`) VALUES (:row1, :row2,:row3)');
+            $req->bindValue(':row1', $value['D']);
+            $req->bindValue(':row2', $value['E']);
+            $req->bindValue(':row3', $value['C']);
+            $req->execute();
         }
     }
 
@@ -17,17 +29,6 @@ class RunsManager extends Model
         $db = $this->getDb();
         $req = $db->query('SELECT * FROM `run`')->fetchAll(PDO::FETCH_ASSOC);
         return json_encode($req);
-    }
-
-    public function getInsertRun($insert)
-    {
-        $db = $this->getDb();
-        $req = $db->prepare('INSERT INTO `run`(`id_run`, `time_realized_one`, `time_realized_two`, `number`) VALUE (:id_run, :time_realized_one, :time_realized_two, :number');
-        $req->bindValue(':id_run', $insert->getIdRun());
-        $req->bindValue(':time_realized_one', $insert->getTime_realized_one());
-        $req->bindValue(':time_realized_two', $insert->getTime_realized_two());
-        $req->bindValue(':number', $insert->getNumber());
-        $req->execute();
     }
 
     public function deleteRun($id)

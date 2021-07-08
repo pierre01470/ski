@@ -312,7 +312,7 @@ export default {
 
     async submitTrial() {
       // Truncate table
-      var truncate = confirm("Voulez-vous vider la badse de données?");
+      var truncate = confirm("Voulez-vous vider la base de données?");
       if (truncate == true) {
         axios.get(`http://localhost/ski/API/truncateTable`);
       }
@@ -328,14 +328,12 @@ export default {
 
     async submitForm() {
       // Send form participants
-      await axios.post(`http://localhost/ski/API/insertParticipant`, this.form);
+      console.log(this.form)
+      await axios.post(`http://localhost/ski/API/insertParticipant`, this.form,);
       document.getElementById("formulaire").reset();
-      const responseParticipants = await axios.get(
-        `http://localhost/ski/API/participant`
-      );
+      const responseParticipants = await axios.get(`http://localhost/ski/API/participant`);
       this.participants = responseParticipants.data;
     },
-
     async del(id) {
       var r = confirm("Etes-vous sûr de vouloir supprimer ce participant?");
       if (r == true) {
@@ -348,7 +346,7 @@ export default {
     },
     async exportForm() {
       // export Excel
-      await axios.get(`http://localhost/ski/API/exportExcel`);
+      await axios.post(`http://localhost/ski/API/exportExcel`);
     },
   },
 };

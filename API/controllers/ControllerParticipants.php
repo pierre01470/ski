@@ -6,8 +6,11 @@ class ControllerParticipants
     public function insertParticipants()
     {
         $data = json_decode(file_get_contents('php://input'));
+        $b64 = explode(',', $data->photo);
+        $bin = base64_decode($b64[1]);
+        
 
-        if (!empty($data->photo)) {
+        if (empty($data->photo)) {
             $b64 = explode(',', $data->photo);
             $bin = base64_decode($b64[1]);
             $im = imageCreateFromString($bin);

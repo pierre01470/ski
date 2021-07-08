@@ -55,6 +55,7 @@ class ParticipantsManager extends Model
 
     public function getExportExcel()
     {
+        var_dump('export');
         $filename = "ListeCourse";
         $part = [];
         $db = $this->getDb();
@@ -94,12 +95,8 @@ class ParticipantsManager extends Model
             header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
             header('Content-Disposition: attachment; filename="' . urlencode($final_filename) . '"');
             $writer->save('php://output');
+            var_dump($writer);
         }
-    }
-    
-    public function getImportExcel()
-    {
-        
     }
 
     // Truncate Table

@@ -313,6 +313,10 @@ export default {
     async submitTrial() {
       // Truncate table
       var truncate = confirm("Voulez-vous vider la base de données?");
+      const responseParticipants = await axios.get(
+        `http://localhost/ski/API/participant`
+      );
+      this.participants = responseParticipants.data;
       if (truncate == true) {
         axios.get(`http://localhost/ski/API/truncateTable`);
       }

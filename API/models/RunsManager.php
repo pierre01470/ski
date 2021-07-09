@@ -9,9 +9,8 @@ class RunsManager extends Model
         $data = json_decode(file_get_contents('php://input'));
         $explode = explode(',', $data->photo);
         $b64 = base64_decode($explode[1]);
-        file_put_contents('file.xls', $b64);
-        file_get_contents('file.xls');
-        $inputFileName = 'file.xls';
+        file_put_contents('file.xlsx', $b64);
+        $inputFileName = 'file.xlsx';
 
         $reader = new Xlsx();
         $spreadsheet = $reader->load($inputFileName);
@@ -19,8 +18,11 @@ class RunsManager extends Model
         $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
         
         foreach ($sheetData as $value) {
+            $resultOne = $value['D'];
+            $resultTwo = $value['E'];
+            var_dump($resultOne->format("H:i:s.v"));
+            var_dump($resultTwo);
             $db = $this->getDb();
-            var_dump($value['F']);
             $req = $db->prepare('INSERT INTO `run`(`time_realized_one`,`time_realized_two`, `number`, `result`) VALUES (:row1, :row2,:row3,:row4)');
             $req->bindValue(':row1', $value['D']);
             $req->bindValue(':row2', $value['E']);
@@ -28,6 +30,7 @@ class RunsManager extends Model
             $req->bindValue(':row4', $value['F']);
             $req->execute();
         }
+        
     }
 
     public function getAllRuns()

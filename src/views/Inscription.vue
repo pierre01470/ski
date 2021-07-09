@@ -328,10 +328,11 @@ export default {
 
     async submitForm() {
       // Send form participants
-      console.log(this.form)
-      await axios.post(`http://localhost/ski/API/insertParticipant`, this.form,);
+      await axios.post(`http://localhost/ski/API/insertParticipant`, this.form);
       document.getElementById("formulaire").reset();
-      const responseParticipants = await axios.get(`http://localhost/ski/API/participant`);
+      const responseParticipants = await axios.get(
+        `http://localhost/ski/API/participant`
+      );
       this.participants = responseParticipants.data;
     },
     async del(id) {

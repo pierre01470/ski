@@ -55,7 +55,6 @@ class ParticipantsManager extends Model
 
     public function getExportExcel()
     {
-        var_dump('export');
         $filename = "ListeCourse";
         $part = [];
         $db = $this->getDb();
@@ -69,7 +68,6 @@ class ParticipantsManager extends Model
         if ($count > 0) {
             $spreadsheet = new Spreadsheet();
             $sheet = $spreadsheet->getActiveSheet();
-            $spreadsheet->getActiveSheet()->getCell('E11')->getCalculatedValue();
 
             $sheet->setCellValue('A1', 'firsname');
             $sheet->setCellValue('B1', 'lastname');
@@ -83,9 +81,9 @@ class ParticipantsManager extends Model
                 $sheet->setCellValue('A' . $rowCount, $data->getFirstName());
                 $sheet->setCellValue('B' . $rowCount, $data->getLastName());
                 $sheet->setCellValue('C' . $rowCount, $data->getNumber());
-                $sheet->setCellValue('D' . $rowCount, $data->getTimeRealizedOne());
-                $sheet->setCellValue('E' . $rowCount, $data->getTimeRealizedTwo());
-                $sheet->setCellValue('E' . $rowCount, $data->getTimeRealizedTwo());
+                $sheet->setCellValue('D' . $rowCount, ('hh:mm:ss,00'));
+                $sheet->setCellValue('E' . $rowCount, ('hh:mm:ss,00'));
+                $sheet->setCellValue('F' . $rowCount, '=MOYENNE(D' . $rowCount . ', E' . $rowCount . ')');
                 $rowCount++;
             }
 
@@ -95,7 +93,6 @@ class ParticipantsManager extends Model
             header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
             header('Content-Disposition: attachment; filename="' . urlencode($final_filename) . '"');
             $writer->save('php://output');
-            var_dump($writer);
         }
     }
 

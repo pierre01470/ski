@@ -1,6 +1,25 @@
 <template>
   <section class="main-resultat">
-    <button v-on:click="importExcel()"></button>
+    <div class="file-upload">
+      <form
+        v-on:submit.prevent="submitForm"
+        action=""
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <input
+          @change="previewExcel"
+          type="file"
+          id="excel"
+          name="photo"
+          value="Photo"
+          placeholder="Photo"
+          size="80px"
+        />
+        <label for="file"></label>
+        <input type="submit" value="Ajout participant" />
+      </form>
+    </div>
     <div class="back-date" v-for="trial in trials" :key="trial.id_trial">
       <div class="station">
         <h2>Nom de la station</h2>
@@ -49,7 +68,8 @@
             <td>{{ value.id_trial }}</td>
             <td>
               <button v-on:click="del(value.id_participant)">
-                <img class="poubelle"
+                <img
+                  class="poubelle"
                   src="@/assets/ressources/poubelle.png"
                   height="45px"
                   width="45px"
@@ -74,7 +94,19 @@ export default {
       categories: [],
       trials: [],
       runs: [],
-      file: []
+      url: "",
+      trial: {
+        station_name: "",
+        registration_date: "",
+      },
+      form: {
+        lastname: "",
+        firstname: "",
+        email: "",
+        date_birth: "",
+        number: "",
+        category: "",
+      },
     };
   },
   async mounted() {
@@ -82,7 +114,6 @@ export default {
       `http://localhost/ski/API/participant`
     );
     this.participants = responseParticipants.data;
-    console.log(this.participants)
 
     const responseCategory = await axios.get(
       `http://localhost/ski/API/categoryByName`
@@ -111,6 +142,29 @@ export default {
       const responseParticipants = await axios.get(
         `http://localhost/ski/API/participantByCategory`
       );
+      this.participants = responseParticipants.data;
+    },
+    previewExcel(e) {
+      const selectedImage = e.target.files[0];
+      this.createBase64Image(selectedImage);
+      this.url = URL.createObjectURL(selectedImage);
+    },
+    createBase64Image(fileObject) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.form.photo = e.target.result;
+      };
+      reader.readAsDataURL(fileObject);
+    },
+    async submitForm() {
+      // Send form participants
+      console.log(this.form);
+      await axios.post(`http://localhost/ski/API/importExcel`, this.form);
+    },
+
+    async submitExcel() {
+      // Send form participants
+      await axios.post(`http://localhost/ski/API/importExcel`, this.form);
       this.participants = responseParticipants.data;
     },
   },

@@ -63,7 +63,7 @@
   border-radius: 50%;
   height: 100px;
   width: 100px;
-  left: 1500px;
+  right: 100px;
   top: 300px;
   margin-right: 50px;
   font-size: 25px;
@@ -176,8 +176,8 @@
 
 .container-header #form {
   border-radius: 15px;
-  -webkit-box-shadow: 0 2px 2px  white;
-          box-shadow: 0 2px 2px  white;
+  -webkit-box-shadow: 0 2px 2px white;
+          box-shadow: 0 2px 2px white;
   background: rgba(3, 3, 3, 0.466);
   border-top: 1px solid rgba(128, 128, 128, 0.555);
   border-left: 1px solid rgba(121, 121, 121, 0.555);
@@ -836,5 +836,11 @@ input[type="file"] #picture {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+#excel {
+  width: auto;
+  height: auto;
+  position: unset;
 }
 /*# sourceMappingURL=style.css.map */

@@ -2,10 +2,6 @@
   font-family: "Marcellus SC", serif;
 }
 
-.titre-form h2 {
-  font-family: "Marcellus SC", serif;
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -215,6 +211,7 @@
   font-size: 60px;
   color: #0db2e4;
   text-align: center;
+  font-family: "Marcellus SC", serif;
 }
 
 .container-header #form label {
@@ -251,14 +248,8 @@
 }
 
 .container-header #form .la-in .form1 input {
-  color: #0ceef6;
   border-radius: 5px;
   border: 2px solid white;
-  background: transparent;
-}
-
-.container-header #form .la-in .form1 input placeholder {
-  color: #d9142b;
 }
 
 .container-header #form .la-in .form2 {
@@ -277,6 +268,11 @@
           align-items: center;
 }
 
+.container-header #form .la-in .form2 input {
+  border-radius: 5px;
+  border: 2px solid white;
+}
+
 .container-header #form .la-in .form3 {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -291,6 +287,12 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.container-header #form .la-in .form3 input {
+  color: #0ceef6;
+  border-radius: 5px;
+  border: 2px solid white;
 }
 
 .container-header #form .la-in .form4 {
@@ -309,6 +311,11 @@
           align-items: center;
 }
 
+.container-header #form .la-in .form4 input {
+  border-radius: 5px;
+  border: 2px solid white;
+}
+
 .container-header #form .la-in .form5 {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -325,15 +332,68 @@
   margin-bottom: 100px;
 }
 
+.container-header #form .la-in .form5 input {
+  color: #0ceef6;
+  border-radius: 5px;
+  border: 2px solid white;
+}
+
 .container-header #form .la-in .form5 label {
   margin-top: 50px;
 }
 
 .container-header #form .la-in .form6 {
+  width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-right: 300px;
+}
+
+.container-header #form .la-in .form6 .file-upload {
+  height: 150px;
+  width: 150px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid #ffffff;
+  overflow: hidden;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #2590eb), color-stop(50%, #ffffff));
+  background-image: linear-gradient(to bottom, #2590eb 50%, #ffffff 50%);
+  background-size: 100% 200%;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  color: #ffffff;
+  font-size: 60px;
+}
+
+.container-header #form .la-in .form6 .file-upload input[type="file"] {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.container-header #form .la-in .form6 .file-upload:hover {
+  background-position: 0 -100%;
+  color: #2590eb;
 }
 
 .container-header #form .la-in .form7 {
@@ -352,10 +412,37 @@
           align-items: center;
 }
 
+.container-header #form .la-in .form7 #dossardBtn {
+  width: 80px;
+  height: 50px;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
 .container-header #form .la-in .form7 div {
-  background-color: transparent;
   color: white;
   border: 2px solid white;
+}
+
+.container-header #form .la-in .form7 div input {
+  color: #0ceef6;
+  border-radius: 5px;
+  border: 2px solid white;
+  background: transparent;
 }
 
 .container-header #form .la-in .form7 div:hover {
@@ -403,6 +490,48 @@
   grid-column: 1/3;
 }
 
+.container-header #form .la-in .form9 input {
+  width: 60px;
+}
+
+input[type="text"] {
+  height: 20px;
+  width: 210px;
+}
+
+input[type="email"] {
+  height: 20px;
+  width: 210px;
+}
+
+input[type="date"] {
+  height: 20px;
+  width: 210px;
+}
+
+input[type="submit"] {
+  height: 30px;
+  width: 220px;
+}
+
+#marjorie:hover {
+  background-color: #0ceef6;
+  cursor: pointer;
+}
+
+input[type="file"] {
+  height: 200px;
+  width: 220px;
+  background-color: white;
+  position: absolute;
+}
+
+input[type="file"] #picture {
+  position: relative;
+  color: black;
+}
+
+/*---- TABLEAU RECAPUTILATIF DES COURSES ------*/
 .liste-participant {
   background-color: rgba(3, 3, 3, 0.692);
   width: 70%;
@@ -448,164 +577,8 @@
   color: white;
 }
 
-.liste-participant .liste-header tr {
-  height: 80px;
-  -ms-grid-columns: (1fr)[7];
-      grid-template-columns: repeat(7, 1fr);
-  display: -ms-grid;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-}
-
-.liste-participant .liste-header tr th {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 25px;
-}
-
 .liste-participant .liste-header .nbr-parti {
   background-color: rgba(145, 240, 219, 0.698);
-}
-
-.liste-participant .liste-middle {
-  background: rgba(251, 251, 251, 0.575);
-  width: 100%;
-}
-
-.liste-participant .liste-middle tr {
-  height: 80px;
-  -ms-grid-columns: (1fr)[7];
-      grid-template-columns: repeat(7, 1fr);
-  display: -ms-grid;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-}
-
-.liste-participant .liste-middle tr td {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-input[type="text"] {
-  height: 20px;
-  width: 210px;
-}
-
-input[type="email"] {
-  height: 20px;
-  width: 210px;
-}
-
-input[type="date"] {
-  height: 20px;
-  width: 210px;
-}
-
-input[type="submit"] {
-  height: 30px;
-  width: 220px;
-}
-
-.form7 #dossardBtn {
-  width: 80px;
-  height: 50px;
-  border-radius: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-  padding: 10px;
-}
-
-.form9 input {
-  width: 60px;
-}
-
-#marjorie:hover {
-  background-color: #0ceef6;
-  cursor: pointer;
-}
-
-input[type="file"] {
-  height: 200px;
-  width: 220px;
-  background-color: white;
-  position: absolute;
-}
-
-input[type="file"] #picture {
-  position: relative;
-  color: black;
-}
-
-.form6 {
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.form6 .file-upload {
-  height: 150px;
-  width: 150px;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border: 2px solid #ffffff;
-  overflow: hidden;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #2590eb), color-stop(50%, #ffffff));
-  background-image: linear-gradient(to bottom, #2590eb 50%, #ffffff 50%);
-  background-size: 100% 200%;
-  -webkit-transition: all 1s;
-  transition: all 1s;
-  color: #ffffff;
-  font-size: 60px;
-}
-
-.form6 .file-upload input[type="file"] {
-  height: 200px;
-  width: 200px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.form6 .file-upload:hover {
-  background-position: 0 -100%;
-  color: #2590eb;
 }
 
 .pied-page {
@@ -656,7 +629,7 @@ input[type="file"] #picture {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 90px auto;
+  margin: 20px auto;
   width: 100%;
 }
 
@@ -836,5 +809,101 @@ input[type="file"] #picture {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+.topform {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.topform .runtitle {
+  color: white;
+  font-family: "Marcellus SC", serif;
+  margin-top: 10px;
+  font-size: 40px;
+  background: #00b7c47e;
+  padding: 0 10px;
+}
+
+.topform .runInput {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 400px;
+}
+
+.topform .isVisuallyHidden {
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.topform .container {
+  margin: 0 auto;
+  width: auto;
+  max-width: 620px;
+  border: 1px solid grey;
+  padding: 10px;
+  text-align: center;
+}
+
+.topform div {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.topform .btn {
+  display: inline-block;
+  margin: 0;
+  border-width: 0;
+  padding: 15px 15px;
+  max-width: 100%;
+  color: black;
+  font-size: 18px;
+  text-align: center;
+  -webkit-box-shadow: 0 0 2px #000000;
+          box-shadow: 0 0 2px #000000;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 3px;
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, left bottom, from(#478DBD), to(#87cdfb));
+  background: linear-gradient(#478DBD, #87cdfb);
+}
+
+.topform .btn:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#64A7D6), to(#3c90cb));
+  background: linear-gradient(#64A7D6, #3c90cb);
+}
+
+.topform .btn:active {
+  color: #d3d3d3;
+  background: -webkit-gradient(linear, left top, left bottom, from(#366B90), to(#284f6b));
+  background: linear-gradient(#366B90, #284f6b);
 }
 /*# sourceMappingURL=style.css.map */

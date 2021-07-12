@@ -29,7 +29,7 @@
     <button v-on:click.prevent="exportForm" class="valide" value="Valider">
       Valider
     </button>
-    <div class="" id="form">
+    <div class="blockForm" id="form">
       <form
         v-on:submit.prevent="submitForm"
         action=""
@@ -113,29 +113,31 @@
                 placeholder="Photo"
                 size="80px"
               />
-              <img v-if="url" :src="url" width="154px" />
+              <img v-if="url" :src="url" width="154px" alt="photo"/>
               <label for="file" id="picture"></label>
             </div>
           </div>
 
           <div class="form7">
             <div id="dossardBtn" v-on:click="generate()">
-              Generer: <br />
+              Generer: <br/>
               N° dossard
             </div>
           </div>
           <div class="form8">
             <input id="marjorie" type="submit" value="Ajout participant" />
           </div>
-          <div class="form9"></div>
+          
         </div>
       </form>
     </div>
 
     <div class="liste-participant" id="view">
       <div id="row">
+        
         <div class="column">
-          <h2>M1<br /><span id="nbr"></span></h2>
+          <div class="headcol">
+          <h2>M1<br /><span id="nbr"></span></h2></div>
           <div
             v-for="participant in participants"
             :key="participant.id_participant"
@@ -151,7 +153,9 @@
           </div>
         </div>
         <div class="column">
-          <h2>M2</h2>
+
+          <div class="headcol">
+          <h2>M2<br /><span id="nbr"></span></h2></div>
           <div
             v-for="participant in participants"
             :key="participant.id_participant"
@@ -167,7 +171,9 @@
           </div>
         </div>
         <div class="column">
-          <h2>M3</h2>
+
+          <div class="headcol">
+          <h2>M3<br /><span id="nbr"></span></h2></div>
           <div
             v-for="participant in participants"
             :key="participant.id_participant"
@@ -183,7 +189,9 @@
           </div>
         </div>
         <div class="column">
-          <h2>Senior</h2>
+
+          <div class="headcol">
+          <h2>Senior<br /><span id="nbr"></span></h2></div>
           <div
             v-for="participant in participants"
             :key="participant.id_participant"
@@ -199,7 +207,9 @@
           </div>
         </div>
         <div class="column">
-          <h2>V</h2>
+          
+          <div class="headcol">
+          <h2>V<br /><span id="nbr"></span></h2></div>
           <div
             v-for="participant in participants"
             :key="participant.id_participant"
@@ -215,7 +225,8 @@
           </div>
         </div>
         <div class="column">
-          <h2>Snow</h2>
+          <div class="headcol">
+          <h2>Snow<br /><span id="nbr"></span></h2></div>
           <div
             v-for="participant in participants"
             :key="participant.id_participant"
@@ -231,7 +242,8 @@
           </div>
         </div>
         <div class="column">
-          <h2>Nouvelle Glisse</h2>
+          <div class="headcol">
+          <h2>Nouvelle glisse<br /><span id="nbr"></span></h2></div>
           <div
             v-for="participant in participants"
             :key="participant.id_participant"

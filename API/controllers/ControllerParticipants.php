@@ -14,15 +14,13 @@ class ControllerParticipants
             if (!$im) {
                 die('Base64 value is not a valid image');
             }
-            // rename Photo
+
             if (isset($im)) {
-                // check if the file already exist
                 $filename = uniqid(date("Ymd"));
                 $file_rename = "../src/assets/ressources/profile/" . $filename . ".png";
                 $database_name = "profile/" . $filename . ".png";
             }
         } else {
-            // if no photo selected send default photo
             $file_rename = '../src/assets/ressources/profile/camera.png"';
             $database_name = "camera.png";
         }
@@ -47,7 +45,7 @@ class ControllerParticipants
         $participant = $manager->getOneParticipant($id);
         echo $participant;
     }
-    
+
     public function participantByCategory()
     {
         $manager = new ParticipantsManager();
@@ -66,9 +64,10 @@ class ControllerParticipants
         $manager = new ParticipantsManager();
         $manager->getExportExcel();
     }
-    
+
     // Truncate table
-    public function truncateTable(){
+    public function truncateTable()
+    {
         $manager = new ParticipantsManager();
         $manager->getTruncateTable();
     }

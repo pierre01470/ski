@@ -2,6 +2,7 @@
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
 class ParticipantsManager extends Model
 {
@@ -58,7 +59,7 @@ class ParticipantsManager extends Model
         $filename = "ListeCourse";
         $part = [];
         $db = $this->getDb();
-        $req = $db->query('SELECT * FROM `participant` INNER JOIN `run` ON participant.number = run.number');
+        $req = $db->query('SELECT * FROM `participant`');
         while ($donnees = $req->fetch(PDO::FETCH_ASSOC)) {
             $count = 0;
             $part[] = new Participants($donnees);
@@ -68,7 +69,6 @@ class ParticipantsManager extends Model
         if ($count > 0) {
             $spreadsheet = new Spreadsheet();
             $sheet = $spreadsheet->getActiveSheet();
-            $spreadsheet->getActiveSheet()->getCell('E11')->getCalculatedValue();
 
             $sheet->setCellValue('A1', 'firsname');
             $sheet->setCellValue('B1', 'lastname');
@@ -82,9 +82,9 @@ class ParticipantsManager extends Model
                 $sheet->setCellValue('A' . $rowCount, $data->getFirstName());
                 $sheet->setCellValue('B' . $rowCount, $data->getLastName());
                 $sheet->setCellValue('C' . $rowCount, $data->getNumber());
-                $sheet->setCellValue('D' . $rowCount, $data->getTimeRealizedOne());
-                $sheet->setCellValue('E' . $rowCount, $data->getTimeRealizedTwo());
-                $sheet->setCellValue('E' . $rowCount, $data->getTimeRealizedTwo());
+                $sheet->setCellValue('D' . $rowCount, 'mm:ss.00');
+                $sheet->setCellValue('E' . $rowCount, 'mm:ss.00');
+                $sheet->setCellValue('F' . $rowCount, '=MOYENNE(D' . $rowCount . ', E' . $rowCount . ')');
                 $rowCount++;
             }
 
@@ -95,11 +95,6 @@ class ParticipantsManager extends Model
             header('Content-Disposition: attachment; filename="' . urlencode($final_filename) . '"');
             $writer->save('php://output');
         }
-    }
-    
-    public function getImportExcel()
-    {
-        
     }
 
     // Truncate Table

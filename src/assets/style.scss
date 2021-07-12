@@ -59,7 +59,7 @@ $fontone: "sporten_personal_useregular";
     border-radius: 50%;
     height: 100px;
     width: 100px;
-    left: 1500px;
+    right: 100px;
     top: 300px;
     margin-right: 50px;
     font-size: 25px;
@@ -144,7 +144,7 @@ $fontone: "sporten_personal_useregular";
   }
   #form {
     border-radius: 15px;
-    box-shadow:0 2px 2px  white;
+    box-shadow: 0 2px 2px white;
     background: rgba(3, 3, 3, 0.466);
     border-top: 1px solid rgba(128, 128, 128, 0.555);
     border-left: 1px solid rgba(121, 121, 121, 0.555);
@@ -162,7 +162,7 @@ $fontone: "sporten_personal_useregular";
       align-items: center;
       height: 100px;
       h2 {
-        text-shadow:  0 2px 2px rgba(0, 0, 0, 0.527);
+        text-shadow: 0 2px 2px rgba(0, 0, 0, 0.527);
         font-size: 60px;
         color: rgb(13, 178, 228);
         text-align: center;
@@ -548,7 +548,7 @@ input[type="file"] {
 }
 .column {
   text-align: center;
-  div{
+  div {
     width: 100px;
     display: flex;
     justify-content: space-around;
@@ -623,3 +623,8 @@ input[type="file"] {
   }
 }
 
+#excel{
+  width: auto;
+  height: auto;
+  position: unset;
+}

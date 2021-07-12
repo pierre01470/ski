@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="">
     <div class="topform">
       <h1 class="runtitle">Avoriaz</h1>
@@ -20,6 +21,34 @@
           <div class="name-station">
             <p>{{ trial.name_station }}</p>
           </div>
+=======
+  <section class="main-resultat">
+    <div class="file-upload">
+      <form
+        v-on:submit.prevent="submitForm"
+        action=""
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <input
+          @change="previewExcel"
+          type="file"
+          id="excel"
+          name="photo"
+          value="Photo"
+          placeholder="Photo"
+          size="80px"
+        />
+        <label for="file"></label>
+        <input type="submit" value="Ajout participant" />
+      </form>
+    </div>
+    <div class="back-date" v-for="trial in trials" :key="trial.id_trial">
+      <div class="station">
+        <h2>Nom de la station</h2>
+        <div class="name-station">
+          <p>{{ trial.name_station }}</p>
+>>>>>>> 8828c7570a383e26dd99a72d3de0d9891d77476d
         </div>
         <div class="test">
           <h2>Date de l'épreuve</h2>
@@ -29,6 +58,7 @@
         </div>
       </div>
 
+<<<<<<< HEAD
       <div class="category">
         <table>
           <thead class="header-table">
@@ -54,6 +84,48 @@
                   id="infinite-list"
                   height="60px"
                   width="40px"
+=======
+    <div class="category">
+      <table>
+        <thead class="header-table">
+          <tr>
+            <th scope="col">Photo</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th id="cat" scope="col" v-on:click="orderByCategory()">
+              Catégorie
+            </th>
+            <th scope="col">Dossard</th>
+            <th scope="col">Temps</th>
+            <th scope="col">Classement</th>
+            <th scope="col">SUPPRIMER</th>
+          </tr>
+        </thead>
+        <tbody class="body-table" id="infinite-list">
+          <tr v-for="value in participants" :key="value.id_participant">
+            <td>
+              <img
+                :src="require(`@/assets/ressources/${value.photo}`)"
+                alt="photo"
+                id="infinite-list"
+              />
+            </td>
+            <td>{{ value.lastname }}</td>
+            <td>{{ value.firstname }}</td>
+            <td>{{ value.name_category }}</td>
+            <td>{{ value.number }}</td>
+            <td>temps</td>
+            <td>{{ value.id_trial }}</td>
+            <td>
+              <button v-on:click="del(value.id_participant)">
+                <img
+                  class="poubelle"
+                  src="@/assets/ressources/poubelle.png"
+                  height="45px"
+                  width="45px"
+                  id="test"
+                  alt=""
+>>>>>>> 8828c7570a383e26dd99a72d3de0d9891d77476d
                 />
               </td>
               <td>{{ value.lastname }}</td>
@@ -91,6 +163,19 @@ export default {
       categories: [],
       trials: [],
       runs: [],
+      url: "",
+      trial: {
+        station_name: "",
+        registration_date: "",
+      },
+      form: {
+        lastname: "",
+        firstname: "",
+        email: "",
+        date_birth: "",
+        number: "",
+        category: "",
+      },
     };
   },
   async mounted() {
@@ -98,7 +183,10 @@ export default {
       `http://localhost/ski/API/participant`
     );
     this.participants = responseParticipants.data;
+<<<<<<< HEAD
     console.log(this.participants);
+=======
+>>>>>>> 8828c7570a383e26dd99a72d3de0d9891d77476d
 
     const responseCategory = await axios.get(
       `http://localhost/ski/API/categoryByName`
@@ -127,6 +215,29 @@ export default {
       const responseParticipants = await axios.get(
         `http://localhost/ski/API/participantByCategory`
       );
+      this.participants = responseParticipants.data;
+    },
+    previewExcel(e) {
+      const selectedImage = e.target.files[0];
+      this.createBase64Image(selectedImage);
+      this.url = URL.createObjectURL(selectedImage);
+    },
+    createBase64Image(fileObject) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.form.photo = e.target.result;
+      };
+      reader.readAsDataURL(fileObject);
+    },
+    async submitForm() {
+      // Send form participants
+      console.log(this.form);
+      await axios.post(`http://localhost/ski/API/importExcel`, this.form);
+    },
+
+    async submitExcel() {
+      // Send form participants
+      await axios.post(`http://localhost/ski/API/importExcel`, this.form);
       this.participants = responseParticipants.data;
     },
   },

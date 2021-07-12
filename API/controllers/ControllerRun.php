@@ -9,7 +9,6 @@ class ControllerRun
     }
 
     public function importExcel(){
-        var_dump($_FILES);
         $manager = new RunsManager();
         $runs = $manager->getImportExcel();
     }

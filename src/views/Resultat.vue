@@ -1,88 +1,85 @@
 <template>
-  <section class="main-resultat">
-    <div class="file-upload">
-      <form
-        v-on:submit.prevent="submitForm"
-        action=""
-        method="post"
-        enctype="multipart/form-data"
-      >
-        <input
-          @change="previewExcel"
-          type="file"
-          id="excel"
-          name="photo"
-          value="Photo"
-          placeholder="Photo"
-          size="80px"
-        />
-        <label for="file"></label>
-        <input type="submit" value="Ajout participant" />
+  <div class="">
+    <div class="topform">
+      <h1 class="runtitle">Avoriaz</h1>
+      <form class="runInput" action="">
+        <label class="btn" for="upload">
+      Importer
+      <input class="isVisuallyHidden" id="upload" type="file" multiple required />
+    </label>
+    <label class="btn" for="upload">
+      Envoyer
+      <input class="isVisuallyHidden" id="upload" type="file" multiple required />
+    </label>
       </form>
     </div>
-    <div class="back-date" v-for="trial in trials" :key="trial.id_trial">
-      <div class="station">
-        <h2>Nom de la station</h2>
-        <div class="name-station">
-          <p>{{ trial.name_station }}</p>
+    <section class="main-resultat">
+      <div class="back-date" v-for="trial in trials" :key="trial.id_trial">
+        <div class="station">
+          <h2>Nom de la station</h2>
+          <div class="name-station">
+            <p>{{ trial.name_station }}</p>
+          </div>
+        </div>
+        <div class="test">
+          <h2>Date de l'épreuve</h2>
+          <div class="date-epr">
+            <p>{{ trial.date }}</p>
+          </div>
         </div>
       </div>
-      <div class="test">
-        <h2>Date de l'épreuve</h2>
-        <div class="date-epr">
-          <p>{{ trial.date }}</p>
-        </div>
-      </div>
-    </div>
 
-    <div class="category">
-      <table>
-        <thead class="header-table">
-          <tr>
-            <th scope="col">Photo</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Prénom</th>
-            <th id="cat" scope="col" v-on:click="orderByCategory()">
-              Catégorie
-            </th>
-            <th scope="col">Dossard</th>
-            <th scope="col">Temps</th>
-            <th scope="col">Classement</th>
-            <th scope="col">SUPPRIMER</th>
-          </tr>
-        </thead>
-        <tbody class="body-table" id="infinite-list">
-          <tr v-for="value in participants" :key="value.id_participant">
-            <td>
-              <img
-                :src="require(`@/assets/ressources/${value.photo}`)"
-                alt="photo"
-                id="infinite-list"
-              />
-            </td>
-            <td>{{ value.lastname }}</td>
-            <td>{{ value.firstname }}</td>
-            <td>{{ value.name_category }}</td>
-            <td>{{ value.number }}</td>
-            <td>temps</td>
-            <td>{{ value.id_trial }}</td>
-            <td>
-              <button v-on:click="del(value.id_participant)">
+      <div class="category">
+        <table>
+          <thead class="header-table">
+            <tr>
+              <th scope="col">Photo</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Prénom</th>
+              <th id="cat" scope="col" v-on:click="orderByCategory()">
+                Catégorie
+              </th>
+              <th scope="col">Dossard</th>
+              <th scope="col">Temps</th>
+              <th scope="col">Classement</th>
+              <th scope="col">SUPPRIMER</th>
+            </tr>
+          </thead>
+          <tbody class="body-table" id="infinite-list">
+            <tr v-for="value in participants" :key="value.id_participant">
+              <td>
                 <img
-                  class="poubelle"
-                  src="@/assets/ressources/poubelle.png"
-                  height="45px"
-                  width="45px"
-                  id="test"
-                  alt=""
+                  :src="require(`@/assets/ressources/${value.photo}`)"
+                  alt="photo"
+                  id="infinite-list"
+                  height="60px"
+                  width="40px"
                 />
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+              </td>
+              <td>{{ value.lastname }}</td>
+              <td>{{ value.firstname }}</td>
+              <td>{{ value.name_category }}</td>
+              <td>{{ value.number }}</td>
+              <td>temps</td>
+              <td>{{ value.id_trial }}</td>
+              <td>
+                <button v-on:click="del(value.id_participant)">
+                  <img
+                    class="poubelle"
+                    src="@/assets/ressources/poubelle.png"
+                    height="45px"
+                    width="45px"
+                    id="test"
+                    alt=""
+                  />
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -114,6 +111,7 @@ export default {
       `http://localhost/ski/API/participant`
     );
     this.participants = responseParticipants.data;
+    console.log(this.participants);
 
     const responseCategory = await axios.get(
       `http://localhost/ski/API/categoryByName`

@@ -53,17 +53,22 @@ $fontone: "sporten_personal_useregular";
   }
   // Bouton Valider l'épreuve
   .valide {
-    background: rgba(3, 3, 3, 0.37);
+    background: rgba(14, 215, 241, 0.37);
     border-radius: 5px;
     border: 2px solid black;
     border-radius: 50%;
-    height: 100px;
-    width: 100px;
-    right: 100px;
-    top: 300px;
+    height: 50px;
+    width: 50px;
+    right: 10%;
+    top: 250px;
     margin-right: 50px;
-    font-size: 25px;
+    font-size: 10px;
     position: fixed;
+    @media screen and (max-width: 1150px){
+      right: -5%;
+      top: 40px;
+      background: rgba(39, 225, 250, 0.712);
+    }
   }
   button:hover {
     background-color: $ice;
@@ -142,6 +147,7 @@ $fontone: "sporten_personal_useregular";
       }
     }
   }
+  
   #form {
     border-radius: 15px;
     box-shadow: 0 2px 2px white;
@@ -156,6 +162,10 @@ $fontone: "sporten_personal_useregular";
     margin: 150px auto;
     margin-bottom: 50px;
     animation-duration: 0.5s;
+    @media  (max-width: 656px) {
+      height: 1100px;
+      width: 400px;
+    }
     .titre-form {
       display: flex;
       justify-content: center;
@@ -167,7 +177,12 @@ $fontone: "sporten_personal_useregular";
         color: rgb(13, 178, 228);
         text-align: center;
         font-family: "Marcellus SC", serif;
+        @media  (max-width: 656px) {
+          font-size: 40px;
+          
+        }
       }
+      
     }
     label {
       color: white;
@@ -180,6 +195,10 @@ $fontone: "sporten_personal_useregular";
       display: grid;
       grid-template-columns: repeat(2, 350px);
       grid-template-rows: 100px 100px 200px 100px;
+      @media  (max-width: 656px) {
+        grid-template-columns: repeat(1, 250px);
+        grid-template-rows: 50px 50px 100px 50px;
+      }
       .form1 {
         display: flex;
         flex-direction: column;
@@ -323,6 +342,17 @@ $fontone: "sporten_personal_useregular";
           width: 60px;
         }
       }
+      @media  (max-width: 655px) {
+        
+          margin: 0 auto;
+            height: auto;
+            width: 100%;
+          
+          display: grid;
+          grid-template-columns:400px;
+          grid-template-rows: 100px 100px 100px 100px 200px 200px 100px 100px;
+        
+      }
     }
   }
 }
@@ -360,38 +390,37 @@ input[type="file"] {
 /*---- TABLEAU RECAPUTILATIF DES COURSES ------*/
 .liste-participant {
   background-color: rgba(3, 3, 3, 0.692);
-  width: 70%;
-  height: 500px;
+  width: 90%;
+  height: 100%;
   margin: 20px auto;
-  display: none;
-  grid-template-rows: repeat(2, 2);
-  span {
-    padding-top: 30px;
-  }
-  img {
-    margin:  3px 0 10px 20px;
-  }
-  tr {
-    height: 80px;
-    grid-template-columns: repeat(7, 1fr);
+  .row {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    td {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-  .liste-header {
-    background: rgba(15, 113, 226, 0.685);
-    width: 100%;
     color: white;
-    .nbr-parti {
-      background-color: rgba(145, 240, 219, 0.698);
+    text-align: center;
+    @media screen and (max-width: 656px) {
+      grid-template-columns: repeat(4, 1fr);
     }
+  
+  }
+  .column {
+    border: 1px solid rgb(255, 253, 253);
+    .headcol {
+      width: 100%;
+      height: 70px;
+      background: rgba(11, 241, 241, 0.493);
+      padding-top: 10px;
+    }
+  span {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  img {
+    margin:  3px 0 5px 20px;
   }
 }
-
+}
 // Fin MIDDLE
 //FOOTER
 .pied-page {
@@ -447,7 +476,7 @@ input[type="file"] {
   .category {
     background-color: #08080885;
     height: 500px;
-    width: 78%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     .header-table {
@@ -467,6 +496,9 @@ input[type="file"] {
         color: white;
         font-size: 20px;
         width: 120px;
+        @media screen and (max-width: 1150px) {
+          display: none;
+        }
       }
     }
     .body-table {
@@ -474,16 +506,21 @@ input[type="file"] {
       flex-direction: column;
       background-color: rgba(42, 166, 248, 0.7);
       height: 450px;
+      width: 100%;
       tr {
         color: white;
         display: flex;
         justify-content: space-around;
         box-sizing: 0;
         font-size: 20px;
+        width: 100%;
         button {
           background: transparent;
           border: none;
           padding-bottom: 15px;
+          @media screen and (max-width: 1150px) {
+            display: none;
+          }
         }
       }
       td {
@@ -494,8 +531,12 @@ input[type="file"] {
         width: 50px;
         height: 50px;
         text-align: center;
+
         img {
           width: 50px;
+          @media screen and (max-width: 1150px) {
+            display: none;
+          }
         }
       }
     }
@@ -540,20 +581,8 @@ input[type="file"] {
     width: 100px;
   }
 }
-#row {
-  display: flex;
-  color: white;
-  justify-content: space-around;
-  text-align: center;
-}
-.column {
-  text-align: center;
-  div {
-    width: 100px;
-    display: flex;
-    justify-content: space-around;
-  }
-}
+
+
 .topform {
   display: flex;
   flex-direction: column;
@@ -628,3 +657,7 @@ input[type="file"] {
   height: auto;
   position: unset;
 }
+ 
+  
+
+

@@ -133,15 +133,14 @@
     </div>
 
     <div class="liste-participant" id="view">
-      <div id="row">
+      <div class="row">
         
         <div class="column">
           <div class="headcol">
-          <h2>M1<br /><span id="nbr"></span></h2></div>
-          <div
-            v-for="participant in participants"
-            :key="participant.id_participant"
-          >
+          <h2>M1<br /><span id="nbr"></span></h2>
+          </div>
+          <div v-for="participant in participants" :key="participant.id_participant">
+            
             <span v-if="participant.name_category == 'M1'"
               >{{ participant.lastname }}
               <img
@@ -149,7 +148,9 @@
                 alt=""
                 width="20px"
                 v-on:click="del(participant.id_participant)"
-            /></span>
+            />
+            </span>
+           
           </div>
         </div>
         <div class="column">

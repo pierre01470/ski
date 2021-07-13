@@ -62,7 +62,8 @@ class ControllerParticipants
     public function exportExcel()
     {
         $manager = new ParticipantsManager();
-        $manager->getExportExcel();
+        $export = $manager->getExportExcel();
+        echo $export;
     }
 
     // Truncate table

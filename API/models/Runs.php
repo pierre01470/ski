@@ -5,6 +5,7 @@ class Runs
     protected $_idRun;
     protected $_timeRealizedOne;
     protected $_timeRealizedTwo;
+    protected $_result;
     protected $_number;
 
     /*---------------construct----------------------------*/
@@ -40,11 +41,16 @@ class Runs
         return $this->_timeRealizedTwo;
     }
 
+    public function getResult()
+    {
+        return $this->_result;
+    }
+
     public function getNumber()
     {
         return $this->_number;
     }
-    
+
     /* --------------------------------- SETTER --------------------------------- */
     public function setId_Run($idRun)
     {
@@ -68,11 +74,13 @@ class Runs
         }
     }
 
-    public function setNumber($idNumber)
+    public function setResult($result)
     {
-        $idNumber = (int) $idNumber;
-        if ($idNumber > 0) {
-            $this->_idNumber = $idNumber;
-        }
+        $this->_result = $result;
+    }
+
+    public function setNumber($number)
+    {
+            $this->_number = $number;
     }
 }

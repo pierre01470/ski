@@ -257,6 +257,7 @@ export default {
     return {
       participants: [],
       categories: [],
+      data: "",
       url: "",
       trial: {
         station_name: "",
@@ -350,8 +351,17 @@ export default {
       }
     },
     async exportForm() {
-      // export Excel
-      await axios.post(`http://localhost/ski/API/exportExcel`);
+      const responseExport = await axios.get(
+        "http://localhost/ski/API/exportExcel"
+      );
+      this.data = responseExport.data
+      var link = document.createElement("a");
+      link.setAttribute("href",this.data)
+      link.setAttribute('download', 'liste.xlsx')
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     },
   },
 };

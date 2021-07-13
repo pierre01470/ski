@@ -2,7 +2,6 @@
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
 class ParticipantsManager extends Model
 {
@@ -82,18 +81,20 @@ class ParticipantsManager extends Model
                 $sheet->setCellValue('A' . $rowCount, $data->getFirstName());
                 $sheet->setCellValue('B' . $rowCount, $data->getLastName());
                 $sheet->setCellValue('C' . $rowCount, $data->getNumber());
-                $sheet->setCellValue('D' . $rowCount, 'mm:ss.00');
-                $sheet->setCellValue('E' . $rowCount, 'mm:ss.00');
+                $sheet->setCellValue('D' . $rowCount, 'mm:ss,00');
+                $sheet->setCellValue('E' . $rowCount, 'mm:ss,00');
                 $sheet->setCellValue('F' . $rowCount, '=MOYENNE(D' . $rowCount . ', E' . $rowCount . ')');
                 $rowCount++;
             }
 
-            $writer = new Xlsx($spreadsheet);
-            $final_filename = $filename . '.xlsx';
+            header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment;filename="ListeCourse.xlsx"');
 
-            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-            header('Content-Disposition: attachment; filename="' . urlencode($final_filename) . '"');
-            $writer->save('php://output');
+            $writer = new Xlsx($spreadsheet);
+            $writer->save('ListeCourse.xlsx');
+
+            $imgbinary = fread(fopen('./ListeCourse.xlsx', "r"), filesize('./ListeCourse.xlsx'));
+            return 'data:image/xlsx;base64,' . base64_encode($imgbinary);
         }
     }
 

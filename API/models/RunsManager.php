@@ -4,33 +4,18 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 class RunsManager extends Model
 {
-    public function getImportExcel()
+    public function getImportExcel($insertTrial)
     {
-        $data = json_decode(file_get_contents('php://input'));
-        $explode = explode(',', $data->photo);
-        $b64 = base64_decode($explode[1]);
-        file_put_contents('file.xlsx', $b64);
-        $inputFileName = 'file.xlsx';
+        $db = $this->getDb();
 
-        $reader = new Xlsx();
-        $spreadsheet = $reader->load($inputFileName);
+        $req = $db->prepare('INSERT INTO `run`(`time_realized_one`, `time_realized_two`, `result`, `number`) VALUES (:time_realized_one, :time_realized_two, :result, :number)');
+        $req->bindValue(':time_realized_one', $insertTrial->getTimeRealizedOne());
+        $req->bindValue(':time_realized_two', $insertTrial->getTimeRealizedTwo());
+        $req->bindValue(':result', $insertTrial->getResult());
+        $req->bindValue(':number', $insertTrial->getNumber());
+        $req->execute();
 
-        $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-        
-        foreach ($sheetData as $value) {
-            $resultOne = $value['D'];
-            $resultTwo = $value['E'];
-            var_dump($resultOne->format("H:i:s.v"));
-            var_dump($resultTwo);
-            $db = $this->getDb();
-            $req = $db->prepare('INSERT INTO `run`(`time_realized_one`,`time_realized_two`, `number`, `result`) VALUES (:row1, :row2,:row3,:row4)');
-            $req->bindValue(':row1', $value['D']);
-            $req->bindValue(':row2', $value['E']);
-            $req->bindValue(':row3', $value['C']);
-            $req->bindValue(':row4', $value['F']);
-            $req->execute();
-        }
-        
+        $req->closeCursor();
     }
 
     public function getAllRuns()

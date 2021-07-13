@@ -15,7 +15,7 @@ class ControllerRun
         $data = json_decode($json);
 
         // Define the Base64 value you need to save as an image
-        $b64 = explode(',', $data->photo);
+        $b64 = explode(',', $data->excel);
         // Obtain the original content (usually binary data)
         $bin = base64_decode($b64[1]);
         $filecontent = file_put_contents('evenement.xlsx', $bin);
@@ -34,7 +34,7 @@ class ControllerRun
 
             $highestRow = $data->getHighestRow();
 
-            for ($row = 2; $row < $highestRow; $row++) {
+            for ($row = 2; $row <= $highestRow; $row++) {
 
                 $time_realized_one = $data->getCellByColumnAndRow(4, $row)->getValue();
                 $min = $time_realized_one * 24 * 60;
@@ -62,6 +62,7 @@ class ControllerRun
                 $trials = $manager->getImportExcel($insertTrial);
             }
         }
+        unlink('./evenement.xlsx');
     }
 
     public function AllRuns()

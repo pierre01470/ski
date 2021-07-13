@@ -55,7 +55,6 @@ class ParticipantsManager extends Model
 
     public function getExportExcel()
     {
-        $filename = "ListeCourse";
         $part = [];
         $db = $this->getDb();
         $req = $db->query('SELECT * FROM `participant`');
@@ -92,9 +91,6 @@ class ParticipantsManager extends Model
 
             $writer = new Xlsx($spreadsheet);
             $writer->save('ListeCourse.xlsx');
-
-            $imgbinary = fread(fopen('./ListeCourse.xlsx', "r"), filesize('./ListeCourse.xlsx'));
-            return 'data:image/xlsx;base64,' . base64_encode($imgbinary);
         }
     }
 

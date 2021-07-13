@@ -39,13 +39,6 @@ class ControllerParticipants
         echo $participant;
     }
 
-    public function oneParticipant($id)
-    {
-        $manager = new ParticipantsManager();
-        $participant = $manager->getOneParticipant($id);
-        echo $participant;
-    }
-
     public function participantByCategory()
     {
         $manager = new ParticipantsManager();

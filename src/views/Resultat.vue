@@ -1,34 +1,33 @@
 <template>
   <div class="">
-    <div class="topform">
-      <h1 class="runtitle">Avoriaz</h1>
-      <form class="runInput" action="">
-        <label class="btn" for="upload">
-      Importer
-      <input class="isVisuallyHidden" id="upload" type="file" multiple required />
-    </label>
-    <label class="btn" for="upload">
-      Envoyer
-      <input class="isVisuallyHidden" id="upload" type="file" multiple required />
-    </label>
+    <div class="topform" v-for="trial in trials" :key="trial.id_trial">
+      <h1 class="runtitle">{{ trial.name_station }}</h1>
+      <form
+        v-on:submit.prevent="submitExcel"
+        class="runInput"
+        action=""
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <label class="btn" for="upload"></label>
+        Importer
+        <input
+          @change="previewExcel"
+          class="isVisuallyHidden"
+          id="upload"
+          type="file"
+        />
+
+        <label class="btn" for="add"></label>
+        <input
+          class="isVisuallyHidden"
+          type="submit"
+          id="add"
+          value="Envoyer"
+        />
       </form>
     </div>
     <section class="main-resultat">
-      <div class="back-date" v-for="trial in trials" :key="trial.id_trial">
-        <div class="station">
-          <h2>Nom de la station</h2>
-          <div class="name-station">
-            <p>{{ trial.name_station }}</p>
-          </div>
-        </div>
-        <div class="test">
-          <h2>Date de l'épreuve</h2>
-          <div class="date-epr">
-            <p>{{ trial.date }}</p>
-          </div>
-        </div>
-      </div>
-
       <div class="category">
         <table>
           <thead class="header-table">
@@ -60,7 +59,7 @@
               <td>{{ value.firstname }}</td>
               <td>{{ value.name_category }}</td>
               <td>{{ value.number }}</td>
-              <td>temps</td>
+              <td></td>
               <td>{{ value.id_trial }}</td>
               <td>
                 <button v-on:click="del(value.id_participant)">
@@ -97,12 +96,7 @@ export default {
         registration_date: "",
       },
       form: {
-        lastname: "",
-        firstname: "",
-        email: "",
-        date_birth: "",
-        number: "",
-        category: "",
+        excel: "",
       },
     };
   },
@@ -111,7 +105,6 @@ export default {
       `http://localhost/ski/API/participant`
     );
     this.participants = responseParticipants.data;
-    console.log(this.participants);
 
     const responseCategory = await axios.get(
       `http://localhost/ski/API/categoryByName`
@@ -142,6 +135,7 @@ export default {
       );
       this.participants = responseParticipants.data;
     },
+
     previewExcel(e) {
       const selectedImage = e.target.files[0];
       this.createBase64Image(selectedImage);
@@ -150,20 +144,13 @@ export default {
     createBase64Image(fileObject) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        this.form.photo = e.target.result;
+        this.form.excel = e.target.result;
       };
       reader.readAsDataURL(fileObject);
     },
-    async submitForm() {
-      // Send form participants
-      console.log(this.form);
-      await axios.post(`http://localhost/ski/API/importExcel`, this.form);
-    },
-
     async submitExcel() {
-      // Send form participants
+      // Send Excel
       await axios.post(`http://localhost/ski/API/importExcel`, this.form);
-      this.participants = responseParticipants.data;
     },
   },
 };

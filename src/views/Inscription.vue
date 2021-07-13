@@ -113,34 +113,34 @@
                 placeholder="Photo"
                 size="80px"
               />
-              <img v-if="url" :src="url" width="154px" alt="photo"/>
+              <img v-if="url" :src="url" width="154px" alt="photo" />
               <label for="file" id="picture"></label>
             </div>
           </div>
 
           <div class="form7">
             <div id="dossardBtn" v-on:click="generate()">
-              Generer: <br/>
+              Generer: <br />
               N° dossard
             </div>
           </div>
           <div class="form8">
             <input id="marjorie" type="submit" value="Ajout participant" />
           </div>
-          
         </div>
       </form>
     </div>
 
     <div class="liste-participant" id="view">
       <div class="row">
-        
         <div class="column">
           <div class="headcol">
-          <h2>M1<br /><span id="nbr"></span></h2>
+            <h2>M1<br /><span id="nbr"></span></h2>
           </div>
-          <div v-for="participant in participants" :key="participant.id_participant">
-            
+          <div
+            v-for="participant in participants"
+            :key="participant.id_participant"
+          >
             <span v-if="participant.name_category == 'M1'"
               >{{ participant.lastname }}
               <img
@@ -148,15 +148,14 @@
                 alt=""
                 width="20px"
                 v-on:click="del(participant.id_participant)"
-            />
+              />
             </span>
-           
           </div>
         </div>
         <div class="column">
-
           <div class="headcol">
-          <h2>M2<br /><span id="nbr"></span></h2></div>
+            <h2>M2<br /><span id="nbr"></span></h2>
+          </div>
           <div
             v-for="participant in participants"
             :key="participant.id_participant"
@@ -172,9 +171,9 @@
           </div>
         </div>
         <div class="column">
-
           <div class="headcol">
-          <h2>M3<br /><span id="nbr"></span></h2></div>
+            <h2>M3<br /><span id="nbr"></span></h2>
+          </div>
           <div
             v-for="participant in participants"
             :key="participant.id_participant"
@@ -190,9 +189,9 @@
           </div>
         </div>
         <div class="column">
-
           <div class="headcol">
-          <h2>Senior<br /><span id="nbr"></span></h2></div>
+            <h2>Senior<br /><span id="nbr"></span></h2>
+          </div>
           <div
             v-for="participant in participants"
             :key="participant.id_participant"
@@ -208,9 +207,9 @@
           </div>
         </div>
         <div class="column">
-          
           <div class="headcol">
-          <h2>V<br /><span id="nbr"></span></h2></div>
+            <h2>V<br /><span id="nbr"></span></h2>
+          </div>
           <div
             v-for="participant in participants"
             :key="participant.id_participant"
@@ -227,7 +226,8 @@
         </div>
         <div class="column">
           <div class="headcol">
-          <h2>Snow<br /><span id="nbr"></span></h2></div>
+            <h2>Snow<br /><span id="nbr"></span></h2>
+          </div>
           <div
             v-for="participant in participants"
             :key="participant.id_participant"
@@ -244,7 +244,8 @@
         </div>
         <div class="column">
           <div class="headcol">
-          <h2>Nouvelle glisse<br /><span id="nbr"></span></h2></div>
+            <h2>Nouvelle glisse<br /><span id="nbr"></span></h2>
+          </div>
           <div
             v-for="participant in participants"
             :key="participant.id_participant"
@@ -314,6 +315,7 @@ export default {
       const selectedImage = e.target.files[0];
       this.createBase64Image(selectedImage);
       this.url = URL.createObjectURL(selectedImage);
+      console.log(this.url);
     },
 
     createBase64Image(fileObject) {
@@ -367,11 +369,9 @@ export default {
       const responseExport = await axios.get(
         "http://localhost/ski/API/exportExcel"
       );
-      this.data = responseExport.data
       var link = document.createElement("a");
-      link.setAttribute("href",this.data)
-      link.setAttribute('download', 'liste.xlsx')
-
+      link.setAttribute("href", "../ListeCourse.xlsx");
+      link.setAttribute("download", "liste.xlsx");
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

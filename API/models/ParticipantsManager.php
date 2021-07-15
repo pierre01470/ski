@@ -25,8 +25,8 @@ class ParticipantsManager extends Model
     public function getAllParticipant()
     {
         $db = $this->getDb();
-        $req = $db->query('SELECT * FROM `participant` INNER JOIN `category` ON participant.id_category = category.id_category')->fetchAll(PDO::FETCH_ASSOC);
-        return json_encode($req);
+        $req = $db->query('SELECT * FROM `participant` INNER JOIN `category` ON participant.id_category = category.id_category ');
+        return json_encode($req->fetchAll(PDO::FETCH_ASSOC));
     }
 
     public function getOneParticipant($id)
@@ -41,7 +41,14 @@ class ParticipantsManager extends Model
     public function getParticipantByCategory()
     {
         $db = $this->getDb();
-        $req = $db->query('SELECT * FROM `participant` INNER JOIN `category` ON participant.id_category = category.id_category ORDER BY `name_category` ASC');
+        $req = $db->query('SELECT * FROM `participant` INNER JOIN `category` ON participant.id_category = category.id_category INNER JOIN `run` ON participant.number = run.number ORDER BY `name_category` ASC');
+        return json_encode($req->fetchAll(PDO::FETCH_ASSOC));
+    }
+
+    public function getAllParticipantWithResult()
+    {
+        $db = $this->getDb();
+        $req = $db->query('SELECT * FROM `participant` INNER JOIN `category` ON participant.id_category = category.id_category INNER JOIN `run` ON participant.number = run.number');
         return json_encode($req->fetchAll(PDO::FETCH_ASSOC));
     }
 
@@ -91,6 +98,9 @@ class ParticipantsManager extends Model
 
             $writer = new Xlsx($spreadsheet);
             $writer->save('ListeCourse.xlsx');
+
+            $imgbinary = fread(fopen('./ListeCourse.xlsx', "r"), filesize('./ListeCourse.xlsx'));
+            return 'data:image/xlsx;base64,' . base64_encode($imgbinary);
         }
     }
 

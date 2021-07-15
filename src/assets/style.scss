@@ -64,7 +64,7 @@ $fontone: "sporten_personal_useregular";
     margin-right: 50px;
     font-size: 10px;
     position: fixed;
-    @media screen and (max-width: 1150px){
+    @media screen and (max-width: 1150px) {
       right: -5%;
       top: 40px;
       background: rgba(39, 225, 250, 0.712);
@@ -147,7 +147,7 @@ $fontone: "sporten_personal_useregular";
       }
     }
   }
-  
+
   #form {
     border-radius: 15px;
     box-shadow: 0 2px 2px white;
@@ -162,7 +162,7 @@ $fontone: "sporten_personal_useregular";
     margin: 150px auto;
     margin-bottom: 50px;
     animation-duration: 0.5s;
-    @media  (max-width: 656px) {
+    @media (max-width: 656px) {
       height: 1100px;
       width: 400px;
     }
@@ -177,12 +177,10 @@ $fontone: "sporten_personal_useregular";
         color: rgb(13, 178, 228);
         text-align: center;
         font-family: "Marcellus SC", serif;
-        @media  (max-width: 656px) {
+        @media (max-width: 656px) {
           font-size: 40px;
-          
         }
       }
-      
     }
     label {
       color: white;
@@ -195,7 +193,7 @@ $fontone: "sporten_personal_useregular";
       display: grid;
       grid-template-columns: repeat(2, 350px);
       grid-template-rows: 100px 100px 200px 100px;
-      @media  (max-width: 656px) {
+      @media (max-width: 656px) {
         grid-template-columns: repeat(1, 250px);
         grid-template-rows: 50px 50px 100px 50px;
       }
@@ -204,7 +202,7 @@ $fontone: "sporten_personal_useregular";
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        input{
+        input {
           border-radius: 5px;
           border: 2px solid white;
         }
@@ -214,7 +212,7 @@ $fontone: "sporten_personal_useregular";
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        input{
+        input {
           border-radius: 5px;
           border: 2px solid white;
         }
@@ -224,7 +222,7 @@ $fontone: "sporten_personal_useregular";
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        input{
+        input {
           color: $blue1;
           border-radius: 5px;
           border: 2px solid white;
@@ -235,7 +233,7 @@ $fontone: "sporten_personal_useregular";
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        input{
+        input {
           border-radius: 5px;
           border: 2px solid white;
         }
@@ -246,7 +244,7 @@ $fontone: "sporten_personal_useregular";
         justify-content: space-around;
         align-items: center;
         margin-bottom: 100px;
-        input{
+        input {
           color: $blue1;
           border-radius: 5px;
           border: 2px solid white;
@@ -271,7 +269,11 @@ $fontone: "sporten_personal_useregular";
           align-items: center;
           border: 2px solid #ffffff;
           overflow: hidden;
-          background-image: linear-gradient(to bottom, #2590eb 50%, #ffffff 50%);
+          background-image: linear-gradient(
+            to bottom,
+            #2590eb 50%,
+            #ffffff 50%
+          );
           background-size: 100% 200%;
           transition: all 1s;
           color: #ffffff;
@@ -293,9 +295,9 @@ $fontone: "sporten_personal_useregular";
       }
       .form7 {
         display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         #dossardBtn {
           width: 80px;
           height: 50px;
@@ -306,21 +308,21 @@ $fontone: "sporten_personal_useregular";
           align-items: center;
           text-align: center;
           padding: 10px;
-      }
-          div {
-            input{
-              color: $blue1;
-              border-radius: 5px;
-              border: 2px solid white;
-              background: transparent;
-            }
-            color: white;
+        }
+        div {
+          input {
+            color: $blue1;
+            border-radius: 5px;
             border: 2px solid white;
+            background: transparent;
           }
-          div:hover {
-            background-color: $ice;
-            cursor: pointer;
-          }
+          color: white;
+          border: 2px solid white;
+        }
+        div:hover {
+          background-color: $ice;
+          cursor: pointer;
+        }
       }
       .form8 {
         display: flex;
@@ -342,16 +344,14 @@ $fontone: "sporten_personal_useregular";
           width: 60px;
         }
       }
-      @media  (max-width: 655px) {
-        
-          margin: 0 auto;
-            height: auto;
-            width: 100%;
-          
-          display: grid;
-          grid-template-columns:400px;
-          grid-template-rows: 100px 100px 100px 100px 200px 200px 100px 100px;
-        
+      @media (max-width: 655px) {
+        margin: 0 auto;
+        height: auto;
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: 400px;
+        grid-template-rows: 100px 100px 100px 100px 200px 200px 100px 100px;
       }
     }
   }
@@ -401,7 +401,6 @@ input[type="file"] {
     @media screen and (max-width: 656px) {
       grid-template-columns: repeat(4, 1fr);
     }
-  
   }
   .column {
     border: 1px solid rgb(255, 253, 253);
@@ -411,15 +410,15 @@ input[type="file"] {
       background: rgba(11, 241, 241, 0.493);
       padding-top: 10px;
     }
-  span {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
+    span {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    img {
+      margin: 3px 0 5px 20px;
+    }
   }
-  img {
-    margin:  3px 0 5px 20px;
-  }
-}
 }
 // Fin MIDDLE
 //FOOTER
@@ -582,7 +581,6 @@ input[type="file"] {
   }
 }
 
-
 .topform {
   display: flex;
   flex-direction: column;
@@ -596,22 +594,7 @@ input[type="file"] {
     background: $ice;
     padding: 0 10px;
   }
-  .runInput {
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    width: 400px;
-  }
-  .isVisuallyHidden {
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    border: 0;
-    position: absolute;
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-  }
+
   .container {
     margin: 0 auto;
     width: auto;
@@ -625,39 +608,41 @@ input[type="file"] {
     margin-bottom: 30px;
   }
   .btn {
-      display: inline-block;
-      margin: 0;
-      border-width: 0;
-      padding: 15px 15px;
-      max-width: 100%;
-      color: black;
-      font-size: 18px;
-      text-align: center;
-      box-shadow: 0 0 2px #000000;
-      box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
-      box-sizing: border-box;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      border-radius: 3px;
-      cursor: pointer;
-      background: linear-gradient(#478DBD, #87cdfb);
+    position: relative;
+    margin-top: 20px;
+    margin-left: 15px;
+    border-width: 0;
+    padding: 15px 15px;
+    max-width: 100%;
+    color: black;
+    text-align: center;
+    box-shadow: 0 0 2px #000000;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background: linear-gradient(#478dbd, #87cdfb);
   }
   .btn:hover {
-        background: linear-gradient(#64A7D6, #3c90cb);
+    background: linear-gradient(#64a7d6, #3c90cb);
   }
   .btn:active {
-        color: #d3d3d3;
-      background: linear-gradient(#366B90, #284f6b);
+    color: #d3d3d3;
+    background: linear-gradient(#366b90, #284f6b);
+  }
+  #upload{
+    width: 200px;
+    height: 50px;
+  }
+  #add{
+    width: 150px;
+    height: 50px;
   }
 }
 
-#excel{
-  width: auto;
-  height: auto;
-  position: unset;
-}
- 
+#cat{
   
-
-
+}

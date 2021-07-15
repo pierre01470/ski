@@ -46,6 +46,13 @@ class ControllerParticipants
         echo $participantByCategory;
     }
 
+    public function participantWithResult()
+    {
+        $manager = new ParticipantsManager();
+        $participantWithResult = $manager->getAllParticipantWithResult();
+        echo $participantWithResult;
+    }
+
     public function deleteOneParticipant($id)
     {
         $manager = new ParticipantsManager();

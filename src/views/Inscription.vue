@@ -315,7 +315,6 @@ export default {
       const selectedImage = e.target.files[0];
       this.createBase64Image(selectedImage);
       this.url = URL.createObjectURL(selectedImage);
-      console.log(this.url);
     },
 
     createBase64Image(fileObject) {
@@ -369,9 +368,11 @@ export default {
       const responseExport = await axios.get(
         "http://localhost/ski/API/exportExcel"
       );
+      this.data = responseExport.data;
       var link = document.createElement("a");
-      link.setAttribute("href", "../ListeCourse.xlsx");
+      link.setAttribute("href", this.data);
       link.setAttribute("download", "liste.xlsx");
+
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

@@ -9,18 +9,14 @@
         method="post"
         enctype="multipart/form-data"
       >
-        <label class="btn" for="upload"></label>
-        Importer
         <input
           @change="previewExcel"
-          class="isVisuallyHidden"
+          class="btn"
           id="upload"
           type="file"
         />
-
-        <label class="btn" for="add"></label>
         <input
-          class="isVisuallyHidden"
+          class="btn"
           type="submit"
           id="add"
           value="Envoyer"
@@ -59,7 +55,7 @@
               <td>{{ value.firstname }}</td>
               <td>{{ value.name_category }}</td>
               <td>{{ value.number }}</td>
-              <td></td>
+              <td>{{ value.result }}</td>
               <td>{{ value.id_trial }}</td>
               <td>
                 <button v-on:click="del(value.id_participant)">
@@ -102,20 +98,12 @@ export default {
   },
   async mounted() {
     const responseParticipants = await axios.get(
-      `http://localhost/ski/API/participant`
+      `http://localhost/ski/API/participantWithResult`
     );
     this.participants = responseParticipants.data;
 
-    const responseCategory = await axios.get(
-      `http://localhost/ski/API/categoryByName`
-    );
-    this.categories = responseCategory.data;
-
     const responseTrial = await axios.get(`http://localhost/ski/API/trial`);
     this.trials = responseTrial.data;
-
-    const responseRun = await axios.get(`http://localhost/ski/API/run`);
-    this.runs = responseRun.data;
   },
 
   methods: {
@@ -124,7 +112,7 @@ export default {
       if (r == true) {
         await axios.get(`http://localhost/ski/API/deleteParticipant` + id);
         const responseParticipants = await axios.get(
-          `http://localhost/ski/API/participant`
+          `http://localhost/ski/API/participantWithResult`
         );
         this.participants = responseParticipants.data;
       }
@@ -151,6 +139,10 @@ export default {
     async submitExcel() {
       // Send Excel
       await axios.post(`http://localhost/ski/API/importExcel`, this.form);
+      const responseParticipants = await axios.get(
+        `http://localhost/ski/API/participantWithResult`
+      );
+      this.participants = responseParticipants.data;
     },
   },
 };

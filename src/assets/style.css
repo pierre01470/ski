@@ -876,28 +876,6 @@ input[type="file"] #picture {
   padding: 0 10px;
 }
 
-.topform .runInput {
-  margin-top: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 400px;
-}
-
-.topform .isVisuallyHidden {
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  position: absolute;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
 .topform .container {
   margin: 0 auto;
   width: auto;
@@ -913,13 +891,13 @@ input[type="file"] #picture {
 }
 
 .topform .btn {
-  display: inline-block;
-  margin: 0;
+  position: relative;
+  margin-top: 20px;
+  margin-left: 15px;
   border-width: 0;
   padding: 15px 15px;
   max-width: 100%;
   color: black;
-  font-size: 18px;
   text-align: center;
   -webkit-box-shadow: 0 0 2px #000000;
           box-shadow: 0 0 2px #000000;
@@ -932,24 +910,28 @@ input[type="file"] #picture {
   appearance: none;
   border-radius: 3px;
   cursor: pointer;
-  background: -webkit-gradient(linear, left top, left bottom, from(#478DBD), to(#87cdfb));
-  background: linear-gradient(#478DBD, #87cdfb);
+  background: -webkit-gradient(linear, left top, left bottom, from(#478dbd), to(#87cdfb));
+  background: linear-gradient(#478dbd, #87cdfb);
 }
 
 .topform .btn:hover {
-  background: -webkit-gradient(linear, left top, left bottom, from(#64A7D6), to(#3c90cb));
-  background: linear-gradient(#64A7D6, #3c90cb);
+  background: -webkit-gradient(linear, left top, left bottom, from(#64a7d6), to(#3c90cb));
+  background: linear-gradient(#64a7d6, #3c90cb);
 }
 
 .topform .btn:active {
   color: #d3d3d3;
-  background: -webkit-gradient(linear, left top, left bottom, from(#366B90), to(#284f6b));
-  background: linear-gradient(#366B90, #284f6b);
+  background: -webkit-gradient(linear, left top, left bottom, from(#366b90), to(#284f6b));
+  background: linear-gradient(#366b90, #284f6b);
 }
 
-#excel {
-  width: auto;
-  height: auto;
-  position: unset;
+.topform #upload {
+  width: 200px;
+  height: 50px;
+}
+
+.topform #add {
+  width: 150px;
+  height: 50px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -36,7 +36,6 @@
               </th>
               <th scope="col">Dossard</th>
               <th scope="col">Temps</th>
-              <th scope="col">Classement</th>
               <th scope="col">SUPPRIMER</th>
             </tr>
           </thead>

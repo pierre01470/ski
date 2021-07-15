@@ -19,6 +19,7 @@ $router->map('GET', '/participantByCategory', 'ControllerParticipants#participan
 $router->map('GET', '/participantWithResult', 'ControllerParticipants#participantWithResult');
 
 $router->map('GET', '/truncateTable','ControllerParticipants#truncateTable');
+$router->map('GET', '/truncateRun','ControllerRun#truncateRun');
 $router->map('GET', '/deleteParticipant[i:id]','ControllerParticipants#deleteOneParticipant');
 
 $match = $router->match();

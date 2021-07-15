@@ -32,4 +32,10 @@ class RunsManager extends Model
         $req->bindValue(':id_run', $id['id']);
         $req->execute();
     }
+
+    public function getTruncateRun()
+    {
+        $db = $this->getDb();
+        $db->query('TRUNCATE `ski_api`.`run`');
+    }
 }

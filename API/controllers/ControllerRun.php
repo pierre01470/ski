@@ -71,4 +71,9 @@ class ControllerRun
         $runs = $manager->getAllRuns();
         echo $runs;
     }
+    public function truncateRun()
+    {
+        $manager = new RunsManager();
+        $runs = $manager->getTruncateRun();
+    }
 }

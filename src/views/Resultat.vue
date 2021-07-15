@@ -8,19 +8,10 @@
         action=""
         method="post"
         enctype="multipart/form-data"
+        id="formu"
       >
-        <input
-          @change="previewExcel"
-          class="btn"
-          id="upload"
-          type="file"
-        />
-        <input
-          class="btn"
-          type="submit"
-          id="add"
-          value="Envoyer"
-        />
+        <input @change="previewExcel" class="btn" id="upload" type="file" />
+        <input class="btn" type="submit" id="add" value="Envoyer" />
       </form>
     </div>
     <section class="main-resultat">
@@ -136,6 +127,7 @@ export default {
     },
     async submitExcel() {
       // Send Excel
+      await axios.get(`http://localhost/ski/API/truncateRun`);
       await axios.post(`http://localhost/ski/API/importExcel`, this.form);
       const responseParticipants = await axios.get(
         `http://localhost/ski/API/participantWithResult`

@@ -46,6 +46,7 @@
   text-decoration: none;
   color: white;
   line-height: 60px;
+  font-family: "Marcellus SC", serif;
 }
 
 .container-header .menu nav ul #link:hover {
@@ -57,12 +58,12 @@
   border-radius: 5px;
   border: 2px solid black;
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 100px;
+  width: 100px;
   right: 10%;
   top: 250px;
   margin-right: 50px;
-  font-size: 10px;
+  font-size: 20px;
   position: fixed;
 }
 
@@ -71,6 +72,14 @@
     right: -5%;
     top: 40px;
     background: rgba(39, 225, 250, 0.712);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container-header .valide {
+    height: 50px;
+    width: 50px;
+    font-size: 10px;
   }
 }
 
@@ -584,8 +593,7 @@ input[type="file"] #picture {
 }
 
 .liste-participant .row {
-  display: -ms-grid;
-  display: grid;
+  display: none;
   -ms-grid-columns: (1fr)[7];
       grid-template-columns: repeat(7, 1fr);
   color: white;
@@ -890,10 +898,21 @@ input[type="file"] #picture {
   margin-bottom: 30px;
 }
 
+.topform .runInput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100px;
+  width: 500px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .topform .btn {
   position: relative;
-  margin-top: 20px;
-  margin-left: 15px;
   border-width: 0;
   padding: 15px 15px;
   max-width: 100%;
@@ -931,7 +950,11 @@ input[type="file"] #picture {
 }
 
 .topform #add {
-  width: 150px;
+  width: 200px;
   height: 50px;
+}
+
+#cat {
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

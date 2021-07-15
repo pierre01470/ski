@@ -55,7 +55,6 @@
               <td>{{ value.name_category }}</td>
               <td>{{ value.number }}</td>
               <td>{{ value.result }}</td>
-              <td>{{ value.id_trial }}</td>
               <td>
                 <button v-on:click="del(value.id_participant)">
                   <img

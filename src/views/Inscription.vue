@@ -132,7 +132,7 @@
     </div>
 
     <div class="liste-participant" id="view">
-      <div class="row">
+      <div class="row" id="row">
         <div class="column">
           <div class="headcol">
             <h2>M1<br /><span id="nbr"></span></h2>
@@ -339,7 +339,7 @@ export default {
       document.getElementById("form").style.display = "flex";
       document.getElementById("form").className +=
         "animate__animated animate__fadeInUp form";
-      document.getElementById("view").style.display = "grid";
+      document.getElementById("row").style.display = "grid";
       document.getElementById("trial").style.display = "none";
       // Send form trial
       await axios.post(`http://localhost/ski/API/insertTrial`, this.trial);

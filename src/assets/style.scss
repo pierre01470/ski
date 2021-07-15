@@ -45,6 +45,7 @@ $fontone: "sporten_personal_useregular";
         text-decoration: none;
         color: white;
         line-height: 60px;
+        font-family: "Marcellus SC", serif;
       }
       #link:hover {
         color: black;
@@ -57,17 +58,22 @@ $fontone: "sporten_personal_useregular";
     border-radius: 5px;
     border: 2px solid black;
     border-radius: 50%;
-    height: 50px;
-    width: 50px;
+    height: 100px;
+    width: 100px;
     right: 10%;
     top: 250px;
     margin-right: 50px;
-    font-size: 10px;
+    font-size: 20px;
     position: fixed;
     @media screen and (max-width: 1150px) {
       right: -5%;
       top: 40px;
       background: rgba(39, 225, 250, 0.712);
+    }
+    @media screen and (max-width: 800px) {
+      height: 50px;
+      width: 50px;
+      font-size: 10px;
     }
   }
   button:hover {
@@ -394,7 +400,7 @@ input[type="file"] {
   height: 100%;
   margin: 20px auto;
   .row {
-    display: grid;
+    display: none;
     grid-template-columns: repeat(7, 1fr);
     color: white;
     text-align: center;
@@ -607,10 +613,15 @@ input[type="file"] {
     width: 100%;
     margin-bottom: 30px;
   }
+  .runInput {
+    display: flex;
+    height: 100px;
+    width: 500px;
+    justify-content: space-around;
+    align-items: center;
+  }
   .btn {
     position: relative;
-    margin-top: 20px;
-    margin-left: 15px;
     border-width: 0;
     padding: 15px 15px;
     max-width: 100%;
@@ -633,16 +644,16 @@ input[type="file"] {
     color: #d3d3d3;
     background: linear-gradient(#366b90, #284f6b);
   }
-  #upload{
+  #upload {
     width: 200px;
     height: 50px;
   }
-  #add{
-    width: 150px;
+  #add {
+    width: 200px;
     height: 50px;
   }
 }
 
-#cat{
-  
+#cat {
+  cursor: pointer;
 }
